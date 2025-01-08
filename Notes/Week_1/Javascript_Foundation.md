@@ -1,18 +1,18 @@
 ## **Javascript Foundation** and Basics.
 
-***
+---
 
 ### 1. Why Languages ?&#x20;
 
-Whenever you Executes something goes into the ram. What goes into the ram -> not C++ codes not any sourcecode. -- our hardware read high level code. with the help of *compilers*. which will convert high level code into Zero's and One's. (011001010...).&#x20;
+Whenever you Executes something goes into the ram. What goes into the ram -> not C++ codes not any sourcecode. -- our hardware read high level code. with the help of _compilers_. which will convert high level code into Zero's and One's. (011001010...).&#x20;
 
 Languages are required to make a conversation between us (humans) and machines. because computer only understands 010010101. and we speak english, hindi, french. so we needed some common language. wo make it work.
 
-> *   Languarges are used to write qpplications.
+> - Languarges are used to write qpplications.
 >
-> *   Developers write high level code in these languages.
+> - Developers write high level code in these languages.
 >
-> *   Every language has a compiler which converts the developer code into 0110011p0
+> - Every language has a compiler which converts the developer code into 0110011p0
 
 ### 2. Interpreted vs compiled Languages.&#x20;
 
@@ -60,11 +60,11 @@ The single-threaded nature of JavaScript means that it executes code line by lin
 
 While JavaScript is single-threaded, it runs on only one thread, meaning it processes tasks sequentially on a single core of your machine.
 
-*   **JavaScript can only use one core** of your laptop or computer at a time.
+- **JavaScript can only use one core** of your laptop or computer at a time.
 
-*   This is one of the reasons why JavaScript is sometimes considered less suitable for highly scalable systems.
+- This is one of the reasons why JavaScript is sometimes considered less suitable for highly scalable systems.
 
-*   However, there **are ways to make it use all cores** of your machine.
+- However, there **are ways to make it use all cores** of your machine.
 
 > For example, when I rented a 20-core machine on AWS and ran Node.js, it used only one core at a time.
 
@@ -76,11 +76,11 @@ Subroutines, such as `worker_threads` in Node.js, can help solve this issue by o
 
 ### 6. Simple primitives in JS( number, string, booleans)
 
-| **Variables**                                                                                                                     | **Data Types**                                                                                                                                                                                                                                                                                           | **If/Else**                                                                                                                                                       | **Loops**                                                                                                                                                                                              |    |
-| --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :- |
-| Variables are containers for storing data values, which can change during execution.                                              | Data types classify the kind of value a variable can hold, determining what operations can be performed on it.                                                                                                                                                                                           | Conditional statements that execute different blocks of code based on specified conditions.                                                                       | Constructs used to repeat a block of code multiple times until a specified condition is met.                                                                                                           |    |
-| In JavaScript, we use `let` (block-scoped), `const` (block-scoped and immutable), and `var` (function-scoped and less preferred). | **Primitive data types**:  - `String`: Represents text.  - `Number`: Represents numeric values.  - `Boolean`: Represents logical values (`true` or `false`).  - `Null`: Intentional absence of value.  - `Undefined`: Unassigned variables.  - `BigInt`: Large integers.  - `Symbol`: Unique identifier. | - `if`: Executes code if the condition is true.  - `else`: Executes code if the `if` condition is false.  - `else if`: Tests additional conditions if `if` fails. | - **Common types**:  - `For`: Iterates over a block for a set number of times.  - `While`: Runs as long as a condition is true.  - `Do-While`: Executes at least once, even if the condition is false. |    |
-| Example: `let age = 25; const name = "John"; var isStudent = true;`                                                               | **Non-primitive types**:  - `Object`: Key-value pairs.  - `Array`: Ordered list of values.  - `Function`: Block of reusable code.                                                                                                                                                                        | Example: `if (age > 18) { console.log("Adult"); } else { console.log("Minor"); }`                                                                                 | Example: `for (let i = 0; i < 5; i++) { console.log(i); }`                                                                                                                                             |    |
+| **Variables**                                                                                                                     | **Data Types**                                                                                                                                                                                                                                                                                    | **If/Else**                                                                                                                                                     | **Loops**                                                                                                                                                                                           |     |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-- |
+| Variables are containers for storing data values, which can change during execution.                                              | Data types classify the kind of value a variable can hold, determining what operations can be performed on it.                                                                                                                                                                                    | Conditional statements that execute different blocks of code based on specified conditions.                                                                     | Constructs used to repeat a block of code multiple times until a specified condition is met.                                                                                                        |     |
+| In JavaScript, we use `let` (block-scoped), `const` (block-scoped and immutable), and `var` (function-scoped and less preferred). | **Primitive data types**: - `String`: Represents text. - `Number`: Represents numeric values. - `Boolean`: Represents logical values (`true` or `false`). - `Null`: Intentional absence of value. - `Undefined`: Unassigned variables. - `BigInt`: Large integers. - `Symbol`: Unique identifier. | - `if`: Executes code if the condition is true. - `else`: Executes code if the `if` condition is false. - `else if`: Tests additional conditions if `if` fails. | - **Common types**: - `For`: Iterates over a block for a set number of times. - `While`: Runs as long as a condition is true. - `Do-While`: Executes at least once, even if the condition is false. |     |
+| Example: `let age = 25; const name = "John"; var isStudent = true;`                                                               | **Non-primitive types**: - `Object`: Key-value pairs. - `Array`: Ordered list of values. - `Function`: Block of reusable code.                                                                                                                                                                    | Example: `if (age > 18) { console.log("Adult"); } else { console.log("Minor"); }`                                                                               | Example: `for (let i = 0; i < 5; i++) { console.log(i); }`                                                                                                                                          |     |
 
 ### 7. Complex primitives in JS ( arrays, objects )
 
@@ -96,19 +96,19 @@ Subroutines, such as `worker_threads` in Node.js, can help solve this issue by o
 const allUser = [
   {
     firstName: "vishal",
-    gender: "male"
+    gender: "male",
   },
   {
     firstName: "deepa",
-    gender: "female"
-  }
+    gender: "female",
+  },
 ];
 
 for (let i = 0; i < allUser.length; i++) {
   if (allUser[i]["gender"] == "male") {
     console.log(allUser[i]["firstName"]);
   }
-}8. Functions in Javascript
+}
 ```
 
 This was an example of how can we use objects inside an array.
@@ -126,16 +126,16 @@ This was an example of how can we use objects inside an array.
 5.  Functions can take other functions as input - this will cofuse you (callbacks)
 
 ```javascript
-// Basic Syntax of Function : 
+// Basic Syntax of Function :
 
-function findSum(a, b){
-// a and b are called arguments. the goal is to do things with the input and return a output.
-    return a + b;
+function findSum(a, b) {
+  // a and b are called arguments. the goal is to do things with the input and return a output.
+  return a + b;
 }
 
-// calling the same function 
+// calling the same function
 
-const value = findSum(5 , 6) // should return 11
+const value = findSum(5, 6); // should return 11
 ```
 
 There are many types of Functions in Javascript some of them are :&#x20;
@@ -157,24 +157,26 @@ There are many types of Functions in Javascript some of them are :&#x20;
 | **SetTimeout/SetInterval Function**                | Functions used to delay or repeatedly execute code. Example: `setTimeout(() => { console.log("Hello"); }, 1000);`                                                                 |
 
 ```javascript
-function sun (num1, num2, fntoCall){
-    let result = num1 + num2;
-    fntoCall(result)
+function sun(num1, num2, fntoCall) {
+  let result = num1 + num2;
+  fntoCall(result);
 }
 
-function displayResult(data){
-    console.log("Result of the sum is " + data)
+function displayResult(data) {
+  console.log("Result of the sum is " + data);
 }
 
-function displayPassiveResult(data){
-    console.log("Sum's result is  " + data)
+function displayPassiveResult(data) {
+  console.log("Sum's result is  " + data);
 }
 
-// you are only allowed to call one function after this. 
+// you are only allowed to call one function after this.
 // how will you displayResult of a sum
-const ans = sum(1, 2, displayResult)
+const ans = sum(1, 2, displayResult);
 
 // callbacks means passing function as an argunment in another function.
+
+// Need to read more about callbacks function and other types of function.
 ```
 
 ### 9. Practise Problem Solving
