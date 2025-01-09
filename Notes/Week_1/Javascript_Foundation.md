@@ -193,15 +193,7 @@ const ans = sum(1, 2, displayResult);
 // Need to read more about callbacks function and other types of function.
 ```
 
-### 9. Practise Problem Solving
-
-1.  Create a counter in javascript (counts down from 30 to 0).
-
-2.  Clculate the time it takes between a setTimeout call and the inner function actually running.
-
-3.  Create a terminl clock (HH:MM:SS)
-
-### 10. Async Functions vs Sync Functions.
+### 9. Async Functions vs Sync Functions.
 
 | What does synchronous mean ?                                                     | What does asychronous mean ?                                                                    |
 | :------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
@@ -233,7 +225,116 @@ function findSumTill100() {
 setTimeout(findSumTill100(), 1000);
 
 console.log("hello world");
+```
+
+What are common async functions? ( provided by js )
+
+*   setTimeout
+
+*   fs.readFile - to read a file from your filesystem.
+
+*   Fetch - to fetch some data from an api endpoint.
+
+```javascript
+console.log("Hi there.");
+
+setTimeout(() => {
+  "Hello world ";
+}, 500000);
+
+let a = 0;
+for (let i = 0; i < 1000000; i++) {
+  a = a + 1;
+}
+
+console.log(a);
+```
+
+Explanation : for real view try <https://latentfliip.com/loupe>
+
+> 1.  Here first the thread will go and print "Hi there".
+>
+> 2.  Then it will go to setTimeout - as it is async will go to webAPI -- will start doing it's shit. and the thread will move forward.&#x20;
+>
+> 3.  then the loop will stand working. -- it will go to call stack one by one. and keeps running.....
+>
+> 4.  the setTimeout is finished. now it will wait for the loop the call stack to get finished. till it will wait in the Callback Queue.
+>
+> 5.  After everything is finished. event loops will pick it and then send it to call stack.&#x20;
+
+### 10. Promises
+
+In most cases : promises are syntactical sugar that makes the code slightly more redable. under the hoold it will still use callback. webapis, call stacks etc.&#x20;
+
+Here we will write two code one ugly way and other the promise way. and let's compare.&#x20;
+
+`The ugly way`&#x20;
+
+```javascript
+const fs = require("fs");
+
+// my own asynchronous function
+function vishalRealFile(cb) {
+  fs.readFile("a.txt", "utf-8", function (err, data) {
+    cb(data);
+  });
+}
+
+// callback function to call
+function onDone(data) {
+  console.log(data);
+}
+
+vishalRealFile(onDone);
+
+// it is just a wrapper on the top of another async function which is fine.
+// Usually all async functions you will write will be on a top of JS proviced async functions like setTimeout or fs.readFile.
+```
+
+`The Cleaner Way`&#x20;
+
+```javascript
+
+const fs = require("fs");
+
+// my own asynchronous function
+function vishalReadFile() {
+  return new Promise(function (resolve) {
+    fs.readFile("a.txt", "utf-8", function (err, data) {
+      resolve(data);
+    });
+  });
+}
+
+// callback functin to call
+function onDone(data) {
+  console.log(data);
+}
+
+vishalReadFile().then(onDone);
+
+// it's just syntactical sugar. 
+// still uses callback under the hood. 
+
+advance stuff 
+
+// we can also do it like this
+var a = vishalReadFile();
+// what does a holds. it holds a promise. here i can store a Promise in a variable. 
+a.then(onDone)
 
 ```
 
-### 11. Callback hell and Promises
+> If we are using a Promise. there are no callbacks. the reason to introduce a promise is to get rid of promise. because callbacks are a ugly way to write async codes.
+
+> It synchronousley returns the Promise. (may resolve or reject). will return the data later on.&#x20;
+
+A Promise will have 3 Stages.&#x20;
+
+1.  Pending -- working of some async thing
+
+2.  Resolved -- .then should be called on resolved item.
+
+3.  Rejected
+
+Simply : it's just a better way to make code readable. whenever you create a promise, you need to pass in a function as the first argunment which has reaolve as the first argunment.&#x20;
