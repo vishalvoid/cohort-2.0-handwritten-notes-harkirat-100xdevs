@@ -82,6 +82,18 @@ Subroutines, such as `worker_threads` in Node.js, can help solve this issue by o
 | In JavaScript, we use `let` (block-scoped), `const` (block-scoped and immutable), and `var` (function-scoped and less preferred). | **Primitive data types**: - `String`: Represents text. - `Number`: Represents numeric values. - `Boolean`: Represents logical values (`true` or `false`). - `Null`: Intentional absence of value. - `Undefined`: Unassigned variables. - `BigInt`: Large integers. - `Symbol`: Unique identifier. | - `if`: Executes code if the condition is true. - `else`: Executes code if the `if` condition is false. - `else if`: Tests additional conditions if `if` fails. | - **Common types**: - `For`: Iterates over a block for a set number of times. - `While`: Runs as long as a condition is true. - `Do-While`: Executes at least once, even if the condition is false. |     |
 | Example: `let age = 25; const name = "John"; var isStudent = true;`                                                               | **Non-primitive types**: - `Object`: Key-value pairs. - `Array`: Ordered list of values. - `Function`: Block of reusable code.                                                                                                                                                                    | Example: `if (age > 18) { console.log("Adult"); } else { console.log("Minor"); }`                                                                               | Example: `for (let i = 0; i < 5; i++) { console.log(i); }`                                                                                                                                          |     |
 
+!Important
+
+Some Basic workarounds / Examples :&#x20;
+
+- [Strings](./01_Strings.js)
+
+- [Numbers](./02_Numbers.js)
+
+- [Arrays](./03_Arrays.js)
+
+- [Class](./04_Class.js)
+
 ### 7. Complex primitives in JS ( arrays, objects )
 
 | Arrays                                                                                                                 | Objects                                                                                                                              |
