@@ -2,7 +2,7 @@
 
 > _“Your centralized hub for everything learned and explored during Cohort 2.0 with Harkirat.”_
 
-**Time Table and Course Length [click here](./process/Time_chart.md)**
+**Time Table and Course Length [click here](./Notes/process/Time_chart.md)**
 
 ### Week 1: Basic JS Fundamentals
 
