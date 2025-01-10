@@ -26,5 +26,35 @@ V8: V8 Engine is an open source js engine developed by the chromium project for 
 
 Hyper text transfer protocol. A protocol that is defined for machines to communicate. Specifically for websites, it is the most common way for your website's frontend to talk to it's backend.&#x20;
 
+Some code that follows the HTTP Protocol and is able to communicate with clients(browsers/mobile apps). think of it to be similarto the call app in your phone Which lets you communicate with your friends.
+
+> **HTTP Protocol** : In the end, it's the cient throwing some information at the server.
+>
+> Server doing something with that information Server responding back with the final result.&#x20;
+>
+> Think of them as functions, where :&#x20;
+>
+> 1.  Arguments are something the client sends.
+>
+> 2.  Rather than calling a function using its name, the client uses a url.
+>
+> 3.  Rather than the function body, the server does something witht he request.
+>
+> 4.  Rather than the function returning a value, the server responds with some data.
+
+`What heppens if I go to Google.com and press Enter?`
+
+things that heppen in your browser after you fire this request&#x20;
+
+1.  Browser parses the url
+
+2.  Does a DNS Lookup(Converts Google.com to IP).
+
+3.  Extablishes a connection tot he IP(does handshake...)
+
+`What is DNS Resolution`
+
+URLs are just like contacts in your phone. In the end, they mao to an IP. if you ever buy a URL of your own, you will need to point it tothe ip of your server.&#x20;
+
 ### 2.
 
