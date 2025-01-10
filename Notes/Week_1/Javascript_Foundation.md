@@ -262,7 +262,7 @@ Explanation : for real view try <https://latentfliip.com/loupe>
 >
 > 5.  After everything is finished. event loops will pick it and then send it to call stack.&#x20;
 
-### 10. Callbacks & Promises
+### 10. Callbacks & Promises (it's just a class like Date())
 
 In most cases : promises are syntactical sugar that makes the code slightly more redable. under the hoold it will still use callback. webapis, call stacks etc.&#x20;
 
@@ -321,14 +321,14 @@ function onDone(data) {
 
 vishalReadFile().then(onDone);
 
-// it's just syntactical sugar. 
-// still uses callback under the hood. 
+// it's just syntactical sugar.
+// still uses callback under the hood.
 
-advance stuff 
+advance stuff
 
 // we can also do it like this
 var a = vishalReadFile();
-// what does a holds. it holds a promise. here i can store a Promise in a variable. 
+// what does a holds. it holds a promise. here i can store a Promise in a variable.
 a.then(onDone)
 
 ```
@@ -364,7 +364,7 @@ function VishalAsyncFunction() {
   return p;
 }
 
-// Earlier we needed to do this much to resolve a promise and get it's day. 
+// Earlier we needed to do this much to resolve a promise and get it's day.
 //to make it more redable and easy to understand what we do it use async/ await
 function main() {
   VishalAsyncFunction.then(function (value) {
@@ -372,7 +372,7 @@ function main() {
   });
 }
 
-// instread of upper call we do call like this: this is more cleaner and we got rid of 
+// instread of upper call we do call like this: this is more cleaner and we got rid of
 // .then and function callbacks etc. etc.ßßßß
 async function main() {
   // no callback, no .then syntax
@@ -380,7 +380,7 @@ async function main() {
   console.log(value);
   console.log("hello world ");
   // when we run this and promise takes 5 seconds. is it stuck here. -- both prints at same time while in
-//  .then it is printing first hello world and then after 3 seconds it prints. the value.
+  //  .then it is printing first hello world and then after 3 seconds it prints. the value.
 }
 
 main();
@@ -391,7 +391,49 @@ console.log("hello duniya");
 // here it will first log "hello duniya". and after after resolution of promise it will print value and then "hello world"
 ```
 
+// Promises was released with ecmaScript 2015. which is a es6 update.
+
 | Callbacks Syntax | Promise Syntax | Async/await Syntax |
 | :--------------- | :------------- | :----------------- |
 
-All three does the same stuff. :(
+All three does the same stuff.
+
+
+
+**`How to create a raw async function for yourself ?`**
+
+ans: every async function somehow. uses predefined async function. there is very hard or no way we can create a function that is async for our personal use. altho harkirat has never written such logic in his last 6 years.
+
+altho we can give it a try. here are some approaches.
+
+&#x20;`# Approach 1:`&#x20;
+
+This approach uses a calback. you have created a function where other people can send a callback this is good. but could lead to *callback hell.*
+
+```javascript
+function myOwnSetTimeout(fn, duration) {
+  setTimeout(fn, duration);
+}
+
+myOwnSetTimeout(function () {
+  console.log("hi there");
+}, 1000);
+```
+
+&#x20;`# Approach 2: Promises`
+
+
+
+```javascript
+function myOwnSetTimeout(duration) {
+  let p = new Promise(function (resolve) {
+    setTimeout(resolve, 1000);
+  });
+  return p;
+}
+
+myOwnSetTimeout(1000).then(function () {
+  console.log("log the first thing");
+});
+```
+
