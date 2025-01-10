@@ -7,7 +7,7 @@
 ### Week 1: Basic JS Fundamentals
 
 - **`JavaScript Foundation`**
-      hj           
+                 
   - [Why Languages?](./Notes/Week_1/Javascript_Foundation.md)
 
   - [Interpreted vs Compiled Languages](./Notes/Week_1/Javascript_Foundation.md)
