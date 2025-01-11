@@ -97,6 +97,8 @@ app.post("/", (req, res) => {
 
 to get the data. we need bodyparser(depreciated) now express gives this feature under the hood. so we can use  `app.use(express.json())`
 
+we can use body-parser the body-parsermodule enables us to parse incoming request bodies in a middleware. Express.js server needs to know what type of data you're sending oer thenetwork, so it knows how to parse it.
+
 > We should use nodemon for auto start of server after every change made saved.
 
 **What is an Environment Variable ( ENV ) ?**
