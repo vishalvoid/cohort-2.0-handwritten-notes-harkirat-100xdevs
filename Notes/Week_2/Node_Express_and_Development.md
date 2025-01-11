@@ -12,15 +12,15 @@ V8: V8 Engine is an open source js engine developed by the chromium project for 
 
 **`What can we do with Node.js ?`**&#x20;
 
-*   Create clis
+- Create clis
 
-*   Create a video player
+- Create a video player
 
-*   create a game
+- create a game
 
-*   create an HTTP Server
+- create an HTTP Server
 
-*   Much more...
+- Much more...
 
 **`What is an HTTP Server ?`**
 
@@ -88,8 +88,8 @@ We can Send all type of request. Get, Post, Patch, Delete, Etc..
 ```javascript
 // to get back the request from the bowser or client.
 app.post("/", (req, res) => {
+  console.log(req.body);
   console.log(req.headers);
   res.send("hello world");
 });
 ```
-
