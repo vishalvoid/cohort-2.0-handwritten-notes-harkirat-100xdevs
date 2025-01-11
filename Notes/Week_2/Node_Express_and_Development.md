@@ -79,3 +79,17 @@ app.listen(port, () => {
 });
 ```
 
+We can hit portman with the url and it should responds "Hello World".
+
+> req: will consists of headers, body, query parameters etc.
+
+We can Send all type of request. Get, Post, Patch, Delete, Etc..
+
+```javascript
+// to get back the request from the bowser or client.
+app.post("/", (req, res) => {
+  console.log(req.headers);
+  res.send("hello world");
+});
+```
+
