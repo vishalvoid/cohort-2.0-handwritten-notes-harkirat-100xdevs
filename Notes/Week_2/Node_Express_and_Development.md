@@ -99,3 +99,6 @@ to get the data. we need bodyparser(depreciated) now express gives this feature 
 
 > We should use nodemon for auto start of server after every change made saved.
 
+**What is an Environment Variable ( ENV ) ?**
+
+env typically refers to **environment variables** stored in a .env file. These variables are used to manage sensitive or configuration data, like database connection strings, API keys, or server settings, without hardcoding them into the codebase. we can access them in node js with `process.env.declared_name`
