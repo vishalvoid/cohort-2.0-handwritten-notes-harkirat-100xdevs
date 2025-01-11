@@ -94,6 +94,14 @@ Some Basic workarounds / Examples :&#x20;
 
 *   [Class](./04_Class.js)
 
+*   [Dates](./05_Dates.js)
+
+*   [JSON](./06_JSON.js)
+
+*   [MATH](./07_MATH.js)
+
+*   [Objects](./08_Objects.js)
+
 ### 7. Complex primitives in JS ( arrays, objects )
 
 | Arrays                                                                                                                 | Objects                                                                                                                              |
