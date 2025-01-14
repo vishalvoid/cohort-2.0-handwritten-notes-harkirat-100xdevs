@@ -12,15 +12,15 @@ V8: V8 Engine is an open source js engine developed by the chromium project for 
 
 **`What can we do with Node.js ?`**&#x20;
 
-*   Create clis
+- Create clis
 
-*   Create a video player
+- Create a video player
 
-*   create a game
+- create a game
 
-*   create an HTTP Server
+- create an HTTP Server
 
-*   Much more...
+- Much more...
 
 **`What is an HTTP Server ?`**
 
@@ -88,14 +88,13 @@ We can Send all type of request. Get, Post, Patch, Delete, Etc..
 ```javascript
 // to get back the request from the bowser or client.
 app.post("/", (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   console.log(req.headers);
   res.send("hello world");
 });
-
 ```
 
-to get the data. we need bodyparser(depreciated) now express gives this feature under the hood. so we can use  `app.use(express.json())`
+to get the data. we need bodyparser(depreciated) now express gives this feature under the hood. so we can use `app.use(express.json())`
 
 we can use body-parser the body-parsermodule enables us to parse incoming request bodies in a middleware. Express.js server needs to know what type of data you're sending oer thenetwork, so it knows how to parse it.
 
@@ -109,3 +108,164 @@ env typically refers to **environment variables** stored in a .env file. These v
 >
 > used as : http\://localhost:3000/backend/`?message=123`
 
+Alright, here's how you can make the command names bold, bigger, and left-aligned in your markdown file:
+
+## 2. Bash and Terminal Basics 🖥️
+
+Bash is a shell that lets you interact with your operating system via the terminal. Below are common commands explained:
+
+**Commands Overview**
+
+### 1. pwd
+
+- Prints the current working directory.
+
+- **Usage:**
+
+```bash
+pwd
+
+```
+
+### 2. cd
+
+- Changes the directory.
+
+- Usage:
+
+Bash
+
+```bash
+cd /path/to/directory   # Go to a specific directory
+cd ..                   # Go up one level
+cd                      # Go to the home directory
+
+```
+
+### 3. ls
+
+- Lists files and directories.
+
+- Usage:
+
+Bash
+
+```bash
+ls                      # List all files
+ls -l                   # Detailed view
+ls -a                   # Include hidden files
+
+```
+
+### 4. mkdir
+
+- Creates a new directory.
+
+- Usage:
+
+```bash
+mkdir my_folder         # Create a directory named `my_folder`
+mkdir -p parent/child   # Create nested directories
+
+```
+
+### 5. touch
+
+- Creates an empty file or updates the timestamp of an existing file.
+
+- Usage:
+
+```bash
+touch file.txt          # Create a file named `file.txt`
+
+```
+
+### 6. cat
+
+- Displays file content or combines files.
+
+- Usage:
+
+```bash
+cat file.txt            # Show the content of `file.txt`
+cat file1.txt file2.txt > combined.txt  # Merge files
+
+```
+
+### 7. vi
+
+- Opens a file in the vi text editor.
+
+- Usage:
+
+```bash
+vi file.txt             # Edit `file.txt`
+
+```
+
+Basics in vi: • Press i to enter insert mode. • Press Esc to exit insert mode. • Type :wq to save and quit.
+
+### 8. mv
+
+- Moves or renames a file.
+
+- Usage:
+
+```bash
+mv file.txt /path/to/destination     # Move file
+mv old_name.txt new_name.txt         # Rename file
+
+```
+
+### 9. cp
+
+- Copies files or directories.
+
+- Usage:
+
+```bash
+cp file.txt /path/to/destination     # Copy file
+cp -r folder/ /path/to/destination   # Copy folder recursively
+
+```
+
+### 10. nvm
+
+- Manages Node.js versions.
+
+- Usage:
+
+```bash
+nvm install node         # Install the latest Node.js
+nvm use 16               # Use Node.js version 16
+nvm list                 # List installed Node.js versions
+
+```
+
+### 11. npm
+
+- Node.js package manager for managing libraries and dependencies.
+
+- Usage:
+
+```bash
+npm init                 # Initialize a project
+npm install package_name # Install a package
+npm uninstall package_name # Remove a package
+npm start                # Start a project
+
+```
+
+### 12. node
+
+- Executes JavaScript code in the terminal.
+
+- Usage:
+
+```bash
+node                     # Open the Node.js REPL
+node script.js           # Run a JS file
+
+```
+
+Quick Tips • Use Tab to autocomplete file or directory names. • Use Ctrl + C to terminate running commands. • Combine commands using && (e.g., mkdir test && cd test) in the document.&#x20;
