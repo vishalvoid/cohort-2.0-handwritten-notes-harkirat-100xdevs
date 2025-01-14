@@ -12,15 +12,15 @@ V8: V8 Engine is an open source js engine developed by the chromium project for 
 
 **`What can we do with Node.js ?`**&#x20;
 
-- Create clis
+*   Create clis
 
-- Create a video player
+*   Create a video player
 
-- create a game
+*   create a game
 
-- create an HTTP Server
+*   create an HTTP Server
 
-- Much more...
+*   Much more...
 
 **`What is an HTTP Server ?`**
 
@@ -114,9 +114,9 @@ In Express, the `req` object represents the HTTP request and provides access to 
 
 1.  req.query
 
-- Contains query parameters from the URL (after the `?` symbol).
+*   Contains query parameters from the URL (after the `?` symbol).
 
-- Used for data that doesn't modify the server state (e.g., search filters, pagination).
+*   Used for data that doesn't modify the server state (e.g., search filters, pagination).
 
 **Example:**
 
@@ -130,9 +130,9 @@ app.get("/search", (req, res) => {
 
 1.  req.body
 
-- Contains data sent in the request body (commonly used in POST and PUT requests).
+*   Contains data sent in the request body (commonly used in POST and PUT requests).
 
-- Used for sending data (like form submissions or JSON data) to the server.
+*   Used for sending data (like form submissions or JSON data) to the server.
 
 **Example (using express.json() middleware):**
 
@@ -149,9 +149,9 @@ app.post('/submit', (req, res) => {
 
 1.  req.headers
 
-- Contains HTTP headers sent by the client in the request.
+*   Contains HTTP headers sent by the client in the request.
 
-- Provides meta-information about the request (content type, authentication tokens, user-agent details).
+*   Provides meta-information about the request (content type, authentication tokens, user-agent details).
 
 **Example:**
 
@@ -170,9 +170,9 @@ Bash is a shell that lets you interact with your operating system via the termin
 
 `PWD - Print Working Directory`
 
-- Prints the current working directory.
+*   Prints the current working directory.
 
-- **Usage:**
+*   **Usage:**
 
 ```bash
 pwd
@@ -181,9 +181,9 @@ pwd
 
 `CD - Change Directory`
 
-- Changes the directory.
+*   Changes the directory.
 
-- Usage:
+*   Usage:
 
 ```bash
 cd /path/to/directory   # Go to a specific directory
@@ -194,9 +194,9 @@ cd                      # Go to the home directory
 
 `LS - List`&#x20;
 
-- Lists files and directories.
+*   Lists files and directories.
 
-- Usage:
+*   Usage:
 
 ```bash
 ls                      # List all files
@@ -211,9 +211,9 @@ ls -lR | grep .json.    # to find all the json files. will look for directories 
 
 `MKDIR - Make Directory`
 
-- Creates a new directory.
+*   Creates a new directory.
 
-- Usage:
+*   Usage:
 
 ```bash
 mkdir my_folder         # Create a directory named `my_folder`
@@ -223,9 +223,9 @@ mkdir -p parent/child   # Create nested directories
 
 `TOUCH`
 
-- Creates an empty file or updates the timestamp of an existing file.
+*   Creates an empty file or updates the timestamp of an existing file.
 
-- Usage:
+*   Usage:
 
 ```bash
 touch file.txt          # Create a file named `file.txt`
@@ -234,9 +234,9 @@ touch file.txt          # Create a file named `file.txt`
 
 `CAT - Concatinate`
 
-- Displays file content or combines files.
+*   Displays file content or combines files.
 
-- Usage:
+*   Usage:
 
 ```bash
 cat file.txt            # Show the content of `file.txt`
@@ -248,9 +248,9 @@ cat >> newFile.txt hello world 2 # to append new content to the same directory.
 
 `Vi - Visual Editor`
 
-- Opens a file in the vi text editor.
+*   Opens a file in the vi text editor.
 
-- Usage:
+*   Usage:
 
 ```bash
 vi file.txt             # Edit `file.txt`
@@ -261,9 +261,9 @@ Basics in vi: • Press i to enter insert mode. • Press Esc to exit insert mod
 
 `MV - Move`
 
-- Moves or renames a file.
+*   Moves or renames a file.
 
-- Usage:
+*   Usage:
 
 ```bash
 mv file.txt /path/to/destination     # Move file
@@ -273,9 +273,9 @@ mv old_name.txt new_name.txt         # Rename file
 
 `CP - Copy`
 
-- Copies files or directories.
+*   Copies files or directories.
 
-- Usage:
+*   Usage:
 
 ```bash
 cp file.txt /path/to/destination     # Copy file
@@ -285,9 +285,9 @@ cp -r folder/ /path/to/destination   # Copy folder recursively
 
 `NVM - Node Version Manager`
 
-- Manages Node.js versions.
+*   Manages Node.js versions.
 
-- Usage:
+*   Usage:
 
 ```bash
 nvm install node         # Install the latest Node.js
@@ -298,9 +298,9 @@ nvm list                 # List installed Node.js versions
 
 `NPM - Node Package Manager`
 
-- Node.js package manager for managing libraries and dependencies.
+*   Node.js package manager for managing libraries and dependencies.
 
-- Usage:
+*   Usage:
 
 ```bash
 npm init                 # Initialize a project
@@ -312,9 +312,9 @@ npm start                # Start a project
 
 `NODE`
 
-- Executes JavaScript code in the terminal.
+*   Executes JavaScript code in the terminal.
 
-- Usage:
+*   Usage:
 
 ```bash
 node                     # Open the Node.js REPL
@@ -324,9 +324,9 @@ node script.js           # Run a JS file
 
 `CHMOD - Change File Permissions`
 
-- Changes file or directory permissions.
+*   Changes file or directory permissions.
 
-- Usage:
+*   Usage:
 
 ```bash
 chmod +x filename        # Add execute permission to the file
@@ -338,9 +338,9 @@ chmod 644 filename       # Grant read/write permissions to the owner, and read-o
 
 `GREP - Global Regular Expression Print`
 
-- Searches for patterns within files using regular expressions.
+*   Searches for patterns within files using regular expressions.
 
-- Usage:
+*   Usage:
 
 ```bash
 grep "pattern" filename         # Search for a pattern in a file
@@ -357,18 +357,23 @@ grep -n "pattern" filename      # Show line numbers with matching patterns
 
 **Arrow Functions**
 
-- Concise syntax for defining functions.
-- Example:
-  ```javascript
-  const add = (a, b) => a + b;
-  console.log(add(2, 3)); // Output: 5
-  ```
-- Implicit return for single-line functions:
-  ```javascript
-  const square = (x) => x * x;
-  console.log(square(5)); // Output: 25
-  ```
-- No `this` binding by default (useful for avoiding `this`-related issues).
+*   Concise syntax for defining functions.
+
+*   Example:
+
+    ```javascript
+    const add = (a, b) => a + b;
+    console.log(add(2, 3)); // Output: 5
+    ```
+
+*   Implicit return for single-line functions:
+
+    ```javascript
+    const square = (x) => x * x;
+    console.log(square(5)); // Output: 25
+    ```
+
+*   No `this` binding by default (useful for avoiding `this`-related issues).
 
 **Comparison: Arrow Functions vs. Normal Functions**
 
@@ -381,40 +386,116 @@ grep -n "pattern" filename      # Show line numbers with matching patterns
 
 **When to Use Which**
 
-- **Normal Functions:**
-  - When you need to control the `this` binding.
-  - When you need to use the `arguments` object.
-  - For defining methods within classes or constructor functions.
-- **Arrow Functions:**
-  - For concise, simple functions.
-  - For callbacks and event handlers.
-  - When you want to avoid `this`-related issues.
+*   **Normal Functions:**
+
+    *   When you need to control the `this` binding.
+
+    *   When you need to use the `arguments` object.
+
+    *   For defining methods within classes or constructor functions.
+
+*   **Arrow Functions:**
+
+    *   For concise, simple functions.
+
+    *   For callbacks and event handlers.
+
+    *   When you want to avoid `this`-related issues.
 
 **Note:** While arrow functions offer a more concise syntax and can simplify code in many cases, it's important to understand the implications of their lexical `this` binding. If you need to control the `this` context within a function, a normal function might be a better choice.
 
 **Map**
 
-- Creates a new array by applying a function to each element of an existing array.
-- Does not modify the original array.
-- Example:
-  ```javascript
-  const numbers = [1, 2, 3];
-  const doubled = numbers.map((x) => x * 2);
-  console.log(doubled); // Output: [2, 4, 6]
-  ```
+*   Creates a new array by applying a function to each element of an existing array.
+
+*   Does not modify the original array.
+
+*   Example:
+
+    ```javascript
+    const numbers = [1, 2, 3];
+    const doubled = numbers.map((x) => x * 2);
+    console.log(doubled); // Output: [2, 4, 6]
+    ```
 
 **Filter**
 
-- Creates a new array containing only the elements of an existing array that satisfy a given condition.
-- Does not modify the original array.
-- Example:
-  ```javascript
-  const numbers = [1, 2, 3, 4, 5];
-  const evenNumbers = numbers.filter((x) => x % 2 === 0);
-  console.log(evenNumbers); // Output: [2, 4]
-  ```
+*   Creates a new array containing only the elements of an existing array that satisfy a given condition.
+
+*   Does not modify the original array.
+
+*   Example:
+
+    ```javascript
+    const numbers = [1, 2, 3, 4, 5];
+    const evenNumbers = numbers.filter((x) => x % 2 === 0);
+    console.log(evenNumbers); // Output: [2, 4]
+    ```
 
 **Key Points:**
 
-- Arrow functions and higher-order functions like `map` and `filter` are essential for functional programming in JavaScript.
-- They improve code readability and maintainability by making code more concise and expressive.
+*   Arrow functions and higher-order functions like `map` and `filter` are essential for functional programming in JavaScript.
+
+*   They improve code readability and maintainability by making code more concise and expressive.
+
+### 6. Git/Github - Version Control System
+
+**What is Git ?**
+
+Free and open source version control syste.&#x20;
+
+**What is Version Control System?**&#x20;
+
+*   A system that keeps track of our files or projects.&#x20;
+
+*   It allows you to revert selected files to a previous state, **revert** the entire project to a previous state, **compare changes** over time, see who last midified something so that we can know what might be causing a problem, or **what** is the issue, **who** made it, and **when** with the details.&#x20;
+
+**There are two types of Version control System.**
+
+1.  Centralised -- read about it more
+
+2.  Distributed -- read about it more
+
+**Why Git ?**&#x20;
+
+*   Free
+
+*   Open Source
+
+*   Scalable
+
+*   Super Fast
+
+*   Cheap branching and merging
+
+What is Github ?
+
+Github is a web-based hosting service for git repositories. You can use git without github but you cannot use github without git.
+
+| Git                             | Github                                         |
+| :------------------------------ | :--------------------------------------------- |
+| Used for version control        | Used for hosting Git repositories              |
+| Installed locally on computer   | cloud based                                    |
+| Tracks changes made to the file | Provides a web interface to view file changes. |
+
+**Blobs**: Blob stands for Binary Large Object. Each version of a file is represendted by blob. A blob holds the file data but doesn't contain any metadata about the file. It is a binary file, and in Git database, it is named as SHLAL1 hash of that file. In Git, files are not addressed by names. Everything is content-addresssed.&#x20;
+
+**Trees**: Trees is an object, which represent a directory. it holds blobs as well as other sub-directories. A tree is a binary file that stores references to blobs and trees which are also named as SHLAL1 hash of the tree object.
+
+> We can see commit object = a node of the linked list.
+
+**Merge Conflicts**
+
+`While Starting the merge process.` : If there are changes in the working directory's stage area for the current project, merging won't start. In this casse, conflicts happen due to pending changes that need to be stabilized.&#x20;
+
+`During the perge process:`  When there is a conflict between the local branch and the branch being merged. \
+Git resolves as much as possible, but there are things that have to be resolved manually in the conflicted files.&#x20;
+
+Git commands to resolve conflicts:&#x20;
+
+**git log** --merge: produce the list of commits that are causing the conflict. \
+**git diff**: Identify the differences between the states repositories of files. \
+**git checkout**: Used to undo the changes made to the file, or for changing branches. \
+**git reset --mixed**: Used to undo changes to the working directory and staging area. \
+**git merge --abort**: Helps in exiting the merge process and returning back tot he state before the merging began. \
+**git reset**: Used at the time of merge conflict to reset the conflicted files to their original state.&#x20;
