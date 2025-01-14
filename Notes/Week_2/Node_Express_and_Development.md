@@ -189,6 +189,8 @@ touch file.txt          # Create a file named `file.txt`
 ```bash
 cat file.txt            # Show the content of `file.txt`
 cat file1.txt file2.txt > combined.txt  # Merge files
+cat > newFile.txt hello world  # will add text in file
+cat >> newFile.txt hello world 2 # to append new content to the same directory.
 
 ```
 
@@ -266,6 +268,35 @@ npm start                # Start a project
 node                     # Open the Node.js REPL
 node script.js           # Run a JS file
 
+```
+
+`CHMOD - Change File Permissions`
+
+*   Changes file or directory permissions.
+
+*   Usage:
+
+```bash
+chmod +x filename        # Add execute permission to the file
+chmod 755 filename       # Grant full permissions to the owner, and read/execute to others
+chmod u+x filename       # Add execute permission for the owner
+chmod g-w filename       # Remove write permission from the group
+chmod 644 filename       # Grant read/write permissions to the owner, and read-only to others
+```
+
+`GREP - Global Regular Expression Print`
+
+*   Searches for patterns within files using regular expressions.
+
+*   Usage:
+
+```bash
+grep "pattern" filename         # Search for a pattern in a file
+grep -r "pattern" directory     # Recursively search for a pattern in a directory
+grep -i "pattern" filename      # Case-insensitive search
+grep -v "pattern" filename      # Invert match (show lines that do not match the pattern)
+grep -l "pattern" *.txt         # Show only filenames with matching patterns
+grep -n "pattern" filename      # Show line numbers with matching patterns
 ```
 
 > Quick Tips • Use Tab to autocomplete file or directory names. • Use Ctrl + C to terminate running commands. • Combine commands using && (e.g., mkdir test && cd test) in the document.
