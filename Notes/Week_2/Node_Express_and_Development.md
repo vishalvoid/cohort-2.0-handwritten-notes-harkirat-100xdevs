@@ -12,15 +12,15 @@ V8: V8 Engine is an open source js engine developed by the chromium project for 
 
 **`What can we do with Node.js ?`**&#x20;
 
-*   Create clis
+- Create clis
 
-*   Create a video player
+- Create a video player
 
-*   create a game
+- create a game
 
-*   create an HTTP Server
+- create an HTTP Server
 
-*   Much more...
+- Much more...
 
 **`What is an HTTP Server ?`**
 
@@ -108,9 +108,61 @@ env typically refers to **environment variables** stored in a .env file. These v
 >
 > used as : http\://localhost:3000/backend/`?message=123`
 
-Alright, here's how you can make the command names bold, bigger, and left-aligned in your markdown file:
+### 3. Express Request Object: req.query, req.body, and req.headers
 
-### 3. Bash and Terminal Basics
+In Express, the `req` object represents the HTTP request and provides access to various properties containing different parts of the request.
+
+1.  req.query
+
+- Contains query parameters from the URL (after the `?` symbol).
+
+- Used for data that doesn't modify the server state (e.g., search filters, pagination).
+
+**Example:**
+
+```javascript
+// URL: /search?term=node&limit=10
+app.get("/search", (req, res) => {
+  console.log(req.query.term); // Output: 'node'
+  console.log(req.query.limit); // Output: '10'
+});
+```
+
+1.  req.body
+
+- Contains data sent in the request body (commonly used in POST and PUT requests).
+
+- Used for sending data (like form submissions or JSON data) to the server.
+
+**Example (using express.json() middleware):**
+
+```javascript
+// POST request with JSON body
+app.post('/submit', (req, res) => {
+  console.log(req.body.username);  // Output: 'JohnDoe'
+  res.send('Data received');
+});
+
+**Note:** Requires middleware like `express.json()` or `express.urlencoded()` to parse body data.
+
+```
+
+1.  req.headers
+
+- Contains HTTP headers sent by the client in the request.
+
+- Provides meta-information about the request (content type, authentication tokens, user-agent details).
+
+**Example:**
+
+```javascript
+app.get("/info", (req, res) => {
+  console.log(req.headers["user-agent"]); // Output: User's browser details
+  res.send("Request Info");
+});
+```
+
+### 4. Bash and Terminal Basics
 
 Bash is a shell that lets you interact with your operating system via the terminal. Below are common commands explained:
 
@@ -118,9 +170,9 @@ Bash is a shell that lets you interact with your operating system via the termin
 
 `PWD - Print Working Directory`
 
-*   Prints the current working directory.
+- Prints the current working directory.
 
-*   **Usage:**
+- **Usage:**
 
 ```bash
 pwd
@@ -129,9 +181,9 @@ pwd
 
 `CD - Change Directory`
 
-*   Changes the directory.
+- Changes the directory.
 
-*   Usage:
+- Usage:
 
 ```bash
 cd /path/to/directory   # Go to a specific directory
@@ -142,9 +194,9 @@ cd                      # Go to the home directory
 
 `LS - List`&#x20;
 
-*   Lists files and directories.
+- Lists files and directories.
 
-*   Usage:
+- Usage:
 
 ```bash
 ls                      # List all files
@@ -159,9 +211,9 @@ ls -lR | grep .json.    # to find all the json files. will look for directories 
 
 `MKDIR - Make Directory`
 
-*   Creates a new directory.
+- Creates a new directory.
 
-*   Usage:
+- Usage:
 
 ```bash
 mkdir my_folder         # Create a directory named `my_folder`
@@ -171,9 +223,9 @@ mkdir -p parent/child   # Create nested directories
 
 `TOUCH`
 
-*   Creates an empty file or updates the timestamp of an existing file.
+- Creates an empty file or updates the timestamp of an existing file.
 
-*   Usage:
+- Usage:
 
 ```bash
 touch file.txt          # Create a file named `file.txt`
@@ -182,9 +234,9 @@ touch file.txt          # Create a file named `file.txt`
 
 `CAT - Concatinate`
 
-*   Displays file content or combines files.
+- Displays file content or combines files.
 
-*   Usage:
+- Usage:
 
 ```bash
 cat file.txt            # Show the content of `file.txt`
@@ -196,9 +248,9 @@ cat >> newFile.txt hello world 2 # to append new content to the same directory.
 
 `Vi - Visual Editor`
 
-*   Opens a file in the vi text editor.
+- Opens a file in the vi text editor.
 
-*   Usage:
+- Usage:
 
 ```bash
 vi file.txt             # Edit `file.txt`
@@ -209,9 +261,9 @@ Basics in vi: • Press i to enter insert mode. • Press Esc to exit insert mod
 
 `MV - Move`
 
-*   Moves or renames a file.
+- Moves or renames a file.
 
-*   Usage:
+- Usage:
 
 ```bash
 mv file.txt /path/to/destination     # Move file
@@ -221,9 +273,9 @@ mv old_name.txt new_name.txt         # Rename file
 
 `CP - Copy`
 
-*   Copies files or directories.
+- Copies files or directories.
 
-*   Usage:
+- Usage:
 
 ```bash
 cp file.txt /path/to/destination     # Copy file
@@ -233,9 +285,9 @@ cp -r folder/ /path/to/destination   # Copy folder recursively
 
 `NVM - Node Version Manager`
 
-*   Manages Node.js versions.
+- Manages Node.js versions.
 
-*   Usage:
+- Usage:
 
 ```bash
 nvm install node         # Install the latest Node.js
@@ -246,9 +298,9 @@ nvm list                 # List installed Node.js versions
 
 `NPM - Node Package Manager`
 
-*   Node.js package manager for managing libraries and dependencies.
+- Node.js package manager for managing libraries and dependencies.
 
-*   Usage:
+- Usage:
 
 ```bash
 npm init                 # Initialize a project
@@ -260,9 +312,9 @@ npm start                # Start a project
 
 `NODE`
 
-*   Executes JavaScript code in the terminal.
+- Executes JavaScript code in the terminal.
 
-*   Usage:
+- Usage:
 
 ```bash
 node                     # Open the Node.js REPL
@@ -272,9 +324,9 @@ node script.js           # Run a JS file
 
 `CHMOD - Change File Permissions`
 
-*   Changes file or directory permissions.
+- Changes file or directory permissions.
 
-*   Usage:
+- Usage:
 
 ```bash
 chmod +x filename        # Add execute permission to the file
@@ -286,9 +338,9 @@ chmod 644 filename       # Grant read/write permissions to the owner, and read-o
 
 `GREP - Global Regular Expression Print`
 
-*   Searches for patterns within files using regular expressions.
+- Searches for patterns within files using regular expressions.
 
-*   Usage:
+- Usage:
 
 ```bash
 grep "pattern" filename         # Search for a pattern in a file
@@ -301,4 +353,68 @@ grep -n "pattern" filename      # Show line numbers with matching patterns
 
 > Quick Tips • Use Tab to autocomplete file or directory names. • Use Ctrl + C to terminate running commands. • Combine commands using && (e.g., mkdir test && cd test) in the document.
 
-&#x20;
+### 5. Map, Filter and Arrow Functions
+
+**Arrow Functions**
+
+- Concise syntax for defining functions.
+- Example:
+  ```javascript
+  const add = (a, b) => a + b;
+  console.log(add(2, 3)); // Output: 5
+  ```
+- Implicit return for single-line functions:
+  ```javascript
+  const square = (x) => x * x;
+  console.log(square(5)); // Output: 25
+  ```
+- No `this` binding by default (useful for avoiding `this`-related issues).
+
+**Comparison: Arrow Functions vs. Normal Functions**
+
+| Feature        | Normal Function                                                                              | Arrow Function                                                         |
+| -------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Syntax         | `function name(params) { ... }`                                                              | `(params) => { ... }`                                                  |
+| `this` binding | Dynamic, can change based on how the function is called                                      | Inherits `this` from the surrounding scope (lexical `this`)            |
+| `arguments`    | Access to the `arguments` object                                                             | No access to the `arguments` object                                    |
+| Use Cases      | When `this` binding needs to be controlled or when using the `arguments` object is necessary | For concise, simple functions, especially callbacks and event handlers |
+
+**When to Use Which**
+
+- **Normal Functions:**
+  - When you need to control the `this` binding.
+  - When you need to use the `arguments` object.
+  - For defining methods within classes or constructor functions.
+- **Arrow Functions:**
+  - For concise, simple functions.
+  - For callbacks and event handlers.
+  - When you want to avoid `this`-related issues.
+
+**Note:** While arrow functions offer a more concise syntax and can simplify code in many cases, it's important to understand the implications of their lexical `this` binding. If you need to control the `this` context within a function, a normal function might be a better choice.
+
+**Map**
+
+- Creates a new array by applying a function to each element of an existing array.
+- Does not modify the original array.
+- Example:
+  ```javascript
+  const numbers = [1, 2, 3];
+  const doubled = numbers.map((x) => x * 2);
+  console.log(doubled); // Output: [2, 4, 6]
+  ```
+
+**Filter**
+
+- Creates a new array containing only the elements of an existing array that satisfy a given condition.
+- Does not modify the original array.
+- Example:
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5];
+  const evenNumbers = numbers.filter((x) => x % 2 === 0);
+  console.log(evenNumbers); // Output: [2, 4]
+  ```
+
+**Key Points:**
+
+- Arrow functions and higher-order functions like `map` and `filter` are essential for functional programming in JavaScript.
+- They improve code readability and maintainability by making code more concise and expressive.
