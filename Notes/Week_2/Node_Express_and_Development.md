@@ -151,6 +151,9 @@ ls                      # List all files
 ls -l                   # Detailed view
 ls -a                   # Include hidden files
 ls -t                   # last modified
+ls -s                   # gives the size of file or directory
+ls -lR | grep .json.    # to find all the json files. will look for directories & subdirectories.
+
 
 ```
 
