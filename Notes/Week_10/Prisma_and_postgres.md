@@ -307,5 +307,25 @@ Pre ORM Days - Manually update the prod DB, dev LDB.
 
 There was no log of the change made to the DB.
 
+### 3 Steps to the prisma world.
+
+1.  Initialize prisma
+
+2.  Define your schema
+
+3.  create migrations and update client
+
+`Things to Learn` :
+
+@id @default(autoincrement())
+
+@unique
+
+@default(false)
+
+@relation(fields:\[authorId], references:\[id])
+
+
+
 
 
