@@ -299,5 +299,13 @@ Prisma is a Next-generation Node.js and TrypeScript ORM.
 
 3.  **Prisma Studio:** GUI to view and edit in your database.&#x20;
 
+**What is Automated Migrations? **
+
+DB changes often, you add more columns, add new tables, you have to do Migrations to keep syncing the DB state.
+
+Pre ORM Days - Manually update the prod DB, dev LDB.
+
+There was no log of the change made to the DB.
+
 
 
