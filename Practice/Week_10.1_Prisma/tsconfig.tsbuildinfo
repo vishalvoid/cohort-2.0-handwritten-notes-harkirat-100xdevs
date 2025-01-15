@@ -1,1 +1,1 @@
-{"root":["./src/create-post.ts","./src/create-user.ts","./src/delete-post.ts","./src/filtering-advance-queries.ts","./src/filtering-pagination-advance-prisma.ts","./src/get-users.ts","./src/update-user.ts"],"version":"5.6.2"}
+{"root":["./src/create-post.ts","./src/create-user.ts","./src/debug.ts","./src/delete-post.ts","./src/filtering-advance-queries.ts","./src/filtering-pagination-advance-prisma.ts","./src/get-users.ts","./src/update-user.ts"],"version":"5.6.2"}
