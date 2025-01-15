@@ -275,7 +275,7 @@ Types of Join:&#x20;
 
 INDEXES: TO BE LEARN&#x20;
 
-***Problems : ***
+\*\*\*Problems : \*\*\*
 
 *   ***You have to write raw sql queries.***
 
@@ -283,7 +283,7 @@ INDEXES: TO BE LEARN&#x20;
 
 *   ***You dont get the best types***
 
-***Solution : ***
+\*\*\*Solution : \*\*\*
 
 *   ***ORMs***
 
@@ -299,7 +299,7 @@ Prisma is a Next-generation Node.js and TrypeScript ORM.
 
 3.  **Prisma Studio:** GUI to view and edit in your database.&#x20;
 
-**What is Automated Migrations? **
+\*\*What is Automated Migrations? \*\*
 
 DB changes often, you add more columns, add new tables, you have to do Migrations to keep syncing the DB state.
 
@@ -317,6 +317,7 @@ There was no log of the change made to the DB.
 
 `Things to Learn` :
 
+```javascript
 @id @default(autoincrement())
 
 @unique
@@ -324,8 +325,8 @@ There was no log of the change made to the DB.
 @default(false)
 
 @relation(fields:\[authorId], references:\[id])
+```
 
+**Checkout How does it work : [Click Here](./../../Practice/Week_10.1_Prisma/prisma/schema.prisma)**
 
-
-
-
+**To finally Migrate**: npx prisma migrate dev --name init
