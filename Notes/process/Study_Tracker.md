@@ -27,11 +27,11 @@
 
 ## Weekly Progress Table
 
-| **Week** | **Total Time (hh:mm)** | **Number of Videos** | **Course Progress**       |
-| -------- | ---------------------- | -------------------- | ------------------------- |
-| Week 1   | 15:49                  | 12 completed         | Week 1 & Week 2 Completed |
-|          |                        |                      |                           |
-|          |                        |                      |                           |
+| **Week** | **Total Time (hh:mm)** | **Number of Videos** | **Course Progress**       | **No of Days Studied** |
+| -------- | ---------------------- | -------------------- | ------------------------- | :--------------------- |
+| Week 1   | 15:49                  | 12 completed         | Week 1 & Week 2 Completed | 5/7                    |
+|          |                        |                      |                           |                        |
+|          |                        |                      |                           |                        |
 
 ***
 
