@@ -287,3 +287,17 @@ INDEXES: TO BE LEARN&#x20;
 
 *   ***ORMs***
 
+### Prisma as ORMs
+
+Prisma is a Next-generation Node.js and TrypeScript ORM.
+
+`Lbraries Provided by prisma:`&#x20;
+
+1.  **Prisma Client** : Auto generated and type-safe query builder for Node.js & TypeScript.&#x20;
+
+2.  **Prisma Migrate:** Migration tool to easy evelve your database schema form prototyping to production.
+
+3.  **Prisma Studio:** GUI to view and edit in your database.&#x20;
+
+
+
