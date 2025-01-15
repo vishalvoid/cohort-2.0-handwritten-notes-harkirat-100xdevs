@@ -1,0 +1,1 @@
+{"root":["./src/create-index.ts","./src/create-table.ts","./src/delete-data.ts","./src/get-data.ts","./src/insert-data.ts","./src/update-data.ts","./src/utils.ts","./src/joins/advance-1.ts","./src/joins/advance-2.ts","./src/joins/advance-3.ts","./src/joins/basic.ts"],"version":"5.6.2"}

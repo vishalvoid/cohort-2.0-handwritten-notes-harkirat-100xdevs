@@ -135,6 +135,155 @@ user_id INTEGER REFERENCE users(id),
 done BOOLEAN DEFAULT FALSE
 )
 
-// THINGS TO LEARN => REFERENCES, DEFAULT
+// THINGS TO LEARN => REFERENCES, DEFAUlt
 ```
+
+Checkout Real time Example : [Click Here](./../../Practice/Week_10/src/create-table.ts)
+
+**INSERTS : HOW TO INSERT DATA INTO SQL**
+
+```javascript
+INSERT INTO todos (title, description, user_id, done)
+VALUES ('Buy Groceries', 'Milk, bread, and eggs', 1, FALSE);
+
+INSERT INTO users (username, email, password)
+VALUES('John_Doe', 'john.doe@example.com', 'hashed_password');
+```
+
+Checkout Real time Example : [Click Here](./../../Practice/Week_10/src/insert-data.ts)
+
+**GETS : HOW TO GET DATA**
+
+```javascript
+async function getTodosForUser(userId: number) {
+    const client = await getClient();
+    
+    const selectTodosText = 'SELECT * FROM todos WHERE user_id = $1';
+    const todoRes = await client.query(selectTodosText, [userId]);
+    
+    console.log(`Todos for User ID ${userId}:`);
+    for (let todo of todoRes.rows) {
+        console.log(`ID: ${todo.id}, Title: ${todo.title}, Description: ${todo.description}, Done: ${todo.done}`);
+    }
+}
+```
+
+Checkout Real time Example : [Click Here](./../../Practice/Week_10/src/get-data.ts)
+
+**UPDATES : UPDATE A VALUE IN THE DATABASE**
+
+```javascript
+import { getClient } from "./utils";
+
+async function updateTodo(todoId: number) {
+    const client = await getClient();
+    
+    const updateTodoText = 'UPDATE todos SET done = $1 WHERE id = $2';
+    await client.query(updateTodoText, [true, todoId]);
+    
+    console.log(`Todo with ID ${todoId} updated to done!`);
+}
+
+const todoIdToUpdate = 1;
+updateTodo(todoIdToUpdate);
+```
+
+**DELETES : TO DELETE DATA FORM THE DATABASE.**&#x20;
+
+```javascript
+import { getClient } from "./utils";
+
+async function deleteTodo(todoId: number) {
+    const client = await getClient();
+    
+    const deleteTodoText = 'DELETE FROM todos WHERE id = $1';
+    await client.query(deleteTodoText, [todoId]);
+    
+    console.log(`Todo with ID ${todoId} deleted!`);
+}
+
+const todoIdToDelete = 1;
+deleteTodo(todoIdToDelete);
+```
+
+**DROP : USED TO COMPLETELY REMOVE THE TABLE FORM DATABASES**
+
+```javascript
+DROP TABLE IF EXISTS todos;
+```
+
+FOREIGN KEYS:&#x20;
+
+**JOIN : SAME AS REFERENCE/POPULATE IN MONGODB**
+
+`QUESTION: Get me the email of the user and all their todos?`&#x20;
+
+Easy (not good wat to do):&#x20;
+
+```javascript
+async function getUserAndTodosSeparateQueries(userId: number) {
+    const client = await getClient();
+
+    // Fetch user details
+    const userQuery = 'SELECT * FROM users WHERE id = $1';
+    const userRes = await client.query(userQuery, [userId]);
+    const user = userRes.rows[0];
+
+    // Fetch todos for the user
+    const todosQuery = 'SELECT * FROM todos WHERE user_id = $1';
+    const todosRes = await client.query(todosQuery, [userId]);
+    const todos = todosRes.rows;
+
+    console.log("User Details:", user);
+    console.log("Todos:", todos);
+}
+
+getUserAndTodosSeparateQueries(1);
+```
+
+Good way to D0:&#x20;
+
+```javascript
+async function getUserAndTodosWithJoin(userId: number) {
+    const client = await getClient();
+
+    const joinQuery = `
+        SELECT users.*, todos.title, todos.description, todos.done
+        FROM users
+        LEFT JOIN todos ON users.id = todos.user_id
+        WHERE users.id = $1;
+    `;
+
+    const res = await client.query(joinQuery, [userId]);
+    const results = res.rows;
+
+    console.log("User and Todos:", results);
+}
+
+getUserAndTodosWithJoin(1)
+```
+
+Types of Join:&#x20;
+
+*   Full Join : Should be present in either tables.
+
+*   INNER Join : should be present in both the tables. default
+
+*   LEFT Join : should have all entries form left table.
+
+*   Right Join : Opposite of left join.
+
+INDEXES: TO BE LEARN&#x20;
+
+***Problems : ***
+
+*   ***You have to write raw sql queries.***
+
+*   ***Migrations are hard***
+
+*   ***You dont get the best types***
+
+***Solution : ***
+
+*   ***ORMs***
 
