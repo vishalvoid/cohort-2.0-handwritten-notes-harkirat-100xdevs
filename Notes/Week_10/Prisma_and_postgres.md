@@ -454,3 +454,10 @@ There was no log of the change made to the DB.
 ### Eamples of how Prisma Works: [Click Here](./../../Practice/Week_10.1_Prisma/prisma/schema.prisma) including CRUD Operations.
 
 **To finally Migrate**: npx prisma migrate dev --name init
+
+### Important topics.&#x20;
+
+1.  Auto Generated Clients. and why Schema need to create this file.&#x20;
+
+2.
+
