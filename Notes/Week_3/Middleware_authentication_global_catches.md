@@ -31,17 +31,16 @@ Code Example: Middleware for Validation
 
 ```javascript
 const validateRequest = (req, res, next) => {
-const { kidneyId } = req.query;
-if (!kidneyId || kidneyId < 1 || kidneyId > 2) {
-return res.status(400).send("Invalid kidneyId. It should be 1 or 2.");
-}
-next(); // Proceed to the next step if valid
+  const { kidneyId } = req.query;
+  if (!kidneyId || kidneyId < 1 || kidneyId > 2) {
+    return res.status(400).send("Invalid kidneyId. It should be 1 or 2.");
+  }
+  next(); // Proceed to the next step if valid
 };
 
-app.get('/check', validateRequest, (req, res) => {
-res.send("Request is valid!");
+app.get("/check", validateRequest, (req, res) => {
+  res.send("Request is valid!");
 });
-
 ```
 
 1.  Global Error Handling
@@ -59,14 +58,13 @@ Code Example: Centralized Error Handling
 
 ```javascript
 app.use((err, req, res, next) => {
-console.error(err.stack);
-res.status(500).send("Something went wrong!");
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
 });
 
-app.get('/error', (req, res) => {
-throw new Error("This is a demo error.");
+app.get("/error", (req, res) => {
+  throw new Error("This is a demo error.");
 });
-
 ```
 
 1.  Input Validation (Zod)
@@ -90,26 +88,25 @@ Why Use Zod?
 Code Example: Validating Input with Zod
 
 ```javascript
-const { z } = require('zod');
+const { z } = require("zod");
 
 const schema = z.object({
-username: z.string().min(3),
-age: z.number().min(18).max(60),
+  username: z.string().min(3),
+  age: z.number().min(18).max(60),
 });
 
 const validateInput = (req, res, next) => {
-try {
-schema.parse(req.body); // Validates the body of the request
-next();
-} catch (err) {
-res.status(400).send({ errors: err.errors });
-}
+  try {
+    schema.parse(req.body); // Validates the body of the request
+    next();
+  } catch (err) {
+    res.status(400).send({ errors: err.errors });
+  }
 };
 
-app.post('/signup', validateInput, (req, res) => {
-res.send("Signup data is valid!");
+app.post("/signup", validateInput, (req, res) => {
+  res.send("Signup data is valid!");
 });
-
 ```
 
 1.  Authentication
