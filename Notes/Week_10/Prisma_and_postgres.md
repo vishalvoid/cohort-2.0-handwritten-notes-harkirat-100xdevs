@@ -1,134 +1,134 @@
 ## SQL Databases & Prisma ORM.
 
-*   **SQL (Structured Query Language)**
+- **SQL (Structured Query Language)**
 
-    *   **Data Model:** Relational (tables with rows and columns)
+  - **Data Model:** Relational (tables with rows and columns)
 
-    *   **Strengths:**
+  - **Strengths:**
 
-        *   Strong data integrity and consistency
+    - Strong data integrity and consistency
 
-        *   Denfined your schema upfront : put in data that follows that schema
+    - Denfined your schema upfront : put in data that follows that schema
 
-        *   update the schema as your app changes and perform migrations.
+    - update the schema as your app changes and perform migrations.
 
-        *   ACID properties (Atomicity, Consistency, Isolation, Durability)
+    - ACID properties (Atomicity, Consistency, Isolation, Durability)
 
-        *   Powerful for complex queries and joins
+    - Powerful for complex queries and joins
 
-        *   Mature technology with extensive tooling and support
+    - Mature technology with extensive tooling and support
 
-    *   **Weaknesses:**
+  - **Weaknesses:**
 
-        *   Scalability can be challenging with large datasets
+    - Scalability can be challenging with large datasets
 
-        *   Schema rigidity can limit flexibility
+    - Schema rigidity can limit flexibility
 
-        *   Not ideal for unstructured or semi-structured data
+    - Not ideal for unstructured or semi-structured data
 
-*   **NoSQL (Not Only SQL)**
+- **NoSQL (Not Only SQL)**
 
-    *   **Data Model:**
+  - **Data Model:**
 
-        *   Document (e.g., JSON, XML)
+    - Document (e.g., JSON, XML)
 
-        *   Key-value
+    - Key-value
 
-        *   Graph
+    - Graph
 
-        *   Wide-column
+    - Wide-column
 
-    *   **Strengths:**
+  - **Strengths:**
 
-        *   High scalability and flexibility
+    - High scalability and flexibility
 
-        *   Can handle large volumes of unstructured data
+    - Can handle large volumes of unstructured data
 
-        *   Often easier to scale horizontally
+    - Often easier to scale horizontally
 
-    *   **Weaknesses:**
+  - **Weaknesses:**
 
-        *   Can lead to inconsistent database.
+    - Can lead to inconsistent database.
 
-        *   can cause runtime errors
+    - can cause runtime errors
 
-        *   is to flexible for an app that needs strictness
+    - is to flexible for an app that needs strictness
 
-        *   Can be more complex to query and join data
+    - Can be more complex to query and join data
 
-        *   Less mature than SQL in some areas
+    - Less mature than SQL in some areas
 
-*   **Graph Databases**
+- **Graph Databases**
 
-    *   Data is stored in the form of graph. Specially usefull in case where relationships need to be stored&#x20;
+  - Data is stored in the form of graph. Specially usefull in case where relationships need to be stored&#x20;
 
-    *   Example Neo4j
+  - Example Neo4j
 
 <!---->
 
-*   **Vector Databases**
+- **Vector Databases**
 
-    *   Store data in form of vectors.
+  - Store data in form of vectors.
 
-    *   Usefull in Machine Learning
+  - Usefull in Machine Learning
 
-    *   Example Pinecone
+  - Example Pinecone
 
 **In essence:**
 
-*   **Choose SQL when:**
+- **Choose SQL when:**
 
-    *   Data integrity and consistency are paramount.
+  - Data integrity and consistency are paramount.
 
-    *   You need to perform complex joins and queries.
+  - You need to perform complex joins and queries.
 
-    *   You have structured data.
+  - You have structured data.
 
-*   **Choose NoSQL when:**
+- **Choose NoSQL when:**
 
-    *   You need high scalability and flexibility.
+  - You need high scalability and flexibility.
 
-    *   You have large volumes of unstructured or semi-structured data.
+  - You have large volumes of unstructured or semi-structured data.
 
-    *   You prioritize rapid development and ease of scaling.
+  - You prioritize rapid development and ease of scaling.
 
 **Note:** This is a simplified overview. The best choice depends on the specific needs of your application.
 
 ### SQL Relationships.&#x20;
 
-*   **One-to-one:**
+- **One-to-one:**
 
-    *   One row in table A corresponds to exactly one row in table B.
+  - One row in table A corresponds to exactly one row in table B.
 
-    *   Example: A table of employees and a table of their assigned desks.
+  - Example: A table of employees and a table of their assigned desks.
 
-*   **One-to-many:**
+- **One-to-many:**
 
-    *   One row in table A can correspond to multiple rows in table B.
+  - One row in table A can correspond to multiple rows in table B.
 
-    *   Example: A table of customers and a table of their orders.
+  - Example: A table of customers and a table of their orders.
 
-*   **Many-to-many:**
+- **Many-to-many:**
 
-    *   One row in table A can correspond to multiple rows in table B, and vice versa.
+  - One row in table A can correspond to multiple rows in table B, and vice versa.
 
-    *   Example: A table of students and a table of courses, where students can take multiple courses, and courses can have multiple students enrolled.
+  - Example: A table of students and a table of courses, where students can take multiple courses, and courses can have multiple students enrolled.
 
 **Note:** Relationships are typically implemented using foreign keys, which are columns in one table that reference the primary key of another table.
 
 ### Types of SQL Databases.
 
-*   Postgres
+- Postgres
 
-*   SQL
+- SQL
 
-*   etc.
+- etc.
 
 ### Connecting to Postgres.
 
 Required: Username, Password, URL, Databases, Tables.
 
-**URL** : postgres\://\[username]:\[password]@\[host]/\[database\_name].
+**URL** : postgres\://\[username]:\[password]@\[host]/\[database_name].
 
 **Example**: postgres\://vishalvoid:secretpassword\@localhost:5432/metavoid
 
@@ -291,13 +291,13 @@ getUserAndTodosWithJoin(1);
 
 Types of Join:&#x20;
 
-*   Full Join : Should be present in either tables.
+- Full Join : Should be present in either tables.
 
-*   INNER Join : should be present in both the tables. default
+- INNER Join : should be present in both the tables. default
 
-*   LEFT Join : should have all entries form left table.
+- LEFT Join : should have all entries form left table.
 
-*   Right Join : Opposite of left join.
+- Right Join : Opposite of left join.
 
 INDEXES: TO BE LEARN&#x20;
 
@@ -305,11 +305,11 @@ INDEXES: TO BE LEARN&#x20;
 
 Relationships let yhou store data in different tables and relate it with each other.&#x20;
 
-*Relationships in MongoDB.*
+_Relationships in MongoDB._
 
 Since mondodb is a NoSQL database, you can store any shape of data in it. it i ask you to store a user details along with their address, you can sotre it in an object that has the address details.&#x20;
 
-*Relationships in SQL*
+_Relationships in SQL_
 
 Since SQL can not store objects as such, we need to define two different tables to store this data in.
 
@@ -350,19 +350,19 @@ What's hard is Joining data form the two or more tables together.&#x20;
 for example if I ask you to fetch me a user details and their addresses what SQL would you run?&#x20;
 
 ```javascript
-// Approach 1 Bad 
+// Approach 1 Bad
 SELECT id, username, email
 FROM users
 WHERE ID = your_user_id;
 
-// query two 
+// query two
 SELECT city, country, street, pincode
 FROM addresses
 WHERE useer_id = Your_user_id
 
 ==========================
 
-// Approach 2 Good 
+// Approach 2 Good
 SELECT u.id, u.username, u.email, a.city, a,country, a.street, a.pincode
 FROM users u
 JOIN addresses a ON u.id = a.user_id
@@ -379,15 +379,15 @@ Benifits of using a join
 
 \*\*\*Problems : \*\*\*
 
-*   ***You have to write raw sql queries.***
+- **_You have to write raw sql queries._**
 
-*   ***Migrations are hard***
+- **_Migrations are hard_**
 
-*   ***You dont get the best types***
+- **_You dont get the best types_**
 
 \*\*\*Solution : \*\*\*
 
-*   ***ORMs***
+- **_ORMs_**
 
 ### Prisma as ORMs
 
@@ -458,6 +458,3 @@ There was no log of the change made to the DB.
 ### Important topics.&#x20;
 
 1.  Auto Generated Clients. and why Schema need to create this file.&#x20;
-
-2.
-
