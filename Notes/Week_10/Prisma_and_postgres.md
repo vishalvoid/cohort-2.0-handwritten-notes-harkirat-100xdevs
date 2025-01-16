@@ -429,6 +429,6 @@ There was no log of the change made to the DB.
 @relation(fields:\[authorId], references:\[id])
 ```
 
-**Checkout How does it work : [Click Here](./../../Practice/Week_10.1_Prisma/prisma/schema.prisma)**
+### Eamples of how Prisma Works: [Click Here](./../../Practice/Week_10.1_Prisma/prisma/schema.prisma) including CRUD Operations.
 
 **To finally Migrate**: npx prisma migrate dev --name init
