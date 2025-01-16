@@ -391,7 +391,29 @@ Benifits of using a join
 
 ### Prisma as ORMs
 
-Prisma is a Next-generation Node.js and TrypeScript ORM.
+1.  **Boring Official Defination :**&#x20;
+
+    **ORMs** stands for Object-Relational Mapping, a programming technique used in software development to convert data between incompatible type systems in object-oriented programming languages. This technique create a "virtual object database" that can be sued for within the lprograming language.&#x20;
+
+    ORMs are sued to abstract the complixities of the underlying database into simpler, more easy managed objects within the code.&#x20;
+
+2.  **Easier to digest diefination :**&#x20;
+
+    **ORMs** let you easily interact with your database without worrying too much about the underlying syntax (sql, postgres, mongodb etc.)
+
+**What is Prisma ?**
+
+Prisma is Next-generation Node.js and Typescript ORM : Prisma unlocks a new level of developer experience when working with databases thanks to its intuitive `data model`, `automated migrations` `type-safety` & `auto-completion`.
+
+### Why Use ORMs ?
+
+1.  Simpler syntax (converts objects to sql queries under the hood).
+
+2.  Abstraction that lets you flip the database you are using Unified API irrespective of the DB. easily to migrate your whole codebase from mongodb to postgres. without any tension with the help of migratons.&#x20;
+
+3.  Type Safety/Auto Completetion : whenever it returns some object. there is a strict type. so we know what comes as a response.&#x20;
+
+4.  Automatic Migrations : In case of simple postgres app, it is very hard to keep track of all the commands that were ran that led to the current schema of the table.&#x20;
 
 `Lbraries Provided by prisma:`&#x20;
 
