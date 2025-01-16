@@ -301,6 +301,82 @@ Types of Join:&#x20;
 
 INDEXES: TO BE LEARN&#x20;
 
+**RELATIONSHIPS AND TRANSACTIONS**
+
+Relationships let yhou store data in different tables and relate it with each other.&#x20;
+
+*Relationships in MongoDB.*
+
+Since mondodb is a NoSQL database, you can store any shape of data in it. it i ask you to store a user details along with their address, you can sotre it in an object that has the address details.&#x20;
+
+*Relationships in SQL*
+
+Since SQL can not store objects as such, we need to define two different tables to store this data in.
+
+```typescript
+CREATE TIBLE users(
+id SERIAL PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+emsil VARCHAR(255) UNIQUE NOT NULL,
+password VARCHAR(255) NOT NULL,
+creaated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+)
+
+// FOREIGN KEY CONCEPT
+CREATE TIBLE addresses(
+id SERIAL PRIMARY KEY,
+user_id INTEGER NOT NULL,
+city VARCHAR(100) UNIQUE NOT NULL,
+county VARCHAR(100) UNIQUE NOT NULL,
+street VARCHAR(255) NOT NULL,
+pincode VARCHAR(20),
+creaated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)
+```
+
+**TRANSACTIONS IN SQL**
+
+Good question to have at this point is what queries are run when the user signs up and sends both their information and their addresses ina. single request Do we send two sQL queries into the database? Wehat if one of the queries address query for example falls?&#x20;
+
+This woruld require transactionsin sql to ensure either both the user information and addresses goes in, or neityher dfoes.&#x20;
+
+**JOINS IN SQL **
+
+Defining the relationships is easy.&#x20;
+
+What's hard is Joining data form the two or more tables together.&#x20;
+
+for example if I ask you to fetch me a user details and their addresses what SQL would you run?&#x20;
+
+```javascript
+// Approach 1 Bad 
+SELECT id, username, email
+FROM users
+WHERE ID = your_user_id;
+
+// query two 
+SELECT city, country, street, pincode
+FROM addresses
+WHERE useer_id = Your_user_id
+
+==========================
+
+// Approach 2 Good 
+SELECT u.id, u.username, u.email, a.city, a,country, a.street, a.pincode
+FROM users u
+JOIN addresses a ON u.id = a.user_id
+WHERE u.id = your_user_id
+```
+
+Benifits of using a join
+
+1.  Reduced Latency
+
+2.  simplified application logic
+
+3.  transactional integrity
+
 \*\*\*Problems : \*\*\*
 
 *   ***You have to write raw sql queries.***
