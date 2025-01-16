@@ -8,6 +8,10 @@
 
         *   Strong data integrity and consistency
 
+        *   Denfined your schema upfront : put in data that follows that schema
+
+        *   update the schema as your app changes and perform migrations.
+
         *   ACID properties (Atomicity, Consistency, Isolation, Durability)
 
         *   Powerful for complex queries and joins
@@ -44,7 +48,11 @@
 
     *   **Weaknesses:**
 
-        *   May have weaker data consistency guarantees
+        *   Can lead to inconsistent database.
+
+        *   can cause runtime errors
+
+        *   is to flexible for an app that needs strictness
 
         *   Can be more complex to query and join data
 
