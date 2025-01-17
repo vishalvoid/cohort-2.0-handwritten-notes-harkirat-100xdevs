@@ -22,6 +22,7 @@
 | 6        | 13-01-2025 | 00:00                        | 00:00                         | 1:52                            | Irresponsible, laziness                                                               | Does not studied because of laziness      |
 | 7        | 14-01-2025 | 00:34,00:55,1:18,00:19,01:26 | 4:32                          | 2:15                            | Week 2: Bash and Terminal, Advance, Express, filter, map, arrow functions, git/github | Completed Week 2                          |
 | 8        | 15-01-2025 | 01:32, 01:56                 | 3:28                          | 2:24                            | Postgres, Prisma                                                                      | Week 10.0.1 & 10.0.2 Completed.           |
+| 9        | 16-01-25   | 02:28, 02:03, 01:10          | 5:41                          | 2:46                            | Postgres and Prisma + 1st video for 3rd week : middleware, auth, zod, etc             | Week 10 Completed: Week 3 Started.        |
 
 ***
 
