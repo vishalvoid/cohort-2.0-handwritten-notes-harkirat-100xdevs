@@ -162,3 +162,4 @@ Key Notes:
 3. Zod Validation: Validate inputs in a clean, scalable way.
 4. Authentication: Secure your routes using tokens like JWT.
 ```
+
