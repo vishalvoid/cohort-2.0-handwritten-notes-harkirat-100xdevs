@@ -39,3 +39,79 @@ But the javaScript that runs on the browser has some other functionalities.&#x20
 What is a Dynamic Website : \
 Changing the elements on the website once the website is loaded. is somewhat called dynamic.&#x20;
 
+Code to Add two Number in browser using dom manupulation.
+
+```html
+<html>
+    <script>
+        function populateDiv() {
+            const a = document.getElementById("firstNumber").value;
+            const b = document.getElementById("secondNumber").value;
+            const element = document.getElementById("finalSum")
+            element.innerHTML = parseInt(a) + parseInt(b);
+            // string => number
+            // "1111" => 1111
+        }
+    </script>
+    <body>
+        <input id="firstNumber" type="text" placeholder="First number"></input> <br></br>
+        <input id="secondNumber" type="text" placeholder="Second number"></input> <br></br>
+        <button onclick="populateDiv()">Calculate sum</button> <br></br>
+        <div id="finalSum"></div>
+    </body>
+</html>
+```
+
+Now, lets say you don't have access tot he calculation logic on the frontend. Let's assume its a hard problem that someont has exposed on a backend server and you need to hit backend server and get back the value.&#x20;
+
+```javascript
+               Give me sum of 100,200
+Browser code -------------------------> Backend
+             <-------------------------
+                        300
+
+For this we need some backend Server : 
+Example we need to hit a api or server : calculatesu.vishalvoid.com?a=10&b=20. returns 30
+
+this can only de done by fetch() 
+            
+example : fetch("https://sum-server.vishalvoid.com/sum?a=10")
+                .then(function(fesponse){
+                     .then(function(ans){
+                        document.getElementById("finalSum").innerHTML = ans;
+                }   
+                })
+
+```
+
+### Debouncing.
+
+Debouncing is a way to delay a function from running until a certain amount of time has passed without repeated events. It’s useful for tasks like search suggestions or resize events, where you don’t want to trigger the function too often.
+
+**Example Without Debouncing.**
+
+````javascript
+Typing in a search box triggers a function every time a key is pressed.
+
+```javascript
+input.addEventListener('input', () => {
+  console.log('Function called'); // Called for every keystroke
+});
+````
+
+**Example with Debouncing**
+
+```javascript
+function debounce(func, delay) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+}
+
+input.addEventListener('input', debounce(() => {
+  console.log('Function called'); // Runs after user stops typing for 300ms
+}, 300));
+```
+
