@@ -14,7 +14,7 @@ People realised it's harder to do DOM manipulation the conventational way. there
 
 To Create a React app. you usually need to worry about two things. Creators of frontend frameworks realised that all websites can effictively be divided into two parts.&#x20;
 
-    State  & Components
+    State  & Components & Re-rendering
 
 `What is State. `
 
@@ -23,3 +23,7 @@ An object that represents the current state of the app. it represents the dynami
 `What is a component.`&#x20;
 
 How a Dom element should rneder, given a stae. it is a re-usable, dynamic, HTML snippet that change given the state.&#x20;
+
+`What is Re-render`
+
+A state change triggers a re-render. A re-render represents the actual dom manipulated when the state changes.&#x20;
