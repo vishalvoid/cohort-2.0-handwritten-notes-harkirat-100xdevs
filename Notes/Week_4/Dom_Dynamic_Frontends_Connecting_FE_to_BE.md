@@ -124,3 +124,19 @@ HTML is being **injected** to the **dom** by js. is called DOM Manupulation in l
 DOM manupulation is very hard to write as a developer. Making dynamic websites, with the primitives that DOM provides you is very hard.&#x20;
 
 What are primitives : document.createElement, document.appendChild, element.setAttribute, element.children
+
+```javascript
+const element = document.createElement("div")
+element.innerHTML = "some random title"
+document.getElementById("container").appendChild(element)
+<div>some random title </div>
+
+// Problem with this approach
+Very hard to add and remove elements. no Central State. 
+```
+
+What if there is a server where these todos are put What if you update a TODO form your mobile app. You will be get back the new array of TODOs on a frontend. \
+How will you update the DOM then ? \
+you only have a **addTodo** Function. You don't have an **updateTodo** or **removeTodo** Function yet.&#x20;
+
+]
