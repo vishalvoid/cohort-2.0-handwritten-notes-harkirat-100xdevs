@@ -115,3 +115,12 @@ input.addEventListener('input', debounce(() => {
 }, 300));
 ```
 
+## **React Foundation (Why Frontend Frameworks)**
+
+**Dom Manupulation** : When we start change or add data to the initial html loaded on the website. Through dom manupulation people were able to create dynamic websites.&#x20;
+
+HTML is being **injected** to the **dom** by js. is called DOM Manupulation in literal value. Example LinkedIn poasts loading.&#x20;
+
+DOM manupulation is very hard to write as a developer. Making dynamic websites, with the primitives that DOM provides you is very hard.&#x20;
+
+What are primitives : document.createElement, document.appendChild, element.setAttribute, element.children
