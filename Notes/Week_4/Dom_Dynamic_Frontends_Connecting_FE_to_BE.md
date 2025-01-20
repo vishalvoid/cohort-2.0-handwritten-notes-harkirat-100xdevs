@@ -143,3 +143,19 @@ you only have a **addTodo** Function. You don't have an **updateTodo** or **remo
 
 > npm create vite\@latest
 
+Dynamic website, when u have to create  a dynamic website, you write lot of js codethat does dom manumulation. here we do same. all the logic and everything we srite in js file and somehow it get's rendered to a html page.&#x20;
+
+## Databases:&#x20;
+
+**Why don't we let the user hit the database directly?**
+
+**Waht extra does the http server provide exactly. ?**
+
+1.  Databases were are created using protocols that browsers don't understand.
+
+2.  Database don't have granual access as a first class citizen. Very hard to do user specific access in them.
+
+3.  There are some database (firebase) that let you get rid of the http server and try theiir best to provice granola access.&#x20;
+
+
+
