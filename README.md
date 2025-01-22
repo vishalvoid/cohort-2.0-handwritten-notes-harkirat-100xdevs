@@ -40,9 +40,33 @@
 
     *   [Express Request Object: req.query, req.body, and req.headers](./Notes/Week_2/Node_Express_and_Development.md)
 
-    *   [Bash and Terminal Basics](./Notes/Week_2/Node_Express_and_Development.md)
+    *   \`[Bash and Terminal Basics](./Notes/Week_2/Node_Express_and_Development.md)
 
     *   [Map, Filter and Arrow Fuctions](./Notes/Week_2/Node_Express_and_Development.md)
 
     *   [Git/Github - Version Control System](./Notes/Week_2/Node_Express_and_Development.md)
+
+### Week 3: Authentication, Database, Middleware, global Catches, Zod.
+
+*   `Authentication & Database.`&#x20;
+
+    *   Fetch API Overview
+
+    *   Authentication Overview (Hashing, Encryption, Jwt)
+
+    *   Database Overview
+
+    *   Authentication system with mongoDB.
+
+    *   Additonal concidration
+
+*   `Middlewares, Global Error Handling, Input Validation, Authenticaton`
+
+    *   In Depth Middleware in React.&#x20;
+
+    *   Global Error Handling ( Custom Classes )
+
+    *   Input Validation with Zod
+
+    *   Authentication Workflow
 

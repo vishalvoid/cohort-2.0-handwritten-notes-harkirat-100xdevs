@@ -8,7 +8,7 @@ Things to Study:&#x20;
 
 **A Component can only return a single top level xml. Why?**
 
-*   Make it easy to reconciliation. (what component needs to change when a dom update is caalled reconciliation)
+- Make it easy to reconciliation. (what component needs to change when a dom update is caalled reconciliation)
 
 **React.Fragment**
 
@@ -18,17 +18,17 @@ to fight with this problem we can use either `<React.Fragment> </React.Fragment>
 
 **A Re-render means that**&#x20;
 
-*   React did some work to calculate what all should updat ein this component.
+- React did some work to calculate what all should updat ein this component.
 
-*   The component actually got called (you can put a log to confirm this)
+- The component actually got called (you can put a log to confirm this)
 
-*   The inspector shows you a bounding box around the component.
+- The inspector shows you a bounding box around the component.
 
 **It happens when**&#x20;
 
-*   A state variable that is being used inside a component changes.&#x20;
+- A state variable that is being used inside a component changes.&#x20;
 
-*   A parent component re-render triggeres all children re-rendering.
+- A parent component re-render triggeres all children re-rendering.
 
 `Anytime If parent re-renders it's child will also re-renders.`&#x20;
 
@@ -72,51 +72,51 @@ export default App;
 
 ## Memo (memoization)
 
-*   **Purpose:**
+- **Purpose:**
 
-    *   Optimizes performance by preventing unnecessary re-renders.
+  - Optimizes performance by preventing unnecessary re-renders.
 
-    *   Re-renders only when props actually change.
+  - Re-renders only when props actually change.
 
-*   **Usage:**
+- **Usage:**
 
-    *   `const MyComponent = React.memo(function MyComponent({ prop1, prop2 }) { ... });`
+  - `const MyComponent = React.memo(function MyComponent({ prop1, prop2 }) { ... });`
 
-*   **Example 1 (Simple):**
+- **Example 1 (Simple):**
 
-    ```javascript
-    const MyButton = React.memo(function MyButton({ label }) {
-      console.log("MyButton rendered!");
-      return <button>{label}</button>;
-    });
-    ```
+  ```javascript
+  const MyButton = React.memo(function MyButton({ label }) {
+    console.log("MyButton rendered!");
+    return <button>{label}</button>;
+  });
+  ```
 
-    *   `MyButton` only re-renders if the `label` prop changes.
+  - `MyButton` only re-renders if the `label` prop changes.
 
-*   **Example 2 (With State):**
+- **Example 2 (With State):**
 
-    ```javascript
-    function Parent() {
-      const [count, setCount] = useState(0);
+  ```javascript
+  function Parent() {
+    const [count, setCount] = useState(0);
 
-      return (
-        <div>
-          <button onClick={() => setCount(count + 1)}>Click</button>
-          <MyComponent name="John" />
-        </div>
-      );
-    }
-    ```
+    return (
+      <div>
+        <button onClick={() => setCount(count + 1)}>Click</button>
+        <MyComponent name="John" />
+      </div>
+    );
+  }
+  ```
 
-    *   `MyComponent` won't re-render when `count` changes, as its props (`name`) remain the same.
+  - `MyComponent` won't re-render when `count` changes, as its props (`name`) remain the same.
 
-*   **Key Points:**
+- **Key Points:**
 
-    *   Uses shallow prop comparison by default.
+  - Uses shallow prop comparison by default.
 
-    *   Consider custom `compare` function for complex props.
+  - Consider custom `compare` function for complex props.
 
-    *   Overuse can sometimes hinder debugging.
+  - Overuse can sometimes hinder debugging.
 
 ### Keys in React.&#x20;
 
@@ -124,34 +124,29 @@ When rendering lists of elements in React, each child element **must** have a un
 
 **Purpose of Keys:**
 
-*   **Identify Elements:** Keys help React efficiently track changes within the list.
+- **Identify Elements:** Keys help React efficiently track changes within the list.
 
-*   **Performance:**
+- **Performance:**
 
-    *   When items are added, removed, or reordered, React uses keys to determine the minimum number of changes required to update the DOM.
+  - When items are added, removed, or reordered, React uses keys to determine the minimum number of changes required to update the DOM.
 
-    *   This significantly improves performance, especially with large lists.
+  - This significantly improves performance, especially with large lists.
 
 **Example:**
 
 ```javascript
 const numbers = [1, 2, 3];
 
-const listItems = numbers.map((number) => (
-  <li key={number}>
-    {number}
-  </li>
-));
-
+const listItems = numbers.map((number) => <li key={number}>{number}</li>);
 ```
 
 **Important Notes:**
 
-*   Keys should be unique within the same list.
+- Keys should be unique within the same list.
 
-*   Ideal keys are stable and predictable, such as IDs from your data source.
+- Ideal keys are stable and predictable, such as IDs from your data source.
 
-*   Avoid using `index` as a key if items can be reordered or filtered.
+- Avoid using `index` as a key if items can be reordered or filtered.
 
 ## Wrapper Components
 
@@ -161,11 +156,7 @@ To improve code reusability and maintainability, create wrapper components for c
 
 ```javascript
 function Card({ children }) {
-  return (
-    <div className="card">
-      {children}
-    </div>
-  );
+  return <div className="card">{children}</div>;
 }
 
 // Usage
@@ -173,22 +164,20 @@ function Card({ children }) {
   {/* Any React component or elements can be placed here */}
   <h1>Card Title</h1>
   <p>Card content</p>
-</Card>
-
+</Card>;
 ```
 
 This `Card` component can now be used throughout your application, making your code more concise and easier to maintain.
 
 **Key Benefits of Wrapper Components:**
 
-*   **Increased Reusability:** Reduce code duplication by creating reusable components.
+- **Increased Reusability:** Reduce code duplication by creating reusable components.
 
-*   **Improved Maintainability:** Changes to the component's styling or behavior only need to be made in one place.
+- **Improved Maintainability:** Changes to the component's styling or behavior only need to be made in one place.
 
-*   **Better Organization:** Encapsulate related logic and styling within a single component.
+- **Better Organization:** Encapsulate related logic and styling within a single component.
 
-*   **Improved Readability:** Makes your code more modular and easier to understand.
-
+- **Improved Readability:** Makes your code more modular and easier to understand.
 
 ### **Hooks in React**
 
@@ -198,250 +187,237 @@ Hooks are functions that let you "hook into" React state and lifecycle features 
 
 1.  **`useState`:**
 
-    *   **Purpose:** Allows you to add state to a functional component.
+    - **Purpose:** Allows you to add state to a functional component.
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        import React, { useState } from 'react';
+      ```javascript
+      import React, { useState } from "react";
 
-        function Counter() {
-          const [count, setCount] = useState(0); 
+      function Counter() {
+        const [count, setCount] = useState(0);
 
-          return (
-            <div>
-              <p>You clicked {count} times</p>
-              <button onClick={() => setCount(count + 1)}>
-                Click me
-              </button>
-            </div>
-          );
-        }
+        return (
+          <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>Click me</button>
+          </div>
+        );
+      }
+      ```
 
-        ```
+    - \*\*Explanation:\*\*1
 
-    *   \*\*Explanation:\*\*1
+      - `useState(0)` initializes the state with an initial value of 0.
 
-        *   `useState(0)` initializes the state with an initial value of 0.
+      - `useState` returns an array with two elements:
 
-        *   `useState` returns an array with two elements:
+        - `count`: The current value of the state.
 
-            *   `count`: The current value of the state.
+        - `setCount`: A function to update the state.
 
-            *   `setCount`: A function to update the state.
-
-        *   When you call `setCount`, React re-renders the component with the updated state.
+      - When you call `setCount`, React re-renders the component with the updated state.
 
 2.  **`useEffect`:**
 
-    *   **Purpose:** Handles side effects in functional components (e.g., fetching data, setting up subscriptions, DOM manipulations).
+    - **Purpose:** Handles side effects in functional components (e.g., fetching data, setting up subscriptions, DOM manipulations).
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        useEffect(() => {
-          // Code that runs after the component renders (or when dependencies change)
-          const fetchData = async () => {
-            const response = await fetch('/api/data');
-            const data = await response.json();
-            setData(data); 
-          };
+      ```javascript
+      useEffect(() => {
+        // Code that runs after the component renders (or when dependencies change)
+        const fetchData = async () => {
+          const response = await fetch('/api/data');
+          const data = await response.json();
+          setData(data);
+        };
 
-          fetchData(); 
+        fetchData();
 
-          // Cleanup function (optional)
-          return () => { 
-            // Clean up any subscriptions or resources
-          };
-        }, [dependency1, dependency2, ...]); 
+        // Cleanup function (optional)
+        return () => {
+          // Clean up any subscriptions or resources
+        };
+      }, [dependency1, dependency2, ...]);
 
-        ```
+      ```
 
-    *   **Explanation:**
+    - **Explanation:**
 
-        *   The `dependency array`:
+      - The `dependency array`:
 
-            *   If empty (`[]`), the effect runs only once after the initial render (similar to `componentDidMount`).
+        - If empty (`[]`), the effect runs only once after the initial render (similar to `componentDidMount`).
 
-            *   If included, the effect runs again whenever a dependency changes.
+        - If included, the effect runs again whenever a dependency changes.
 
-        *   The optional return function is called during the unmount phase (similar to `componentWillUnmount`) to clean up any side effects.
+      - The optional return function is called during the unmount phase (similar to `componentWillUnmount`) to clean up any side effects.
 
 3.  **`useContext`:**
 
-    *   **Purpose:** Enables access to a shared context value within a component tree.
+    - **Purpose:** Enables access to a shared context value within a component tree.
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        const MyContext = createContext();
+      ```javascript
+      const MyContext = createContext();
 
-        function ComponentA() {
-          return (
-            <MyContext.Provider value={{ name: 'Alice' }}>
-              <ComponentB />
-            </MyContext.Provider>
-          );
-        }
+      function ComponentA() {
+        return (
+          <MyContext.Provider value={{ name: "Alice" }}>
+            <ComponentB />
+          </MyContext.Provider>
+        );
+      }
 
-        function ComponentB() {
-          const { name } = useContext(MyContext);
-          return <div>Hello, {name}!</div>;
-        }
+      function ComponentB() {
+        const { name } = useContext(MyContext);
+        return <div>Hello, {name}!</div>;
+      }
+      ```
 
-        ```
+    - **Explanation:**
 
-    *   **Explanation:**
+      - `createContext` creates a context object.
 
-        *   `createContext` creates a context object.
+      - `Provider` makes the context value available to its children.
 
-        *   `Provider` makes the context value available to its children.
-
-        *   `useContext` hooks into the context and retrieves the value.
+      - `useContext` hooks into the context and retrieves the value.
 
 4.  **`useReducer`:**
 
-    *   **Purpose:** An alternative to `useState` for managing complex state logic.
+    - **Purpose:** An alternative to `useState` for managing complex state logic.
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        function reducer(state, action) {
-          switch (action.type) {
-            case 'increment':
-              return { count: state.count + 1 };
-            case 'decrement':
-              return { count: state.count - 1 };
-            default:
-              throw new Error();
-          }
+      ```javascript
+      function reducer(state, action) {
+        switch (action.type) {
+          case "increment":
+            return { count: state.count + 1 };
+          case "decrement":
+            return { count: state.count - 1 };
+          default:
+            throw new Error();
         }
+      }
 
-        function Counter() {
-          const [state, dispatch] = useReducer(reducer, { count: 0 }); 
+      function Counter() {
+        const [state, dispatch] = useReducer(reducer, { count: 0 });
 
-          return (
-            <div>
-              <p>Count: {state.count}</p>
-              <button onClick={() => dispatch({ type: 'increment' })}>
-                Increment
-              </button>
-              <button onClick={() => dispatch({ type: 'decrement' })}>
-                Decrement
-              </button>
-            </div>
-          );
-        }
+        return (
+          <div>
+            <p>Count: {state.count}</p>
+            <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+            <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+          </div>
+        );
+      }
+      ```
 
-        ```
+    - \*\*Explanation:\*\*2
 
-    *   \*\*Explanation:\*\*2
+      - `useReducer` takes a reducer function and an initial state as arguments.
 
-        *   `useReducer` takes a reducer function and an initial state as arguments.
+      - It returns an array with two elements:
 
-        *   It returns an array with two elements:
+        - The current state.
 
-            *   The current state.
-
-            *   A `dispatch` function to update the state by sending actions to the reducer.
+        - A `dispatch` function to update the state by sending actions to the reducer.
 
 5.  **`useMemo`:**
 
-    *   **Purpose:** Memoizes the result of an expensive function.
+    - **Purpose:** Memoizes the result of an expensive function.
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        const memoizedValue = useMemo(() => {
-          // Expensive calculation here
-        }, [dependency1, dependency2, ...]);
+      ```javascript
+      const memoizedValue = useMemo(() => {
+        // Expensive calculation here
+      }, [dependency1, dependency2, ...]);
 
-        ```
+      ```
 
-    *   **Explanation:**
+    - **Explanation:**
 
-        *   `useMemo` remembers the result of the function call.
+      - `useMemo` remembers the result of the function call.
 
-        *   If the dependencies haven't changed, it returns the cached result instead of recalculating it.
+      - If the dependencies haven't changed, it returns the cached result instead of recalculating it.
 
-        *   This can improve performance by avoiding unnecessary re-renders.
+      - This can improve performance by avoiding unnecessary re-renders.
 
-        *   easy: it means remembering some output given an input and not computing it again.&#x20;
+      - easy: it means remembering some output given an input and not computing it again.&#x20;
 
 6.  **`useCallback`:**
 
-    *   **Purpose:** Memoizes a function.
+    - **Purpose:** Memoizes a function.
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        const memoizedCallback = useCallback(() => {
-          // Function logic here
-        }, [dependency1, dependency2, ...]);
+      ```javascript
+      const memoizedCallback = useCallback(() => {
+        // Function logic here
+      }, [dependency1, dependency2, ...]);
 
-        ```
+      ```
 
-    *   **Explanation:**
+    - **Explanation:**
 
-        *   `useCallback` returns a memoized version of the given function.
+      - `useCallback` returns a memoized version of the given function.
 
-        *   If the dependencies haven't changed, it returns the same function reference.
+      - If the dependencies haven't changed, it returns the same function reference.
 
-        *   This can prevent unnecessary re-renders of child components that depend on the function.
+      - This can prevent unnecessary re-renders of child components that depend on the function.
 
 7.  **`useRef`:**
 
-    *   **Purpose:** Creates a mutable ref object that persists across renders.
+    - **Purpose:** Creates a mutable ref object that persists across renders.
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        const inputRef = useRef(null);
+      ```javascript
+      const inputRef = useRef(null);
 
-        useEffect(() => {
-          inputRef.current.focus();
-        }, []); 
+      useEffect(() => {
+        inputRef.current.focus();
+      }, []);
+      ```
 
-        ```
+    - **Explanation:**
 
-    *   **Explanation:**
+      - `useRef` returns a ref object with a `current` property.
 
-        *   `useRef` returns a ref object with a `current` property.
-
-        *   The `current` property can be used to access DOM elements or store values that don't cause re-renders.
+      - The `current` property can be used to access DOM elements or store values that don't cause re-renders.
 
 8.  **`useLayoutEffect`:**
 
-    *   **Purpose:** Similar to `useEffect`, but runs after all DOM mutations have been applied.
+    - **Purpose:** Similar to `useEffect`, but runs after all DOM mutations have been applied.
 
-    *   **Usage:** JavaScript
+    - **Usage:** JavaScript
 
-        ```javascript
-        useLayoutEffect(() => {
-          // Code that runs after all DOM mutations
-        }, [dependency1, dependency2, ...]); 
+      ```javascript
+      useLayoutEffect(() => {
+        // Code that runs after all DOM mutations
+      }, [dependency1, dependency2, ...]);
 
-        ```
+      ```
 
-    *   **Explanation:**
+    - **Explanation:**
 
-        *   `useLayoutEffect` is useful for making DOM measurements or adjustments after the layout has been calculated.
+      - `useLayoutEffect` is useful for making DOM measurements or adjustments after the layout has been calculated.
 
-        *   Should be used sparingly, as it can cause performance issues.
+      - Should be used sparingly, as it can cause performance issues.
 
 **Key Benefits of Hooks:**
 
-*   **Increased Readability:** Makes functional components more concise and easier to understand.
+- **Increased Readability:** Makes functional components more concise and easier to understand.
 
-*   **Improved Code Reusability:** Allows you to extract and reuse stateful logic across components.
+- **Improved Code Reusability:** Allows you to extract and reuse stateful logic across components.
 
-*   **Better Code Organization:** Encourages breaking down components into smaller, more focused units.
+- **Better Code Organization:** Encourages breaking down components into smaller, more focused units.
 
 ### Side Effects.&#x20;
 
 In react, the concept of side effects enxompasses any operations that react outside the functional scope of a React component. These operations can affect other components, interact with the browser, or perform asychronous data fetching. &#x20;
 
 anything not a part of contemperary react rendering cycle eg: setTimeout, fetch, setInterval, document.getElementById("").innerHTML = "".
-
-
-

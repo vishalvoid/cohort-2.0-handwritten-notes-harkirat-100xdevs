@@ -1,40 +1,40 @@
 ## **DOM, Dynamic Frontends, Connecting FE to BE.**
 
-### What does DOM Strands for ?
+### 1. What does DOM Strands for ?
 
 The Dom (Document Object Model) api is a programing interface for web documents, it represents the page so that programs can change the document structure, style and content. The DOM represents the document as a tree of objects; each object represents a part of the page.
 
-### What was JavaScript?
+### 2. What was JavaScript?
 
 It was an implementation of the ECMAScript spec. but the javascript that runs in your browser has some extra functionality. (Example WebAPI , also setTimeout was never a part of ECMAScript ).&#x20;
 
 But the javaScript that runs on the browser has some other functionalities.&#x20;
 
 ```javascript
-                #############                                   
-           #####             #####                              
-        ###                       ###                           
-      ##        setTimeout           ##                         
-    ##          fetch                  ##                       
-   #            setInterval              #                      
-  #             document                  #                     
- #                                         #                    
-#               #########                   #                   
-#            ###         ###                #                   
-#          ##               ##              #                   
+                #############
+           #####             #####
+        ###                       ###
+      ##        setTimeout           ##
+    ##          fetch                  ##
+   #            setInterval              #
+  #             document                  #
+ #                                         #
+#               #########                   #
+#            ###         ###                #
+#          ##               ##              #
 #         #                   #             #   < === Browser JS
-#        #                     #            #                   
- #       #       JS Spec       #           #                    
-  #      #                     #          #                     
-   #      #                   #          #                      
-    ##     ##               ##         ##                       
-      ##     ###         ###         ##                         
-        ###     #########         ###                           
-           #####             #####                              
-                #############                                  
+#        #                     #            #
+ #       #       JS Spec       #           #
+  #      #                     #          #
+   #      #                   #          #
+    ##     ##               ##         ##
+      ##     ###         ###         ##
+        ###     #########         ###
+           #####             #####
+                #############
 ```
 
-> If you try to write document in node.js application it will not exist. if  you write same in browser it does exist.&#x20;
+> If you try to write document in node.js application it will not exist. if you write same in browser it does exist.&#x20;
 
 What is a Dynamic Website : \
 Changing the elements on the website once the website is loaded. is somewhat called dynamic.&#x20;
@@ -70,21 +70,21 @@ Browser code -------------------------> Backend
              <-------------------------
                         300
 
-For this we need some backend Server : 
+For this we need some backend Server :
 Example we need to hit a api or server : calculatesu.vishalvoid.com?a=10&b=20. returns 30
 
-this can only de done by fetch() 
-            
+this can only de done by fetch()
+
 example : fetch("https://sum-server.vishalvoid.com/sum?a=10")
                 .then(function(fesponse){
                      .then(function(ans){
                         document.getElementById("finalSum").innerHTML = ans;
-                }   
+                }
                 })
 
 ```
 
-### Debouncing.
+### 3. Debouncing.
 
 Debouncing is a way to delay a function from running until a certain amount of time has passed without repeated events. It’s useful for tasks like search suggestions or resize events, where you don’t want to trigger the function too often.
 
@@ -110,9 +110,12 @@ function debounce(func, delay) {
   };
 }
 
-input.addEventListener('input', debounce(() => {
-  console.log('Function called'); // Runs after user stops typing for 300ms
-}, 300));
+input.addEventListener(
+  "input",
+  debounce(() => {
+    console.log("Function called"); // Runs after user stops typing for 300ms
+  }, 300)
+);
 ```
 
 ## **React Foundation (Why Frontend Frameworks)**
@@ -132,20 +135,20 @@ document.getElementById("container").appendChild(element)
 <div>some random title </div>
 
 // Problem with this approach
-Very hard to add and remove elements. no Central State. 
+Very hard to add and remove elements. no Central State.
 ```
 
 What if there is a server where these todos are put What if you update a TODO form your mobile app. You will be get back the new array of TODOs on a frontend. \
 How will you update the DOM then ? \
 you only have a **addTodo** Function. You don't have an **updateTodo** or **removeTodo** Function yet.&#x20;
 
-## How to Create React&#x20;
+## 4. How to Create React&#x20;
 
 > npm create vite\@latest
 
-Dynamic website, when u have to create  a dynamic website, you write lot of js codethat does dom manumulation. here we do same. all the logic and everything we srite in js file and somehow it get's rendered to a html page.&#x20;
+Dynamic website, when u have to create a dynamic website, you write lot of js codethat does dom manumulation. here we do same. all the logic and everything we srite in js file and somehow it get's rendered to a html page.&#x20;
 
-## Databases:&#x20;
+## 5. Databases:&#x20;
 
 **Why don't we let the user hit the database directly?**
 
@@ -157,7 +160,7 @@ Dynamic website, when u have to create  a dynamic website, you write lot of js c
 
 3.  There are some database (firebase) that let you get rid of the http server and try theiir best to provice granola access.&#x20;
 
-## DOM Manipulation in JavaScript (for MERN Stack)
+## 7. DOM Manipulation in JavaScript (for MERN Stack)
 
 **What is DOM Manipulation?**
 
@@ -165,43 +168,43 @@ Imagine the webpage as a tree-like structure. The **Document Object Model (DOM)*
 
 **Key Concepts:**
 
-*   **Selecting Elements:**
+- **Selecting Elements:**
 
-    *   `getElementById()`: Finds an element by its unique ID. (e.g., `document.getElementById("myDiv")`)
+  - `getElementById()`: Finds an element by its unique ID. (e.g., `document.getElementById("myDiv")`)
 
-    *   `getElementsByClassName()`: Finds elements with a specific class name. (e.g., `document.getElementsByClassName("myClass")`)
+  - `getElementsByClassName()`: Finds elements with a specific class name. (e.g., `document.getElementsByClassName("myClass")`)
 
-    *   `getElementsByTagName()`: Finds elements with a specific tag name. (e.g., `document.getElementsByTagName("p")`)
+  - `getElementsByTagName()`: Finds elements with a specific tag name. (e.g., `document.getElementsByTagName("p")`)
 
-    *   `querySelector()`: Finds the first element that matches a CSS selector. (e.g., `document.querySelector("#myDiv")` or `document.querySelector(".myClass")`)
+  - `querySelector()`: Finds the first element that matches a CSS selector. (e.g., `document.querySelector("#myDiv")` or `document.querySelector(".myClass")`)
 
-    *   `querySelectorAll()`: Finds all elements that match a CSS selector. (e.g., `document.querySelectorAll(".myClass")`)
+  - `querySelectorAll()`: Finds all elements that match a CSS selector. (e.g., `document.querySelectorAll(".myClass")`)
 
-*   **Changing Content:**
+- **Changing Content:**
 
-    *   `innerHTML`: Changes the HTML content within an element.
+  - `innerHTML`: Changes the HTML content within an element.
 
-    *   `textContent`: Changes the plain text content within an element.
+  - `textContent`: Changes the plain text content within an element.
 
-    *   `innerText`: Similar to `textContent`, but may handle some HTML entities differently.
+  - `innerText`: Similar to `textContent`, but may handle some HTML entities differently.
 
-*   **Changing Styles:**
+- **Changing Styles:**
 
-    *   `style` property: Directly access and modify CSS properties of an element. (e.g., `element.style.color = "red";`)
+  - `style` property: Directly access and modify CSS properties of an element. (e.g., `element.style.color = "red";`)
 
-    *   `classList`: Add, remove, or toggle CSS classes on an element. (e.g., `element.classList.add("active");`)
+  - `classList`: Add, remove, or toggle CSS classes on an element. (e.g., `element.classList.add("active");`)
 
-*   **Creating Elements:**
+- **Creating Elements:**
 
-    *   `createElement()`: Creates a new element. (e.g., `const newDiv = document.createElement("div");`)
+  - `createElement()`: Creates a new element. (e.g., `const newDiv = document.createElement("div");`)
 
-    *   `appendChild()`: Adds a child element to another element. (e.g., `parentDiv.appendChild(newDiv);`)
+  - `appendChild()`: Adds a child element to another element. (e.g., `parentDiv.appendChild(newDiv);`)
 
-*   **Events:**
+- **Events:**
 
-    *   Attach JavaScript functions to events (like clicks, mouseovers, etc.) to make your webpage interactive.
+  - Attach JavaScript functions to events (like clicks, mouseovers, etc.) to make your webpage interactive.
 
-    *   Use `addEventListener()` to attach event listeners.
+  - Use `addEventListener()` to attach event listeners.
 
 **Example:**
 
@@ -213,7 +216,7 @@ const paragraph = document.getElementById("myParagraph");
 paragraph.textContent = "This text has been changed!";
 
 // Add a class to the paragraph
-paragraph.classList.add("highlight"); 
+paragraph.classList.add("highlight");
 
 // Create a new button
 const newButton = document.createElement("button");
@@ -230,7 +233,6 @@ document.body.appendChild(newButton);
 
 **Key Takeaways:**
 
-*   DOM Manipulation allows you to dynamically update and control the appearance and behavior of web pages.
+- DOM Manipulation allows you to dynamically update and control the appearance and behavior of web pages.
 
-*   It's a fundamental skill for building interactive and user-friendly web applications.
-
+- It's a fundamental skill for building interactive and user-friendly web applications.
