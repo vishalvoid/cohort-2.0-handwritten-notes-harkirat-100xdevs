@@ -12,7 +12,7 @@ Things to Study:&#x20;
 
 **React.Fragment**
 
-to fight with this problem we can use either `<React.Fragment> </React.Fragment>`. or `<></>`  both works absolutely fine.&#x20;
+to fight with this problem we can use either `<React.Fragment> </React.Fragment>`. or `<></>` both works absolutely fine.&#x20;
 
 ### Re-Render in React.Js
 
@@ -37,7 +37,7 @@ if you want to minimise the rumber of re-renders to make a hightly optimal react
 **To Avoid thsi we can push the state down :**&#x20;
 
 ```javascript
-import { useState } from "react"
+import { useState } from "react";
 
 function App() {
   return (
@@ -45,29 +45,29 @@ function App() {
       <HeaderWithButton />
       <Header title="My name is raman" />
     </div>
-  )
+  );
 }
 
 function HeaderWithButton() {
   const [firstTitle, setFirstTitle] = useState("my name is harkirat");
 
   function changeTitle() {
-    setFirstTitle("My name is " + Math.random())
+    setFirstTitle("My name is " + Math.random());
   }
 
-  return <>
-    <button onClick={changeTitle}>Click me to change the title</button>
-    <Header title={firstTitle} />
-  </>
+  return (
+    <>
+      <button onClick={changeTitle}>Click me to change the title</button>
+      <Header title={firstTitle} />
+    </>
+  );
 }
 
-function Header({title}) {
-  return <div>
-    {title}
-  </div>
+function Header({ title }) {
+  return <div>{title}</div>;
 }
 
-export default App
+export default App;
 ```
 
 ## Memo (memoization)
@@ -85,9 +85,9 @@ export default App
 *   **Example 1 (Simple):**
 
     ```javascript
-    const MyButton = React.memo(function MyButton({ label }) { 
-      console.log('MyButton rendered!'); 
-      return <button>{label}</button>; 
+    const MyButton = React.memo(function MyButton({ label }) {
+      console.log("MyButton rendered!");
+      return <button>{label}</button>;
     });
     ```
 
@@ -102,7 +102,7 @@ export default App
       return (
         <div>
           <button onClick={() => setCount(count + 1)}>Click</button>
-          <MyComponent name="John" /> 
+          <MyComponent name="John" />
         </div>
       );
     }
@@ -118,14 +118,97 @@ export default App
 
     *   Overuse can sometimes hinder debugging.
 
-### Keys in react.&#x20;
+### Keys in React.&#x20;
 
-Error: Each child in a list should have a unique "key" prop. You nedd to give each array item a key - string or a number that uniquely identified it among other items in that array.&#x20;
+When rendering lists of elements in React, each child element **must** have a unique `key` prop.
 
-> JSX Elements directly inside a map() call always need keys!
+**Purpose of Keys:**
 
-keys tell react which array item each component corresponds to, so that it can match them up later. This becomes important if your array itemscan move eg: due to sorting, get inserted or get deleted. A well-chosed key helps React infer what exactly has happened, and make the correct updates to the DOM.
+*   **Identify Elements:** Keys help React efficiently track changes within the list.
 
-### Wrapper React Components.
+*   **Performance:**
 
-let's say you want to build this, you will notice a lot of cards on the right look the same. you can create a wrapper card component that takes the inner React component as an input.&#x20;
+    *   When items are added, removed, or reordered, React uses keys to determine the minimum number of changes required to update the DOM.
+
+    *   This significantly improves performance, especially with large lists.
+
+**Example:**
+
+```javascript
+const numbers = [1, 2, 3];
+
+const listItems = numbers.map((number) => (
+  <li key={number}>
+    {number}
+  </li>
+));
+
+```
+
+**Important Notes:**
+
+*   Keys should be unique within the same list.
+
+*   Ideal keys are stable and predictable, such as IDs from your data source.
+
+*   Avoid using `index` as a key if items can be reordered or filtered.
+
+## Wrapper Components
+
+To improve code reusability and maintainability, create wrapper components for commonly used UI elements.
+
+**Example:**
+
+```javascript
+function Card({ children }) {
+  return (
+    <div className="card">
+      {children}
+    </div>
+  );
+}
+
+// Usage
+<Card>
+  {/* Any React component or elements can be placed here */}
+  <h1>Card Title</h1>
+  <p>Card content</p>
+</Card>
+
+```
+
+This `Card` component can now be used throughout your application, making your code more concise and easier to maintain.
+
+**Key Benefits of Wrapper Components:**
+
+*   **Increased Reusability:** Reduce code duplication by creating reusable components.
+
+*   **Improved Maintainability:** Changes to the component's styling or behavior only need to be made in one place.
+
+*   **Better Organization:** Encapsulate related logic and styling within a single component.
+
+*   **Improved Readability:** Makes your code more modular and easier to understand.
+
+
+### Hooks in React Js
+
+Hooks in React are functions that allow you to "hook into" React state and lifecycle features from function components.&#x20;
+
+**Some Examples (Types) of Hooks:**&#x20;
+
+*   useEffect
+
+*   useMemo
+
+*   useCallback
+
+*   useRef
+
+*   useReducer
+
+*   useContext
+
+*   useLayoutEffect
+
+
+
