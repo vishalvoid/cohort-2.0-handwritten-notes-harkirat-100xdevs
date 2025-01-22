@@ -1,94 +1,139 @@
 # Notes Repository: Cohort 2.0 - Harkirat’s Course
 
-> *“Your centralized hub for everything learned and explored during Cohort 2.0 with Harkirat.”*
+> _“Your centralized hub for everything learned and explored during Cohort 2.0 with Harkirat.”_
 
-**Time Table and Course Length [click here](./Notes/process/Time_chart.md)**
+**Time Table and Course Length [click here](./Notes/process/Time_chart.md).**
 
 ### Week 1: Basic JS Fundamentals
 
-*   **`JavaScript Foundation`**
+- **`JavaScript Foundation`**
 
-    *   [Why Languages?](./Notes/Week_1/Javascript_Foundation.md)
+  - [Why Languages?](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Interpreted vs Compiled Languages](./Notes/Week_1/Javascript_Foundation.md)
+  - [Interpreted vs Compiled Languages](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Why JavaScript? >> Other Languages in Some Use Cases](./Notes/Week_1/Javascript_Foundation.md)
+  - [Why JavaScript? >> Other Languages in Some Use Cases](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Strict vs Dynamic Languages](./Notes/Week_1/Javascript_Foundation.md)
+  - [Strict vs Dynamic Languages](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Single-Threaded Nature of JavaScript](./Notes/Week_1/Javascript_Foundation.md)
+  - [Single-Threaded Nature of JavaScript](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Simple Primitives in JS (Number, String, Booleans)](./Notes/Week_1/Javascript_Foundation.md)
+  - [Simple Primitives in JS (Number, String, Booleans)](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Complex Primitives in JS (Arrays, Objects)](./Notes/Week_1/Javascript_Foundation.md)
+  - [Complex Primitives in JS (Arrays, Objects)](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Functions in JavaScript](./Notes/Week_1/Javascript_Foundation.md)
+  - [Functions in JavaScript](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Async Functions vs Sync Functions](./Notes/Week_1/Javascript_Foundation.md)
+  - [Async Functions vs Sync Functions](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Promises](./Notes/Week_1/Javascript_Foundation.md)
+  - [Promises](./Notes/Week_1/Javascript_Foundation.md)
 
-    *   [Async/Await Syntax](./Notes/Week_1/Javascript_Foundation.md)
+  - [Async/Await Syntax](./Notes/Week_1/Javascript_Foundation.md)
 
 ### Week 2: Node, Express & Development.
 
-*   **`Node.js and Express with Development Tools`**
+- **`Node.js and Express with Development Tools`**
 
-    *   [Node Js Runtime | HTTP](./Notes/Week_2/Node_Express_and_Development.md)
+  - [Node Js Runtime | HTTP](./Notes/Week_2/Node_Express_and_Development.md)
 
-    *   [Express.Js](./Notes/Week_2/Node_Express_and_Development.md)
+  - [Express.Js](./Notes/Week_2/Node_Express_and_Development.md)
 
-    *   [Express Request Object: req.query, req.body, and req.headers](./Notes/Week_2/Node_Express_and_Development.md)
+  - [Express Request Object: req.query, req.body, and req.headers](./Notes/Week_2/Node_Express_and_Development.md)
 
-    *   \`[Bash and Terminal Basics](./Notes/Week_2/Node_Express_and_Development.md)
+  - \`[Bash and Terminal Basics](./Notes/Week_2/Node_Express_and_Development.md)
 
-    *   [Map, Filter and Arrow Fuctions](./Notes/Week_2/Node_Express_and_Development.md)
+  - [Map, Filter and Arrow Fuctions](./Notes/Week_2/Node_Express_and_Development.md)
 
-    *   [Git/Github - Version Control System](./Notes/Week_2/Node_Express_and_Development.md)
+  - [Git/Github - Version Control System](./Notes/Week_2/Node_Express_and_Development.md)
 
 ### Week 3: Authentication, Database, Middleware, global Catches, Zod.
 
-*   `Authentication & Database.`&#x20;
+- `Authentication & Database.`&#x20;
 
-    *   Fetch API Overview
+  - Fetch API Overview
 
-    *   Authentication Overview (Hashing, Encryption, Jwt)
+  - Authentication Overview (Hashing, Encryption, Jwt)
 
-    *   Database Overview
+  - Database Overview
 
-    *   Authentication system with mongoDB.
+  - Authentication system with mongoDB.
 
-    *   Additonal concidration
+  - Additonal concidration
 
-*   `Middlewares, Global Error Handling, Input Validation, Authenticaton`
+- `Middlewares, Global Error Handling, Input Validation, Authenticaton`
 
-    *   In Depth Middleware in React.&#x20;
+  - In Depth Middleware in React.&#x20;
 
-    *   Global Error Handling ( Custom Classes )
+  - Global Error Handling ( Custom Classes )
 
-    *   Input Validation with Zod
+  - Input Validation with Zod
 
-    *   Authentication Workflow
+  - Authentication Workflow
 
 ### Week 4: DOM, Dynamic Frontends, Connecting FE to BE
 
-*   `DOM & Dynamic Websites`
+- `DOM & Dynamic Websites`
 
-    *   What does DOM Stands for ?
+  - What does DOM Stands for ?
 
-    *   What was Javascript and how do they relate.
+  - What was Javascript and how do they relate.
 
-    *   What is a Dynamic Website
+  - What is a Dynamic Website
 
-    *   Debouncing
+  - Debouncing
 
-*   `React foundation ( Why Frontend Frameworks )`
+- `React foundation ( Why Frontend Frameworks )`
 
-    *   Dom Manupulation
+  - Dom Manupulation
 
-    *   How to Create React
+  - How to Create React
 
-    *   Databases and Connection&#x20;
+  - Databases and Connection&#x20;
 
-    *   What extra does a http server probide
+  - What extra does a http server probide
 
+### Week 5: React Deep Dive
+
+- `Fundamentals / Basics of React.`&#x20;
+
+  - Why do we need React ?
+
+  - What is State, Component, Re-render
+
+  - React useState Hook and Spreading
+
+  - Todo App in react.&#x20;
+
+### Week 6: React Deeper Dive
+
+- `Advance Concepts of React`
+
+  - React components Return
+
+  - Re-Render
+
+  - Memo (Memoization )
+
+  - Keys
+
+  - Wrapper components
+
+  - Side Effects
+
+- `Hooks in React JS`
+
+  - useState Hook
+
+  - useEffect Hook
+
+  - useContext Hook
+
+  - useReducer Hook
+
+  - useMemo Hook
+
+  - useCallback Hook
+
+  - useRef Hook
+
+  - useLayoutEffect Hook

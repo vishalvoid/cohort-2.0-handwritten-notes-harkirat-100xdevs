@@ -8,7 +8,9 @@ For dynamic Websites, these libraries make it easier to do DOM Manipulation.
 
 React is just an esaier way to write normal HTML/CSS/JS, it's a new syntac, that under the hood gets converted to HTML/CSS/JS.&#x20;
 
-    React ---------npm run build------------> HTML/CSS/JS
+```javascript
+React ---------npm run build------------> HTML/CSS/JS
+```
 
 People realised it's harder to do DOM manipulation the conventational way. there were libraries that came into the picture that made it slightly easy, but still for a very big app it's very hard (JQuery) Eventually, VueJs/React created a new syntax to do frontends. Under the hood. the react compiler convert your code to HTML/CSS/JS.
 
