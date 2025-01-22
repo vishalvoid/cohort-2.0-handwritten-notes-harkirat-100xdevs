@@ -70,3 +70,25 @@
 
     *   Authentication Workflow
 
+### Week 4: DOM, Dynamic Frontends, Connecting FE to BE
+
+*   `DOM & Dynamic Websites`
+
+    *   What does DOM Stands for ?
+
+    *   What was Javascript and how do they relate.
+
+    *   What is a Dynamic Website
+
+    *   Debouncing
+
+*   `React foundation ( Why Frontend Frameworks )`
+
+    *   Dom Manupulation
+
+    *   How to Create React
+
+    *   Databases and Connection&#x20;
+
+    *   What extra does a http server probide
+
