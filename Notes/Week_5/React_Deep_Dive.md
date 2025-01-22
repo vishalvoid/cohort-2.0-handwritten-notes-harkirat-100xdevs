@@ -27,3 +27,8 @@ How a Dom element should rneder, given a stae. it is a re-usable, dynamic, HTML 
 `What is Re-render`
 
 A state change triggers a re-render. A re-render represents the actual dom manipulated when the state changes.&#x20;
+
+> You usually have to define all your components once. And then all you have to do is update the state of your app, React takes care of re-rendering your app.&#x20;
+
+
+
