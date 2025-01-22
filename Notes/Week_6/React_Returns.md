@@ -210,5 +210,11 @@ Hooks in React are functions that allow you to "hook into" React state and lifec
 
 *   useLayoutEffect
 
+**What are Side Effects ?**&#x20;
+
+In react, the concept of side effects enxompasses any operations that react outside the functional scope of a React component. These operations can affect other components, interact with the browser, or perform asychronous data fetching. &#x20;
+
+anything not a part of contemperary react rendering cycle eg: setTimeout, fetch, setInterval, document.getElementById("").innerHTML = "".
+
 
 
