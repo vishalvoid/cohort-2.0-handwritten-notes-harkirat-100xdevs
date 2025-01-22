@@ -126,3 +126,6 @@ Error: Each child in a list should have a unique "key" prop. You nedd to give ea
 
 keys tell react which array item each component corresponds to, so that it can match them up later. This becomes important if your array itemscan move eg: due to sorting, get inserted or get deleted. A well-chosed key helps React infer what exactly has happened, and make the correct updates to the DOM.
 
+### Wrapper React Components.
+
+let's say you want to build this, you will notice a lot of cards on the right look the same. you can create a wrapper card component that takes the inner React component as an input.&#x20;
