@@ -203,6 +203,8 @@ In this example, the `user` prop is passed through the `Parent` component even t
 
 The Context API is a feature in React that allows you to share state and data across components without passing props manually through every level of the tree.
 
+If you use the context Api, you're pushing your state management outside the code react components.&#x20;
+
 ### **Key Points:**
 
 *   Useful for avoiding prop drilling.
