@@ -518,6 +518,81 @@ Hooks are functions that let you "hook into" React state and lifecycle features 
 
         *   Should be used sparingly, as it can cause performance issues.
 
+9.  **Custom Hooks:**
+
+    *   **Purpose:** A custom React hook designed to execute logic similar to useEffect, but runs **after all DOM mutations** have been applied. This is useful for making DOM measurements or adjustments after the layout has been calculated.
+
+    *   **Usage:** JavaScript
+
+        ```javascript
+        import { useLayoutEffect } from "react";
+
+        /**
+         * Custom hook to execute a callback after all DOM mutations.
+         * @param {Function} callback - The function to execute.
+         * @param {Array} dependencies - Array of dependencies for re-execution.
+         */
+        function useAfterDOMMutation(callback, dependencies) {
+          useLayoutEffect(() => {
+            if (typeof callback === "function") {
+              callback();
+            }
+          }, dependencies);
+        }
+
+        export default useAfterDOMMutation;
+        ```
+
+    *   Example&#x20;
+
+        ```javascript
+        import React, { useState, useRef } from "react";
+        import useAfterDOMMutation from "./useAfterDOMMutation";
+
+        function ExampleComponent() {
+          const [text, setText] = useState("Hello, world!");
+          const divRef = useRef();
+
+          useAfterDOMMutation(() => {
+            if (divRef.current) {
+              const rect = divRef.current.getBoundingClientRect();
+              console.log("Bounding box of div:", rect);
+            }
+          }, [text]);
+
+          return (
+            <div>
+              <div ref={divRef}>{text}</div>
+              <button onClick={() => setText("Hello, React!")}>Change Text</button>
+            </div>
+          );
+        }
+
+        export default ExampleComponent;
+        ```
+
+    *   **Explanation:**
+
+        *   **Custom Hook:**
+
+            &#x20;   • The useAfterDOMMutation hook is built on top of useLayoutEffect.
+
+            &#x20;   • It takes a callback function and an array of dependencies.
+
+            &#x20;   • The callback runs **synchronously** after DOM updates, ensuring all layout changes are calculated.
+
+        *   **When to Use:**
+
+            &#x20;   • When you need precise DOM measurements, such as determining the size or position of elements after rendering.
+
+            &#x20;   • When making DOM adjustments, like modifying styles based on layout.
+
+        *   **Caution:**
+
+            &#x20;   • **Performance**: useLayoutEffect blocks the browser’s painting process, which may lead to slower rendering.
+
+            &#x20;   • \*\*Prefer \*\*useEffect: Use useEffect unless layout measurements or adjustments are absolutely required.
+
 **Key Benefits of Hooks:**
 
 *   **Increased Readability:** Makes functional components more concise and easier to understand.
