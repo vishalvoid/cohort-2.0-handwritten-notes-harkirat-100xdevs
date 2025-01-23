@@ -110,6 +110,46 @@ export default App;
 
     *   `MyComponent` won't re-render when `count` changes, as its props (`name`) remain the same.
 
+*   Example 3 (final)
+
+    ```javascript
+    import React, { memo } from "react";
+
+    const testing = () => {
+      const [count, setcount] = useState(0);
+
+      return (
+        <div>
+          <ButtonComponent />
+          <button
+            onClick={() => {
+              setcount((count = 1));
+            }}
+          >
+            {" "}
+            Click me{" "}
+          </button>
+        </div>
+      );
+    };
+
+    const ButtonComponent = memo(() => {
+      console.log("child Renders");
+
+      return (
+        <div>
+          <button>Button Clicked</button>
+        </div>
+      );
+    });
+
+    export default testing;
+
+    // here if we do not use memeo if the parent renders 
+    //the child component that is button definaltely re-renders. after using memo only parent component renders and not child 
+
+    ```
+
 *   **Key Points:**
 
     *   Uses shallow prop comparison by default.
@@ -376,7 +416,7 @@ Hooks are functions that let you "hook into" React state and lifecycle features 
 
     *   **Purpose:** Memoizes a function.
 
-    *   **Defination** : useCallback is a hook in React, a popular Javascript library for building user interfaces. it is used to memoize functions, which can help in optimizing the performance of your application, especially in cases involving child components that rely on reference equally to prevent unnecessary renders.&#x20;
+    *   **Defination** : useCallback is a hook in React, a popular Javascript library for building user interfaces. it is used to memoize functions, which can help in optimizing the performance of your application, especially in cases involving child components that rely on ***reference equally*** to prevent unnecessary renders.  &#x20;
 
     *   **Usage:** JavaScript
 
@@ -384,8 +424,52 @@ Hooks are functions that let you "hook into" React state and lifecycle features 
         const memoizedCallback = useCallback(() => {
           // Function logic here
         }, [dependency1, dependency2, ...]);
-
         ```
+
+    *   **Example One**&#x20;
+
+        ```javascript
+        import React, { memo, useCallback } from "react";
+
+        const testing = () => {
+          const [count, setcount] = useState(0);
+
+          // what useCallbacks do it it rely on the dependencied. if it changes then only
+          // the component will re-render. unlike react it re-renders the react js. basied on parsed by Reference not value.
+          // here it stops child component unless and unitil the dependencies changed. 
+          const inputFucntion = useCallback(() => {
+            console.log("hi there");
+          }, []);
+
+          return (
+            <div>
+              <ButtonComponent inputFunction={inputFucntion} />
+              <button
+                onClick={() => {
+                  setcount((count = 1));
+                }}
+              >
+                {" "}
+                Click me{" "}
+              </button>
+            </div>
+          );
+        };
+
+        const ButtonComponent = memo(({ inputFucntion }) => {
+          console.log("child Renders");
+
+          return (
+            <div>
+              <button>Button Clicked</button>
+            </div>
+          );
+        });
+
+        export default testing;
+        ```
+
+    *
 
     *   **Explanation:**
 
