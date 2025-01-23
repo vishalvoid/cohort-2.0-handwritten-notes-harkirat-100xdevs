@@ -223,6 +223,8 @@ This `Card` component can now be used throughout your application, making your c
 
 Hooks are functions that let you "hook into" React state and lifecycle features from within functional components. They were introduced in React 16.8 to make functional components more flexible and easier to write.
 
+> Reconcilation : Reconcialation is the process of taking taking a current state finding the difference from the existing state. Reconciling how the dom should look like now. and putting things on the dom.
+
 **Key Hooks and Explanations:**
 
 1.  **`useState`:**
