@@ -416,7 +416,7 @@ Hooks are functions that let you "hook into" React state and lifecycle features 
 
 6.  **`useCallback`:**
 
-    *   **Purpose:** Memoizes a function.
+    *   **Purpose:** Memoizes a function, it's not about to minimizing the amoung of code that is run. useCallback is about not rendering a child component, if the function hasnt/doesn't need to change accross renders.
 
     *   **Defination** : useCallback is a hook in React, a popular Javascript library for building user interfaces. it is used to memoize functions, which can help in optimizing the performance of your application, especially in cases involving child components that rely on ***reference equally*** to prevent unnecessary renders.  &#x20;
 
