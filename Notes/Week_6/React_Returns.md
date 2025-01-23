@@ -483,7 +483,7 @@ Hooks are functions that let you "hook into" React state and lifecycle features 
 
 7.  **`useRef`:**
 
-    *   **Purpose:** Creates a mutable ref object that persists across renders.
+    *   **Purpose:** Creates a mutable ref object that persists across renders. basically it is used to override something in the dom irrespective of it's state.&#x20;
 
     *   **Usage:** JavaScript
 
@@ -493,6 +493,33 @@ Hooks are functions that let you "hook into" React state and lifecycle features 
         useEffect(() => {
           inputRef.current.focus();
         }, []);
+        ```
+
+    *   **Example**
+
+        ```javascript
+        import React, { useRef } from "react";
+
+        const testing = () => {
+          const [incomeTax, setincomeTax] = useState(20000);
+          const divRef = useRef();
+
+          useEffect(() => {
+            setTimeout(() => {
+              console.log(divRef.current);
+              divRef.current.innerHTML = 10;
+            }, [5000]);
+          }, [third]);
+
+          return (
+            <div>
+              hi there, your income tax returns are <divv ref={divRef}>{incomeTax}</divv>
+            </div>
+          );
+        };
+
+        export default testing;
+
         ```
 
     *   **Explanation:**

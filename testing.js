@@ -1,38 +1,21 @@
-import React, { memo, useCallback } from "react";
+import React, { useRef } from "react";
 
 const testing = () => {
-  const [count, setcount] = useState(0);
+  const [incomeTax, setincomeTax] = useState(20000);
+  const divRef = useRef();
 
-  // what useCallbacks do it it rely on the dependencied. if it changes then only
-  // the component will re-render. unlike react it re-renders the react js. basied on parsed by Reference not value.
-  // here it stops child component unless and unitil the dependencies changed. 
-  const inputFucntion = useCallback(() => {
-    console.log("hi there");
-  }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(divRef.current);
+      divRef.current.innerHTML = 10;
+    }, [5000]);
+  }, [third]);
 
   return (
     <div>
-      <ButtonComponent inputFunction={inputFucntion} />
-      <button
-        onClick={() => {
-          setcount((count = 1));
-        }}
-      >
-        {" "}
-        Click me{" "}
-      </button>
+      hi there, your income tax returns are <divv ref={divRef}>{incomeTax}</divv>
     </div>
   );
 };
-
-const ButtonComponent = memo(({ inputFucntion }) => {
-  console.log("child Renders");
-
-  return (
-    <div>
-      <button>Button Clicked</button>
-    </div>
-  );
-});
 
 export default testing;
