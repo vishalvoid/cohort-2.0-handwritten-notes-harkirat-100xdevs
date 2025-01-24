@@ -2,9 +2,9 @@
 
 **Why do we need context API ?**&#x20;
 
-- Incorrect : To make rendering more performant.&#x20;
+*   Incorrect : To make rendering more performant.&#x20;
 
-- Correct : To make syntax cleaner/get rid of prop drilling.&#x20;
+*   Correct : To make syntax cleaner/get rid of prop drilling.&#x20;
 
 **Problem with Context API ?**
 
@@ -147,26 +147,25 @@ Example : for each todo in the example i want to create saparate atom for multip
 **Example**:
 
 ```javascript
-export const TODOS = [
-  {
+export const TODOS = [{
     id: 1,
     title: "Go to Gym",
-    description: "Hit the gym from 7-9",
-  },
-  {
+    description: "Hit the gym from 7-9"
+}, {
     id: 2,
     title: "Go to eat food",
-    description: "Eat food from from 9-11",
-  },
-];
+    description: "Eat food from from 9-11"
+},]
+
+
 
 import { atomFamily } from "recoil";
 import { TODOS } from "./todos";
 
 export const todosAtomFamily = atomFamily({
-  key: "todosAtomFamily",
-  default: (id) => {
-    return TODOS.find((x) => x.id === id);
+  key: 'todosAtomFamily',
+  default: id => {
+    return TODOS.find(x => x.id === id)
   },
 });
 ```
@@ -189,6 +188,84 @@ const itemDetailsSelector = selectorFamily({
       return { ...item, details: await fetchDetails(id) };
     },
 });
+```
+
+### **4. useRecoilStateLodable & useRecoilValueLodable**
+
+What happens when the value aren't loaded immediately. It's a way to show loader on the screen instread of empty state.&#x20;
+
+**Example**:
+
+```javascript
+import React from "react";
+import { atom, selectorFamily, useRecoilValueLoadable } from "recoil";
+
+// Atom to store item IDs
+const itemState = atom({
+  key: "itemState",
+  default: [1, 2, 3], // Example item IDs
+});
+
+// SelectorFamily to fetch item details based on the ID
+const itemDetailsSelector = selectorFamily({
+  key: "itemDetailsSelector",
+  get: (id) => async () => {
+    try {
+      const response = await fetch(`https://api.example.com/items/${id}`);
+      if (!response.ok) throw new Error("Failed to fetch item details");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  },
+});
+
+// Component to display item details
+const ItemDetails = ({ id }) => {
+  const itemDetailsLoadable = useRecoilValueLoadable(itemDetailsSelector(id));
+
+  // Handle different loadable states: loading, hasValue, hasError
+  switch (itemDetailsLoadable.state) {
+    case "loading":
+      return <div>Loading item {id}...</div>;
+
+    case "hasValue":
+      return (
+        <div>
+          <h3>Item {id} Details:</h3>
+          <pre>{JSON.stringify(itemDetailsLoadable.contents, null, 2)}</pre>
+        </div>
+      );
+
+    case "hasError":
+      return <div>Error loading item {id}: {itemDetailsLoadable.contents.message}</div>;
+
+    default:
+      return null;
+  }
+};
+
+// Main App Component
+const App = () => {
+  const itemIds = useRecoilValueLoadable(itemState);
+
+  if (itemIds.state === "loading") return <div>Loading items...</div>;
+
+  if (itemIds.state === "hasError")
+    return <div>Error loading item list: {itemIds.contents.message}</div>;
+
+  return (
+    <div>
+      <h1>Item List</h1>
+      {itemIds.contents.map((id) => (
+        <ItemDetails key={id} id={id} />
+      ))}
+    </div>
+  );
+};
+
+export default App;
 ```
 
 ### **Interview-focused Topics in Recoil**
