@@ -5,7 +5,7 @@
 **Time Table and Course Length [click here](./Notes/process/Time_chart.md).**
 **Time Tracker to Complete Course on Time [click here](./Notes/process/Study_Tracker.md).**
 
-### Week 1: Basic JS Fundamentals
+### **Week 1: Basic JS Fundamentals**
 
 *   **`JavaScript Foundation`**
 
@@ -31,7 +31,7 @@
 
     *   [Async/Await Syntax](./Notes/Week_1/Javascript_Foundation.md)
 
-### Week 2: Node, Express & Development.
+### **Week 2: Node, Express & Development.**
 
 *   **`Node.js and Express with Development Tools`**
 
@@ -47,7 +47,7 @@
 
     *   [Git/Github - Version Control System](./Notes/Week_2/Node_Express_and_Development.md)
 
-### Week 3: Authentication, Database, Middleware, global Catches, Zod.
+### **Week 3: Authentication, Database, Middleware, global Catches, Zod.**
 
 *   `Authentication & Database.`&#x20;
 
@@ -71,7 +71,7 @@
 
     *   [Authentication Workflow](./Notes/Week_3/Middleware_authentication_global_catches.md)
 
-### Week 4: DOM, Dynamic Frontends, Connecting FE to BE
+### **Week 4: DOM, Dynamic Frontends, Connecting FE to BE**
 
 *   `DOM & Dynamic Websites`
 
@@ -93,7 +93,7 @@
 
     *   [What extra does a http server probide](./Notes/Week_4/Dom_Dynamic_Frontends_Connecting_FE_to_BE.md)
 
-### Week 5: React Deep Dive
+### **Week 5: React Deep Dive**
 
 *   `Fundamentals / Basics of React.`&#x20;
 
@@ -105,7 +105,7 @@
 
     *   [Todo App in react.](./Notes/Week_5/React_Deep_Dive.md)&#x20;
 
-### Week 6: React Deeper Dive
+### **Week 6: React Deeper Dive**
 
 *   `Advance Concepts of React`
 
@@ -139,7 +139,7 @@
 
     *   [useLayoutEffect Hook](./Notes/Week_6/React_Returns.md)
 
-### Week 7: Routing, Prop Drilling, Context API
+### **Week 7: Routing, Prop Drilling, Context API, Recoil**
 
 *   `Routing in React Js & Jargons to know.`&#x20;
 
@@ -159,5 +159,19 @@
 
     *   [Optimizing Context Usage](./Notes/Week_7/Routing_PropDrilling_ContextAPI.md)
 
-*
+*   `Context State Management and Recoil`
+
+    *   [Why do we need context API?](./Notes//Week_7/Context_state_management_recoil.md)
+
+    *   [Problems with Context API.](./Notes//Week_7/Context_state_management_recoil.md)
+
+    *   [Why choose Recoil over other Libraries?](./Notes//Week_7/Context_state_management_recoil.md)
+
+    *   [RecoilRoot, Atom, Selector, Recoil Hooks.](./Notes//Week_7/Context_state_management_recoil.md)
+
+    *   [Advance Recoil Features : Async Data queries, Atom Family, Selector Family](./Notes//Week_7/Context_state_management_recoil.md)
+
+    *   [& useRecoilStateLodable & useRecoilValueLodable](./Notes//Week_7/Context_state_management_recoil.md)
+
+### **Week 8: Tailwind CSS**
 
