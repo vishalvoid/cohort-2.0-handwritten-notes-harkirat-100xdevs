@@ -2,9 +2,9 @@
 
 **Why do we need context API ?**&#x20;
 
-*   Incorrect : To make rendering more performant.&#x20;
+- Incorrect : To make rendering more performant.&#x20;
 
-*   Correct : To make syntax cleaner/get rid of prop drilling.&#x20;
+- Correct : To make syntax cleaner/get rid of prop drilling.&#x20;
 
 **Problem with Context API ?**
 
@@ -147,11 +147,27 @@ Example : for each todo in the example i want to create saparate atom for multip
 **Example**:
 
 ```javascript
-import { atomFamily } from "recoil";
+export const TODOS = [
+  {
+    id: 1,
+    title: "Go to Gym",
+    description: "Hit the gym from 7-9",
+  },
+  {
+    id: 2,
+    title: "Go to eat food",
+    description: "Eat food from from 9-11",
+  },
+];
 
-const itemState = atomFamily({
-  key: "itemState",
-  default: (id) => ({ id, name: "", completed: false }),
+import { atomFamily } from "recoil";
+import { TODOS } from "./todos";
+
+export const todosAtomFamily = atomFamily({
+  key: "todosAtomFamily",
+  default: (id) => {
+    return TODOS.find((x) => x.id === id);
+  },
 });
 ```
 
