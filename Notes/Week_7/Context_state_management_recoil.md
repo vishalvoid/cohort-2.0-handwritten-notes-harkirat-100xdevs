@@ -2,9 +2,9 @@
 
 **Why do we need context API ?**&#x20;
 
-- Incorrect : To make rendering more performant.&#x20;
+*   Incorrect : To make rendering more performant.&#x20;
 
-- Correct : To make syntax cleaner/get rid of prop drilling.&#x20;
+*   Correct : To make syntax cleaner/get rid of prop drilling.&#x20;
 
 **Problem with Context API ?**
 
@@ -16,7 +16,7 @@
                        ∙                                 ■■■        ■
                        ∙                                ■■          ■
                        ∙                              ■■            ■
-      re-renders ? Component 2                    ■■■■              ■
+    e-renders why? Component 2                    ■■■■              ■
                     ∙∙∙∙∙∙                     ■■■■                 ■
                 ∙∙∙∙      ∙∙∙∙              ■■■■ changing state     ■ changing state.
            ∙∙∙∙∙              ∙∙∙∙        ■■■                       ■
@@ -119,25 +119,30 @@ These hooks allow interaction with atoms and selectors.
 
 ## **Advanced Recoil Features**
 
-### **1. Async Selectors**
+### **1. Async Data queries**
 
 Selectors can handle asynchronous operations, like API calls.
 
 **Example**:
 
 ```javascript
-const userDataSelector = selector({
-  key: "userDataSelector",
-  get: async () => {
-    const response = await fetch("/api/user");
-    return response.json();
-  },
+export const notifications = atom({
+  key: "networkAtom",
+  default: selector({
+    key: "networkAtomSelector",
+    get: async () => {
+      const res = await axios.get("https://sum-server.100xdevs.com/notifications");
+      return res.data;
+    },
+  }),
 });
 ```
 
 ### **2. AtomFamily**
 
 Dynamic atom creation based on parameters. Ideal for lists or user-specific states.
+
+Example : for each todo in the example i want to create saparate atom for multiple todos.&#x20;
 
 **Example**:
 
