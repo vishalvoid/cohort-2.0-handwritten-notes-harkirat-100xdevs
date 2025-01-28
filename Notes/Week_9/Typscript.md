@@ -122,15 +122,15 @@ tsc -b
 
 ### Basic Types in TypeScript
 
-- Number
+*   Number
 
-- String
+*   String
 
-- boolean
+*   boolean
 
-- null
+*   null
 
-- undefined
+*   undefined
 
 **How a function returns Specific Types:**&#x20;
 
@@ -209,9 +209,9 @@ class Employee implements Person {
 
 when we say class employee implements Person it means ;&#x20;
 
-- employee is promising to follow the rules that are defined in person.&#x20;
+*   employee is promising to follow the rules that are defined in person.&#x20;
 
-- it's like saying "I Employee promise to have everything that a aperson is supposed to have.&#x20;
+*   it's like saying "I Employee promise to have everything that a aperson is supposed to have.&#x20;
 
 ### Difference B/W Extends and Implements.&#x20;
 
@@ -348,4 +348,69 @@ class D implements C {
 
 &#x20; • You need multiple types of behavior in one class.
 
-Would you like me to add a comparison chart, more analogies, or interactive examples?
+> Interfaces can be Implemented or Extenced by classes. also Types let you do Unions and Intersections
+
+### **TYPES**
+
+Very Similar to Interfaces, types let you aggregate data together.&#x20;
+
+```typescript
+type User = {
+  name: String,
+  lastname: String,
+  age: number
+}
+
+// here in tyeps we use "=" while in interface we do not 
+```
+
+But they let us do few other things.&#x20;
+
+### Unions : Cannot do using Interfaces&#x20;
+
+Let's say I want to Print the id of a user hwich can be a number or a string:&#x20;
+
+```typescript
+typeStringOrNumber = string | number ;
+```
+
+### Intersection : Only types let us do.&#x20;
+
+What if you wnat to create a type that has every property to multiple types/interfaces
+
+```typescript
+type Employee = {
+  name: String,
+  startDate: Date
+}
+
+type Manager = {
+  name: String,
+  department: String
+}
+
+type TechLead = Employee & Manager
+
+// "&" is the real operator here. 
+```
+
+**Interview Questions :**&#x20;
+
+What is the difference b/w Interfaces and types:&#x20;
+
+*   Interfaces youc an Extends in a class and types can be used with unions and Intersections.&#x20;
+
+### Arrays in TypeScript&#x20;
+
+If you wnat to access arrays in ts. it's as simple as adding \[] annotaton next to the type.&#x20;
+
+```typescript
+function maxValue (arr: number[]){
+...
+}
+
+maxValue([1,2,3])
+```
+
+or we can write as : **type numberArr = number\[ ]**
+
