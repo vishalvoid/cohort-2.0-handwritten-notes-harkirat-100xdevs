@@ -34,17 +34,18 @@
 | 18       | 25-01-25   | 0.00                         | 0.00                          | 3:09                            | asshole                                                                               | asshole                                   |
 | 19       | 26-01-25   | 0.00                         | 0:00                          | 2:59                            | asshole                                                                               | medicine                                  |
 | 20       | 27-01-25   | 2:05, 1:31, 1:04, 0:28       | 5:08                          | 3:05                            | Completed Paytm Frontend                                                              | Completed 8. starting 9                   |
-|          |            |                              |                               |                                 |                                                                                       |                                           |
+| 21       | 28-01-25   | 2:20, 2:18, 0:42             | 5:20                          | 3:11                            | completed Typescript and custom Hooks                                                 | Week 9 Completed.                         |
 |          |            |                              |                               |                                 |                                                                                       |                                           |
 
 ***
 
 ## Weekly Progress Table
 
-| **Week** | **Total Time (hh:mm)** | **Number of Videos** | **Course Progress**        | **No of Days Studied** |
-| -------- | ---------------------- | -------------------- | -------------------------- | :--------------------- |
-| Week 1   | 15:49                  | 12 completed         | Week 1 & Week 2 Completed  | 5/7                    |
-| Week 2   | 19:35                  | 12 completed         | Week 10, 3 and 4 completed | 5/7                    |
-|          |                        |                      |                            |                        |
+| **Week** | **Total Time (hh:mm)** | **Number of Videos** | **Course Progress**             | **No of Days Studied** |
+| -------- | ---------------------- | -------------------- | ------------------------------- | :--------------------- |
+| Week 1   | 15:49                  | 12 completed         | Week 1 & Week 2 Completed       | 5/7                    |
+| Week 2   | 19:35                  | 12 completed         | Week 10, 3 and 4 completed      | 5/7                    |
+| Week 3   | 30:46                  | 19 completed.        | Week 5, 6, 7, 8 and 9 Completed | 5/7                    |
 
 ***
+
