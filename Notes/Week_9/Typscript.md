@@ -471,11 +471,90 @@ console.log(getPermissions(UserRole.Viewer)); // Output: Read-Only Access.
 
 ### Generics&#x20;
 
-Generics are a language independent concept (exists in c++ as well),
+**What are Generics?**
 
-Generics enable you to create components that work with any data type while still providing **compile-time type safety**.&#x20;
+Generics allow you to **write reusable and flexible code** by making functions, classes, and interfaces work with **any data type** instead of a fixed one.
 
-Problem Statement :&#x20;
+**Why Use Generics?**
 
-Let's say you have a function that needs to retur the first element of an array, Array can be of type either string or integer. while having it you need to get .toUppercase of passed string.&#x20;
+&#x20;   • Helps in **code reusability**.
+
+&#x20;   • Provides **type safety** while keeping flexibility.
+
+&#x20;   • Avoids **duplicate functions** for different types.
+
+**Example 1: Identity Function (Basic Generic Function)**
+
+The **identity function** simply returns whatever is passed in.
+
+```typescript
+function identity<T>(value: T): T {
+    return value;
+}
+
+console.log(identity<number>(42));    // Output: 42
+console.log(identity<string>("Hello")); // Output: Hello
+console.log(identity<boolean>(true));   // Output: true
+```
+
+**Explanation:**
+
+• \<T> is a **type variable** that acts as a placeholder for any data type.
+
+• When calling identity, we specify the type (e.g., \<number>, \<string>).
+
+• This ensures **type safety** while allowing flexibility.
+
+**Example 2: Generic Function with Arrays**
+
+You can also use generics with **arrays**.
+
+```typescript
+function getFirstElement<T>(arr: T[]): T {
+    return arr[0];
+}
+
+console.log(getFirstElement([10, 20, 30]));   // Output: 10
+console.log(getFirstElement(["A", "B", "C"])); // Output: A
+```
+
+**Example 3: Generic Interface**
+
+Generics work with **interfaces** too.
+
+```typescript
+interface Box<T> {
+    value: T;
+}
+
+let numberBox: Box<number> = { value: 100 };
+let stringBox: Box<string> = { value: "TypeScript" };
+
+console.log(numberBox.value); // Output: 100
+console.log(stringBox.value); // Output: TypeScript
+```
+
+**Example 4: Generic Class**
+
+You can use **Generics in classes** to define reusable structures.
+
+```typescript
+class Storage<T> {
+    private data: T;
+
+    constructor(value: T) {
+        this.data = value;
+    }
+
+    getData(): T {
+        return this.data;
+    }
+}
+
+let numStorage = new Storage<number>(123);
+let strStorage = new Storage<string>("Hello");
+
+console.log(numStorage.getData()); // Output: 123
+console.log(strStorage.getData()); // Output: Hello
+```
 
