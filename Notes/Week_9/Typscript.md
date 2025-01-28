@@ -558,13 +558,79 @@ console.log(numStorage.getData()); // Output: 123
 console.log(strStorage.getData()); // Output: Hello
 ```
 
-### Exporting and Importing Modules&#x20;
+### **Exporting and Importing Modules in TypeScript**
 
-Typescript follows the ES6 module system using import and export statements tos hare code between different files.&#x20;
+TypeScript follows the **ES6 module system** to **share code** between different files using export and import statements.
 
-1.  constants exports.&#x20;
+**1. Named Exports (Constant Exports)**
 
-2.  default Exports
+Named exports allow exporting **multiple values** from a module.
 
-3.
+**Example: Exporting Constants (mathConstants.ts)**
+
+```typescript
+export const PI = 3.14159;
+export const E = 2.718;
+export const GOLDEN_RATIO = 1.618;
+```
+
+**Importing Named Exports (app.ts)**
+
+```typescript
+import { PI, E } from "./mathConstants";
+
+console.log(PI); // Output: 3.14159
+console.log(E);  // Output: 2.718
+```
+
+📌 **Tip:** You must use the **exact name** when importing named exports.
+
+**2. Default Exports**
+
+A module can have **only one default export**.
+
+**Example: Exporting a Default Value (greeting.ts)**
+
+```typescript
+export default function greet(name: string) {
+    return `Hello, ${name}!`;
+}
+```
+
+**Importing a Default Export (app.ts)**
+
+```typescript
+import greet from "./greeting"; // No need for curly braces {}
+
+console.log(greet("John")); // Output: Hello, John!
+```
+
+📌 **Tip:** Default exports can be imported with **any name**.
+
+**Combining Named and Default Exports**
+
+You can **mix both types** in the same file.
+
+**Example: (utils.ts)**
+
+```typescript
+export const square = (num: number) => num * num;
+export const cube = (num: number) => num * num * num;
+
+export default function logMessage(message: string) {
+    console.log(message);
+}
+```
+
+**Importing Both Types (app.ts)**
+
+```typescript
+import logMessage, { square, cube } from "./utils";
+
+logMessage("Using Utility Functions");
+console.log(square(4)); // Output: 16
+console.log(cube(3));   // Output: 27
+```
+
+
 
