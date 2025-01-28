@@ -469,3 +469,13 @@ console.log(getPermissions(UserRole.Editor)); // Output: Limited Access: Can Rea
 console.log(getPermissions(UserRole.Viewer)); // Output: Read-Only Access.
 ```
 
+### Generics&#x20;
+
+Generics are a language independent concept (exists in c++ as well),
+
+Generics enable you to create components that work with any data type while still providing **compile-time type safety**.&#x20;
+
+Problem Statement :&#x20;
+
+Let's say you have a function that needs to retur the first element of an array, Array can be of type either string or integer. while having it you need to get .toUppercase of passed string.&#x20;
+
