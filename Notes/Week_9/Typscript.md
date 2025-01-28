@@ -419,3 +419,53 @@ maxValue([1,2,3])
 
 or we can write as : **type numberArr = number\[ ]**
 
+**Example : Given an array of positive intergers as input, return the maximum value in the array.**&#x20;
+
+```typescript
+function maxValue(arr: number[]): number {
+    let max = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+console.log(maxValue([1, 2, 3]));
+```
+
+### Enums
+
+Enums (short for enumeratins) in TypeScript are a feature that allows you to define a set of **named** constants.&#x20;
+
+The concepts brhind an enumeration is to create a human-redable way to represent a set of constant values, which might otherwise be represented as numbers or strings.&#x20;
+
+```typescript
+// Define an Enum for different user roles
+enum UserRole {
+    Admin = "ADMIN",
+    Editor = "EDITOR",
+    Viewer = "VIEWER"
+}
+
+// Function to check permissions based on user role
+function getPermissions(role: UserRole): string {
+    switch (role) {
+        case UserRole.Admin:
+            return "Full Access: Can Read, Write, and Delete.";
+        case UserRole.Editor:
+            return "Limited Access: Can Read and Write.";
+        case UserRole.Viewer:
+            return "Read-Only Access.";
+        default:
+            return "Invalid Role.";
+    }
+}
+
+// Example usage
+console.log(getPermissions(UserRole.Admin));  // Output: Full Access: Can Read, Write, and Delete.
+console.log(getPermissions(UserRole.Editor)); // Output: Limited Access: Can Read and Write.
+console.log(getPermissions(UserRole.Viewer)); // Output: Read-Only Access.
+```
+
