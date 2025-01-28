@@ -558,3 +558,13 @@ console.log(numStorage.getData()); // Output: 123
 console.log(strStorage.getData()); // Output: Hello
 ```
 
+### Exporting and Importing Modules&#x20;
+
+Typescript follows the ES6 module system using import and export statements tos hare code between different files.&#x20;
+
+1.  constants exports.&#x20;
+
+2.  default Exports
+
+3.
+
