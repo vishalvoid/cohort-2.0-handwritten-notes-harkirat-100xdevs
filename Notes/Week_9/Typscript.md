@@ -401,7 +401,9 @@ type TechLead = Employee & Manager
 
 What is the difference b/w Interfaces and types:&#x20;
 
-*   Interfaces youc an Extends in a class and types can be used with unions and Intersections.&#x20;
+*   Interfaces youc an Extends in a class
+
+*   types can be used with unions and Intersections.&#x20;
 
 ### Arrays in TypeScript&#x20;
 
