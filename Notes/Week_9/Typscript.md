@@ -138,6 +138,9 @@ tsc -b
 function sum(a: Number, b: number) {
   return a + b;
 }
+
+const value = sum (1,2)
+console.log(value)
 ```
 
 ## Type Inference
