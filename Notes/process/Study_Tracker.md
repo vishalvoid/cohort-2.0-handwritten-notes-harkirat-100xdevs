@@ -35,6 +35,8 @@
 | 19       | 26-01-25   | 0.00                         | 0:00                          | 2:59                            | asshole                                                                               | medicine                                  |
 | 20       | 27-01-25   | 2:05, 1:31, 1:04, 0:28       | 5:08                          | 3:05                            | Completed Paytm Frontend                                                              | Completed 8. starting 9                   |
 | 21       | 28-01-25   | 2:20, 2:18, 0:42             | 5:20                          | 3:11                            | completed Typescript and custom Hooks                                                 | Week 9 Completed.                         |
+| 22       | 29-01-25   | 2:28, 2:20, 1:04, 0:41       | 6:33                          | 3:20                            | Completed Week 11, and 12.2C                                                          | cloudflare Workers, and Aws cloudfront    |
+|          |            |                              |                               |                                 |                                                                                       |                                           |
 |          |            |                              |                               |                                 |                                                                                       |                                           |
 
 ***
