@@ -82,3 +82,44 @@ You can spin up a new EC2 instance from the aws dashboard
 nc -zv YOUR_IP PORT
 ```
 
+### **Understanding Permission Digits**
+
+Each permission digit is a sum of:
+
+• 4 (Read r)
+
+• 2 (Write w)
+
+• 1 (Execute x)
+
+| **Permission** | **Binary** | **Meaning**                 |
+| :------------- | :--------- | :-------------------------- |
+| **7**          | 111        | Read, Write, Execute (Full) |
+| **6**          | 110        | Read, Write                 |
+| **5**          | 101        | Read, Execute               |
+| **4**          | 100        | Read Only                   |
+| **3**          | 011        | Write, Execute              |
+| **2**          | 010        | Write Only                  |
+| **1**          | 001        | Execute Only                |
+| **0**          | 000        | No Permission               |
+
+**Common Permission Examples**
+
+• **700** → Owner: Full (rwx), Group & Others: None (---)
+
+• **755** → Owner: Full (rwx), Group & Others: Read & Execute (r-x)
+
+• **644** → Owner: Read & Write (rw-), Group & Others: Read (r--)
+
+• **600** → Owner: Read & Write (rw-), Group & Others: None (---)
+
+**Changing Permissions**
+
+Use chmod to modify permissions:
+
+```typescript
+chmod 644 filename  # Set file to 644
+chmod 755 script.sh  # Make script executable
+```
+
+✅ **Tip:** Use ls -l to check file permissions.
