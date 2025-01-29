@@ -70,7 +70,7 @@ You can spin up a new EC2 instance from the aws dashboard
 
 • **Type**: Custom TCP/UDP
 
-• **Port**: _Your Port (e.g., 5726)_
+• **Port**: *Your Port (e.g., 5726)*
 
 • **Source**: 0.0.0.0/0 (Public) or Specific IP
 
@@ -155,3 +155,86 @@ $ sudo vim /etc/resolv.conf
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
+
+### Install Node.js on Ec-2&#x20;
+
+> <https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04>
+
+```typescript
+sudo apt install nodejs
+
+node --version
+
+sudo apt install npm
+```
+
+### NGINX&#x20;
+
+**NGINX** is open source software for web serving, **reverse proxying**, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers
+
+```typescript
+
+                                           ┌──────────────────────────────────────────────────────┐
+                                           │                                                      │
+                                           │                               ┌────────────────┐     │
+                                           │                               │                │     │
+                                           │              be1.100xdevs.com │                │     │
+                                           │           ┌──────────────────►│  port: 8081    │     │
+                                           │           │                   │                │     │
+                                           │           │                   │                │     │
+                                           │           │                   └────────────────┘     │
+                                           │   ┌───────┼─────────┐                                │
+                                           │   │                 │                                │
+                                           │   │     nginx       │                                │
+         be1.100xdevs.com                  │   │                 │                                │
+  ──────────────────────────────────────►  │   │    port: 80     │                                │
+         be2.100xdevs.com                  │   │                 │         ┌────────────────┐     │
+                                           │   └────────┬────────┘         │                │     │
+                                           │            │                  │                │     │
+                                           │            │                  │   port: 8080   │     │
+                                           │            │                  │                │     │
+                                           │            └─────────────────►│                │     │
+                                           │              be2.100xdevs.com │                │     │
+                                           │                               └────────────────┘     │
+                                           │                                                      │
+                                           └──────────────────────────────────────────────────────┘
+
+
+
+```
+
+How to Install nginx on server :&#x20;
+
+```bash
+sudo apt update
+sudo apt install nginx
+```
+
+This should start a `nginx server` on port 80
+
+Try visiting the website :)))))
+
+### Creating Reverse Proxy :
+
+```bash
+events {
+    # Event directives...
+}
+
+http {
+	server {
+    listen 80;
+    server_name be1.100xdevs.com;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+	}
+}
+```
+
