@@ -70,7 +70,7 @@ You can spin up a new EC2 instance from the aws dashboard
 
 • **Type**: Custom TCP/UDP
 
-• **Port**: *Your Port (e.g., 5726)*
+• **Port**: _Your Port (e.g., 5726)_
 
 • **Source**: 0.0.0.0/0 (Public) or Specific IP
 
@@ -123,3 +123,35 @@ chmod 755 script.sh  # Make script executable
 ```
 
 ✅ **Tip:** Use ls -l to check file permissions.
+
+# SSH into server
+
+#### &#x20; 1. Give ssh key permissions
+
+```typescript
+chmod 700 aws-key.pem
+```
+
+#### &#x20; 2. ssh into machine
+
+    ssh -i aws-key.pem ubuntu@ip_of_machine
+
+## Problem when aws ec2 cannot access internet on booting.&#x20;
+
+```typescript
+tecmint@ubuntu:~$ ping google.com
+ping: tecmint.com: Temporary failure in name resolution
+```
+
+**Solution**&#x20;
+
+```typescript
+$ sudo nano /etc/resolv.conf
+OR
+$ sudo vim /etc/resolv.conf
+
+// then add this
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
