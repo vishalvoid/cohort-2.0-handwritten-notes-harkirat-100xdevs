@@ -214,6 +214,134 @@ export default {
 
 Cloudflare does not expect a routing library/http server out of the box. You can write a full application with just the constructs available above.
 
-
-
 We will eventually see how you can use other HTTP frameworks (like express) in cloudflare workers.
+
+# Deploying a worker
+
+Now that you have written a basic HTTP server, let’s get to the most interesting bit — `Deploying it on the internet`
+
+Commands to Follow :&#x20;
+
+```typescript
+npx wrangler login 
+
+// then it will give a link you need to paste it in the logged in website. and then approve. 
+// once approved. you can deploy it . 
+
+npm run deploy 
+
+// which internally deploys the website through cloudflare cli. that is wrangler. 
+```
+
+### Downside of this.
+
+Either you need to purchase the domain form them. or transfet from godaddy to cloudflare. then only we can assign to out custom domains.&#x20;
+
+### Adding Express to It
+
+Why can’t we use express? Why does it cloudflare doesn’t start off with a simple express boiler plate?
+
+1.  Reason 1 : Express Heavily Rely on Node.js
+
+2.  You can split all your handlers in a file
+
+    Create a generic `handler` that you can forward requests to from either `express` or `hono` or `native cloudflare handler`
+
+3.  Easiest way to fix : `honojs/hono`, `lukeed/worktop`, `kwhitley/itty-router`
+
+## **Hono is a option to work with cloudflare workers.**&#x20;
+
+**Working with Cloudflare workers :**&#x20;
+
+At first, I just wanted to create a web application on Cloudflare Workers. But, there was no good framework that works on Cloudflare Workers. So, I started building Hono.
+
+I thought it would be a good opportunity to learn how to build a router using Trie trees. Then a friend showed up with ultra crazy fast router called "RegExpRouter". And I also have a friend who created the Basic authentication middleware.
+
+Using only Web Standard APIs, we could make it work on Deno and Bun. When people asked "is there Express for Bun?", we could answer, "no, but there is Hono". (Although Express works on Bun now.)
+
+We also have friends who make GraphQL servers, Firebase authentication, and Sentry middleware. And, we also have a Node.js adapter. An ecosystem has sprung up.
+
+In other words, Hono is damn fast, makes a lot of things possible, and works anywhere. We might imagine that Hono could become the **Standard for Web Standards**.
+
+### Working with cloudflare workers -
+
+1.  Initialize a new app
+
+```typescript
+npm create hono@latest my-app
+```
+
+1.  Move to `my-app` and install the dependencies.
+
+```typescript
+cd my-app
+npm i
+```
+
+ 
+
+1.  Hello World
+
+```typescript
+import { Hono } from 'hono'
+const app = new Hono()
+
+app.get('/', (c) => c.text('Hello Cloudflare Workers!'))
+
+export default app
+```
+
+
+
+### Getting inputs from user in Hono
+
+```typescript
+import { Hono } from 'hono'
+
+const app = new Hono()
+
+app.post('/', async (c) => {
+  const body = await c.req.json()
+  console.log(body);
+  console.log(c.req.header("Authorization"));
+  console.log(c.req.query("param"));
+
+  return c.text('Hello Hono!')
+})
+
+export default app
+```
+
+// here for post request to get the body in backend use post not get. wrong in video.&#x20;
+
+### Middlewares :&#x20;
+
+> <https://hono.dev/guides/middleware>
+
+```typescript
+import { Hono, Next } from 'hono'
+import { Context } from 'hono/jsx';
+
+const app = new Hono()
+
+app.use(async (c, next) => {
+  if (c.req.header("Authorization")) {
+    // Do validation
+    await next()
+  } else {
+    return c.text("You dont have acces");
+  }
+})
+
+app.get('/', async (c) => {
+  const body = await c.req.parseBody()
+  console.log(body);
+  console.log(c.req.header("Authorization"));
+  console.log(c.req.query("param"));
+
+  return c.json({msg: "as"})
+})
+
+export default app
+```
+
