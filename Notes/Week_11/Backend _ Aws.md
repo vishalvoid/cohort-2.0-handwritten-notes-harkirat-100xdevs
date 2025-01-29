@@ -58,5 +58,118 @@ What if you could just write your express routes and run a command. The app woul
 
 3.  if you have very low traffic and want to optimise for costs.&#x20;
 
+### How does Cloudflare workers Work ?
 
+> Cloudflare workers Don't use the Node.js runtime. They have created their own runtime. There are a lot of things that Node.js has.&#x20;
 
+Though Cloudflare Workers behave similarly to `Javascript` in the browser or in Node.js, there ar a few differences in how you have to think about your code. Under the hood. the workers runtime uses the `V8 engine` -- the same engine used by chromium and node.js the workers runtime also implements many of stands `API` available in most modern browsers.&#x20;
+
+The differences between JavaScript written for the browser or Node.js happen at runtime Rather than running or an individual's machine. for example : `a browser application or on centralized server. workers`, functions run on `Cloudflare's Edge Network`-- a growing global network of thousands of machines distributed across hundred of locations.&#x20;
+
+each of these machines host an instance of the workers runtime, and each of those runtime is capable of running thousands of user-defined applications. Thi9s guide will review some of those differences.&#x20;
+
+### Isolates vs Containers.&#x20;
+
+**What are Isolates?**
+
+Isolates are lightweight execution environments inside a shared V8 engine, which is the JavaScript engine used by Chrome and Node.js.
+
+**Key Features of Isolates:**
+
+✅ **Ultra-Fast Startup** → Starts in **under 5ms** (almost instant)
+
+✅ **Low Overhead** → Uses only a few KB of memory
+
+✅ **Secure Sandboxing** → Each isolate runs in a separate memory space
+
+✅ **Multi-Tenant Architecture** → Multiple isolates share the same process
+
+**How Isolates Work in Cloudflare Workers:**
+
+&#x20;       • Each Worker runs as an **isolate** inside a single **V8 engine**.
+
+&#x20;       • Unlike traditional containers, which need a full OS, isolates only need the V8 runtime.
+
+&#x20;       • Cloudflare can run thousands of isolates on the same physical machine.
+
+```typescript
+Traditional Architecture
+┌───┬───┬───┬───┐
+│ ↻ │ {}│ ↻ │ {}│
+├───┼───┼───┼───┤
+│ {}│ ↻ │ {}│ ↻ │
+├───┼───┼───┼───┤
+│ ↻ │ {}│ ↻ │ {}│
+├───┼───┼───┼───┤
+│ {}│ ↻ │ {}│ ↻ │
+└───┴───┴───┴───┘
+
+Workers V8 Isolates
+┌────────────────────────┐
+│ {} {} {} {} {} {} {} {}│
+│ {} {} {} {} {} {} {} {}│
+│ {} {} {} {} {} {} {} {}│
+│ {} {} {} {} {} {} {} {}│
+│ {} {} {} {} {} {} {} {}│
+│ {} {} {} {} {} {} {} {}│
+│ {} {} {} {} {} {} {} ↻ │
+└────────────────────────┘
+
+Legend:
+{} = User Code
+↻ = Process Overhead
+
+Explanation
+	•	Traditional Architecture
+	        •	Each process has significant overhead (↻), limiting the number of applications that can run on a single machine.
+	        •	User code {} shares space with separate runtime instances.
+	•	Workers V8 Isolates
+	        •	Many more user code instances {} can run inside a single process with minimal overhead (↻).
+	        •	Much more efficient than traditional architecture since isolates share a single runtime (V8 engine).
+
+```
+
+here instread of each code. it runs a node server. that is the traditional architecture. but what workers does with isolates. is it just runs one pronecc overheads (node server) and runs all the code on that. and made sure that no two application codes interact with each other.&#x20;
+
+**2. What are Containers?**
+
+Containers (e.g., Docker) are **lightweight virtualized environments** that package code along with dependencies, ensuring consistent execution across different environments.
+
+**Key Features of Containers:**
+
+✅ **Portable** → Can run anywhere (AWS, Google Cloud, etc.)
+
+✅ **Encapsulated** → Each container has its own **file system, network, and dependencies**
+
+✅ **Slow Startup Time** → Can take **hundreds of milliseconds**
+
+✅ **Higher Overhead** → Needs **OS dependencies**, so it consumes more memory
+
+**How Containers Work:**
+
+• Each **application instance** runs inside its own container.
+
+• Containers run on a shared **host OS kernel** but have isolated processes.
+
+• Compared to isolates, containers require more system resources and take longer to start.
+
+**3. Differences: Isolates vs. Containers**
+
+| **Feature**       | **Isolates (Cloudflare Workers)** | **Containers (Docker, Kubernetes)** |
+| :---------------- | :-------------------------------- | :---------------------------------- |
+| **Startup Time**  | \~1-5ms (Near Instant)            | \~100ms to a few seconds            |
+| **Memory Usage**  | Very Low (KBs)                    | Higher (MBs or GBs)                 |
+| **OS Overhead**   | None (Runs inside V8)             | Requires OS dependencies            |
+| **Scalability**   | Very High (Thousands per VM)      | Limited (Fewer per VM)              |
+| **Security**      | Sandboxed V8 execution            | Isolated at OS level                |
+| **Best Use Case** | Serverless, Edge Computing        | Microservices, Stateful Apps        |
+
+# Initializing a worker
+
+To create and deploy your application, you can take the following steps -
+
+```typescript
+npm create cloudflare -- my-app
+```
+
+Select `no` for `Do you want to deploy your application`
