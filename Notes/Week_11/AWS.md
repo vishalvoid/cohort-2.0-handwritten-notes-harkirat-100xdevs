@@ -70,7 +70,7 @@ You can spin up a new EC2 instance from the aws dashboard
 
 • **Type**: Custom TCP/UDP
 
-• **Port**: *Your Port (e.g., 5726)*
+• **Port**: _Your Port (e.g., 5726)_
 
 • **Source**: 0.0.0.0/0 (Public) or Specific IP
 
@@ -237,4 +237,3 @@ http {
 	}
 }
 ```
-
