@@ -173,3 +173,47 @@ npm create cloudflare -- my-app
 ```
 
 Select `no` for `Do you want to deploy your application`
+
+### Question - Where is the express code? HTTP Server?
+
+Cloudflare expects you to just write the logic to handle a request. Creating an HTTP server on top is handled by cloudflare
+
+### Question - How can I do `routing` ?
+
+In express, routing is done as follows -
+
+```typescript
+import express from "express"
+const app = express();
+
+app.get("/route", (req, res) => {
+	// handles a get request to /route
+});
+```
+
+How can you do the same in the Cloudflare environment?
+
+```typescript
+export default {
+	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+		console.log(request.body);
+		console.log(request.headers);
+		
+		if (request.method === "GET") {
+			return Response.json({
+				message: "you sent a get request"
+			});
+		} else {
+			return Response.json({
+				message: "you did not send a get request"
+			});
+		}
+	},
+};
+```
+
+Cloudflare does not expect a routing library/http server out of the box. You can write a full application with just the constructs available above.
+
+
+
+We will eventually see how you can use other HTTP frameworks (like express) in cloudflare workers.
