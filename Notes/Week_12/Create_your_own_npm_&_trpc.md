@@ -6,13 +6,13 @@ NPM (Node Package Manager) is the default package manager for Node.js and allows
 
 ### **Why Create NPM Packages?**
 
-- **Code Reusability**: Write once and use it in multiple projects.
+*   **Code Reusability**: Write once and use it in multiple projects.
 
-- **Modular Development**: Organize code into separate modules for maintainability.
+*   **Modular Development**: Organize code into separate modules for maintainability.
 
-- **Team Collaboration**: Different teams can work on independent modules.
+*   **Team Collaboration**: Different teams can work on independent modules.
 
-- **Open Source Contribution**: Share useful tools with the developer community.
+*   **Open Source Contribution**: Share useful tools with the developer community.
 
 ## **How to Create and Publish an NPM Package**
 
@@ -34,30 +34,30 @@ NPM (Node Package Manager) is the default package manager for Node.js and allows
 
 ### **Step 2: Write Your Code**
 
-- Create an `index.js` file and export a function:
+*   Create an `index.js` file and export a function:
 
-  ```javascript
-  function greet(name) {
-    return `Hello, ${name}!`;
-  }
-  module.exports = greet;
-  ```
+    ```javascript
+    function greet(name) {
+        return `Hello, ${name}!`;
+    }
+    module.exports = greet;
+    ```
 
 ### **Step 3: Add a README**
 
-- Document your package for better usability.
+*   Document your package for better usability.
 
-- Include installation instructions, usage examples, and API details.
+*   Include installation instructions, usage examples, and API details.
 
 ### **Step 4: Versioning**
 
-- Update the version number following [Semantic Versioning (SemVer)](https://semver.org/).
+*   Update the version number following [Semantic Versioning (SemVer)](https://semver.org/).
 
-  ```bash
-  npm version patch # For small fixes
-  npm version minor # For new features
-  npm version major # For breaking changes
-  ```
+    ```bash
+    npm version patch # For small fixes
+    npm version minor # For new features
+    npm version major # For breaking changes
+    ```
 
 ### **Step 5: Publish to NPM**
 
@@ -75,39 +75,39 @@ NPM (Node Package Manager) is the default package manager for Node.js and allows
 
     Now your package is available for others to install using `npm install your-package-name`.
 
----
+***
 
 ## **How to Reuse and Manage Packages**
 
 ### **Installing and Using NPM Packages**
 
-- Install a package:
+*   Install a package:
 
-  ```bash
-  npm install package-name
-  ```
+    ```bash
+    npm install package-name
+    ```
 
-- Import and use it in your code:
+*   Import and use it in your code:
 
-  ```javascript
-  const packageName = require("package-name");
-  ```
+    ```javascript
+    const packageName = require('package-name');
+    ```
 
 ### **Updating and Removing Packages**
 
-- Update a package:
+*   Update a package:
 
-  ```bash
-  npm update package-name
-  ```
+    ```bash
+    npm update package-name
+    ```
 
-- Uninstall a package:
+*   Uninstall a package:
 
-  ```bash
-  npm uninstall package-name
-  ```
+    ```bash
+    npm uninstall package-name
+    ```
 
----
+***
 
 ## **What are Monorepos?**
 
@@ -115,21 +115,21 @@ A **monorepo** is a single repository containing multiple related projects (or p
 
 ### **Benefits of Monorepos**
 
-- Shared dependencies across projects.
+*   Shared dependencies across projects.
 
-- Simplifies collaboration and versioning.
+*   Simplifies collaboration and versioning.
 
-- Easier refactoring with a single source of truth.
+*   Easier refactoring with a single source of truth.
 
 ### **Tools for Managing Monorepos**
 
-- **Lerna**: Efficiently manages multiple packages in a monorepo.
+*   **Lerna**: Efficiently manages multiple packages in a monorepo.
 
-- **Nx**: Offers powerful build and testing capabilities.
+*   **Nx**: Offers powerful build and testing capabilities.
 
-- **Turborepo**: Optimized for speed and caching.
+*   **Turborepo**: Optimized for speed and caching.
 
----
+***
 
 ## **Zod Inference**
 
@@ -137,45 +137,59 @@ Zod is a TypeScript-first schema declaration and validation library.
 
 ### **What is Zod Inference?**
 
-- Inferring TypeScript types from Zod schemas to avoid redundancy.
+*   Inferring TypeScript types from Zod schemas to avoid redundancy.
 
-- Example:
+*   Example:
 
-  ```typescript
-  import { z } from "zod";
+    ```typescript
+    import { z } from 'zod';
 
-  const UserSchema = z.object({
-    name: z.string(),
-    age: z.number(),
-  });
+    const UserSchema = z.object({
+        name: z.string(),
+        age: z.number()
+    });
 
-  type User = z.infer<typeof UserSchema>;
-  ```
+    type User = z.infer<typeof UserSchema>;
+    ```
 
-  Here, `User` is inferred from `UserSchema`, ensuring type safety.
+    Here, `User` is inferred from `UserSchema`, ensuring type safety.
 
----
+***
 
 ## **Declaration Files (`.d.ts`)**
 
 ### **What is a Declaration File?**
 
-- A `.d.ts` file provides TypeScript type definitions for JavaScript libraries.
+*   A `.d.ts` file provides TypeScript type definitions for JavaScript libraries.
 
-- Helps TypeScript understand untyped JavaScript modules.
+*   Helps TypeScript understand untyped JavaScript modules.
 
 ### **Creating a Declaration File**
 
 Example of `my-package.d.ts`:
 
 ```typescript
-declare module "my-package" {
-  export function greet(name: string): string;
+declare module 'my-package' {
+    export function greet(name: string): string;
 }
 ```
 
 ### **Using Declaration Files**
 
-- Useful when working with JavaScript libraries in TypeScript projects.
+*   Useful when working with JavaScript libraries in TypeScript projects.
 
-- Enables IntelliSense support and type checking.
+*   Enables IntelliSense support and type checking.
+
+## **Mono Repos**
+
+*   npm workspaces
+
+*   Lerna
+
+*   Turborepo
+
+### Turborepo Quickstart.&#x20;
+
+Turborepo is an intelligent build system optimized for JavaScript and typeScript Codebases.&#x20;
+
+Your codebase's task - like lint, build, and test - don't run as fast as they could . Turborepo uses caching to turbocharge your local setup and speed up your CL.
