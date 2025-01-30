@@ -10,6 +10,22 @@ const app = new Hono<{
   };
 }>();
 
+// middleware
+app.use("/api/v1/blog/*", async (c, next) => {
+  const header = c.req.header("Authorization") || "";
+
+  const token = header.split(" ")[1];
+
+  const response = await verify(token, c.env.JWT_SECRET_KEY);
+
+  if (response.id) {
+    next();
+  } else {
+    c.status(403);
+    return c.json({ error: "unauthorised" });
+  }
+});
+
 app.post("/api/v1/signup", async (c) => {
   try {
     console.log("Database URL:", c.env.DATABASE_URL); // Debug log
@@ -26,8 +42,9 @@ app.post("/api/v1/signup", async (c) => {
 
     const user = await prisma.user.create({
       data: {
-        email: body.email,
+        username: body.username,
         password: body.password,
+        name: body.name,
       },
     });
 
@@ -40,9 +57,7 @@ app.post("/api/v1/signup", async (c) => {
 
     const token = await sign({ id: user.id }, c.env.JWT_SECRET_KEY);
 
-    return c.json({
-      jwt: token,
-    });
+    return c.text(token);
   } catch (error) {
     console.error("Error during signup:", error);
     c.status(500);
@@ -64,9 +79,9 @@ app.post("/api/v1/signin", async (c) => {
 
     const body = await c.req.json();
 
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findFirst({
       where: {
-        email: body.email,
+        username: body.username,
         password: body.password,
       },
     });
@@ -74,15 +89,13 @@ app.post("/api/v1/signin", async (c) => {
     if (!user) {
       c.status(403);
       return c.json({
-        error: "user not found",
+        message: "Incorrect credentials",
       });
     }
 
     const token = await sign({ id: user.id }, c.env.JWT_SECRET_KEY);
-
-    return c.json({
-      jwt: token,
-    });
+ 
+    return c.text(token);
   } catch (error) {
     console.error("Error during signup:", error);
     c.status(500);
