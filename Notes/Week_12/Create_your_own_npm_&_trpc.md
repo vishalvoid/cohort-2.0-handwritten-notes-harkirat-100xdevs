@@ -11,3 +11,5 @@
 *   Teams can work on modules independeltly
 
 ### Zod Inference.&#x20;
+
+### declaration file .d.ts
