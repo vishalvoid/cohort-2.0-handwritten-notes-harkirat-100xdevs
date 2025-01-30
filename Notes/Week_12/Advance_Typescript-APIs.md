@@ -17,11 +17,12 @@ interface User {
 }
 
 // For a profile display, only pick `name` and `email`
-type UserProfile = Pick<User, "name" | "email">;
+type UserProfile = Pick<User, 'name' | 'email'>;
 
 const displayUserProfile = (user: UserProfile) => {
   console.log(`Name: ${user.name}, Email: ${user.email}`);
 };
+
 ```
 
 > It let's me pick value from types as well as interfaces.&#x20;
@@ -34,21 +35,21 @@ const displayUserProfile = (user: UserProfile) => {
 
 ```typescript
 interface User {
-  id: string;
-  name: string;
-  age: string;
-  email: string;
-  password: string;
-}
+    id: string;
+    name: string;
+    age: string;
+    email: string;
+    password: string;
+};
 
-type UpdateProps = Pick<User, "name" | "age" | "email">;
+type UpdateProps = Pick<User, 'name' | 'age' | 'email'>
 
-type UpdatePropsOptional = Partial<UpdateProps>;
+type UpdatePropsOptional = Partial<UpdateProps>
 
 function updateUser(updatedProps: UpdatePropsOptional) {
-  // hit the database tp update the user
+    // hit the database tp update the user
 }
-updateUser({});
+updateUser({})
 ```
 
 # **Readonly**
@@ -62,8 +63,8 @@ interface Config {
 }
 
 const config: Readonly<Config> = {
-  endpoint: "https://api.example.com",
-  apiKey: "abcdef123456",
+  endpoint: 'https://api.example.com',
+  apiKey: 'abcdef123456',
 };
 
 // config.apiKey = 'newkey'; // Error: Cannot assign to 'apiKey' because it is a read-only property.
@@ -88,10 +89,12 @@ interface User {
 type Users = { [key: string]: User };
 
 const users: Users = {
-  abc123: { id: "abc123", name: "John Doe" },
-  xyz789: { id: "xyz789", name: "Jane Doe" },
+  'abc123': { id: 'abc123', name: 'John Doe' },
+  'xyz789': { id: 'xyz789', name: 'Jane Doe' },
 };
 ```
+
+ 
 
 or use `Record`
 
@@ -104,12 +107,14 @@ interface User {
 type Users = Record<string, User>;
 
 const users: Users = {
-  abc123: { id: "abc123", name: "John Doe" },
-  xyz789: { id: "xyz789", name: "Jane Doe" },
+  'abc123': { id: 'abc123', name: 'John Doe' },
+  'xyz789': { id: 'xyz789', name: 'Jane Doe' },
 };
 
-console.log(users["abc123"]); // Output: { id: 'abc123', name: 'John Doe' }
+console.log(users['abc123']); // Output: { id: 'abc123', name: 'John Doe' }
 ```
+
+ 
 
 ### Map
 
@@ -125,11 +130,11 @@ interface User {
 const usersMap = new Map<string, User>();
 
 // Add users to the map using .set
-usersMap.set("abc123", { id: "abc123", name: "John Doe" });
-usersMap.set("xyz789", { id: "xyz789", name: "Jane Doe" });
+usersMap.set('abc123', { id: 'abc123', name: 'John Doe' });
+usersMap.set('xyz789', { id: 'xyz789', name: 'Jane Doe' });
 
 // Accessing a value using .get
-console.log(usersMap.get("abc123")); // Output: { id: 'abc123', name: 'John Doe' }
+console.log(usersMap.get('abc123')); // Output: { id: 'abc123', name: 'John Doe' }
 ```
 
 # **Exclude**
@@ -137,14 +142,14 @@ console.log(usersMap.get("abc123")); // Output: { id: 'abc123', name: 'John Doe'
 In a function that can accept several types of inputs but you want to exclude specific types from being passed to it.
 
 ```typescript
-type Event = "click" | "scroll" | "mousemove";
-type ExcludeEvent = Exclude<Event, "scroll">; // 'click' | 'mousemove'
+type Event = 'click' | 'scroll' | 'mousemove';
+type ExcludeEvent = Exclude<Event, 'scroll'>; // 'click' | 'mousemove'
 
 const handleEvent = (event: ExcludeEvent) => {
   console.log(`Handling event: ${event}`);
 };
 
-handleEvent("click"); // OK
+handleEvent('click'); // OK
 ```
 
 # **Type inference in zod**
@@ -152,7 +157,7 @@ handleEvent("click"); // OK
 When using zod, we’re done runtime validation. For example, the following code makes sure that the user is sending the right inputs to update their profile information
 
 ```typescript
-import { z } from "zod";
+import { z } from 'zod';
 import express from "express";
 
 const app = express();
@@ -170,15 +175,17 @@ app.put("/user", (req, res) => {
 
   if (!success) {
     res.status(411).json({});
-    return;
+    return
   }
   // update database here
   res.json({
-    message: "User updated",
-  });
+    message: "User updated"
+  })
 });
 
 app.listen(3000);
 ```
+
+ 
 
 More details - <https://zod.dev/?id=type-inference>
