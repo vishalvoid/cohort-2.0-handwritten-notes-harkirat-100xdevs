@@ -6,15 +6,15 @@ Prisma is a powerful ORM that simplifies database interactions in modern applica
 
 ## **Why Use Prisma on Edge?**
 
-*   **Low Latency:** Queries execute closer to users.
+- **Low Latency:** Queries execute closer to users.
 
-*   **Serverless Scaling:** Automatically scales with demand.
+- **Serverless Scaling:** Automatically scales with demand.
 
-*   **Resilient Architecture:** Reduces load on central databases.
+- **Resilient Architecture:** Reduces load on central databases.
 
-*   **Optimized Performance:** Uses distributed computing to handle requests.
+- **Optimized Performance:** Uses distributed computing to handle requests.
 
-***
+---
 
 ## **1. Setting Up CloudFront Workers**
 
@@ -49,19 +49,19 @@ Enter your AWS **Access Key**, **Secret Key**, and **Region**.
 4.  Deploy the following worker code:
 
 ```javascript
-addEventListener("fetch", event => {
-    event.respondWith(handleRequest(event.request));
+addEventListener("fetch", (event) => {
+  event.respondWith(handleRequest(event.request));
 });
 
 async function handleRequest(request) {
-    const response = await fetch(request);
-    return response;
+  const response = await fetch(request);
+  return response;
 }
 ```
 
 1.  Deploy and attach the function to the CloudFront distribution.
 
-***
+---
 
 ## **2. Integrating Prisma with Edge Workers**
 
@@ -108,12 +108,12 @@ prisma deploy
 1.  Use the Prisma client with the **Data Proxy**:
 
 ```javascript
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function fetchData() {
-    const users = await prisma.user.findMany();
-    return users;
+  const users = await prisma.user.findMany();
+  return users;
 }
 ```
 
@@ -125,18 +125,18 @@ Example using **Neon (PostgreSQL serverless)**:
 
 ```javascript
 async function fetchUsers() {
-    const response = await fetch("https://your-database-url.com/query", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sql: "SELECT * FROM users;" })
-    });
-    return await response.json();
+  const response = await fetch("https://your-database-url.com/query", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ sql: "SELECT * FROM users;" }),
+  });
+  return await response.json();
 }
 ```
 
 This method avoids Prisma but can be useful for **lightweight edge computations**.
 
-***
+---
 
 ## **3. Deploying the Edge Worker with Prisma Proxy**
 
@@ -145,15 +145,15 @@ Once the Prisma Data Proxy or API method is set up, integrate it into the **Clou
 ### **Final CloudFront Worker Code**
 
 ```javascript
-addEventListener("fetch", event => {
-    event.respondWith(handleRequest(event.request));
+addEventListener("fetch", (event) => {
+  event.respondWith(handleRequest(event.request));
 });
 
 async function handleRequest(request) {
-    const users = await fetchData();
-    return new Response(JSON.stringify(users), {
-        headers: { "Content-Type": "application/json" }
-    });
+  const users = await fetchData();
+  return new Response(JSON.stringify(users), {
+    headers: { "Content-Type": "application/json" },
+  });
 }
 ```
 
@@ -163,7 +163,7 @@ async function handleRequest(request) {
 aws cloudfront update-function --name prismaEdgeWorker --function-config function.conf
 ```
 
-***
+---
 
 ## **4. Testing and Debugging**
 
@@ -185,15 +185,14 @@ Enable logging in AWS CloudWatch for debugging:
 
 3.  Check logs in **AWS CloudWatch**.
 
-***
+---
 
 ## **5. Best Practices for Prisma on Edge**
 
-*   **Use Prisma Data Proxy** to avoid Node.js driver limitations.
+- **Use Prisma Data Proxy** to avoid Node.js driver limitations.
 
-*   **Cache responses** where possible to reduce database calls.
+- **Cache responses** where possible to reduce database calls.
 
-*   **Optimize queries** to minimize load on the database.
+- **Optimize queries** to minimize load on the database.
 
-*   **Use CloudFront logging** for debugging and performance monitoring.
-
+- **Use CloudFront logging** for debugging and performance monitoring.
