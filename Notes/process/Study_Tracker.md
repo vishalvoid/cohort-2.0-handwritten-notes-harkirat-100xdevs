@@ -28,7 +28,7 @@
 | 12       | 19-01-25   | 2:37, 2:27, 2:14, 1:43                               | 9:01                          | 2:57                            | Dynamic backend and auth                                                              | 3.2 Completed. 4.1 & 4.2 & 4.3 Completed. |
 | 13       | 20-01-25   | 0.00                                                 | 0:00                          | 2:43                            | laziness                                                                              | laziness                                  |
 | 14       | 21-01-25   | 1.00                                                 | 1:00                          | 2:36                            | 5.1 Started                                                                           | 5.1 Started                               |
-| 15       | 22-01-25   | 1:45, 1:58, 2:29, 1:02                               | 7:14                          | 2:55                            | Week 5 Done: Basic React Deep Dive                                                    | Week 6 : video 2 :  1 hour and 2 Minute   |
+| 15       | 22-01-25   | 1:45, 1:58, 2:29, 1:02                               | 7:14                          | 2:55                            | Week 5 Done: Basic React Deep Dive                                                    | Week 6 : video 2 : 1 hour and 2 Minute    |
 | 16       | 23-01-25   | 1:31, 1:57, 1:10, 0:46, 1:48                         | 7:12                          | 3:11                            | Hooks and React Deeper Dive                                                           | Week 6 Complete. `Adhoc Left` 7.1C        |
 | 17       | 24-01-25   | 2:05, 1:33, 2:14                                     | 5:52                          | 3:20                            | Recoil completed. Tailwind Started.                                                   | Week 7 Completed. 8.1C                    |
 | 18       | 25-01-25   | 0.00                                                 | 0.00                          | 3:09                            | asshole                                                                               | asshole                                   |
@@ -39,7 +39,7 @@
 | 23       | 30-01-25   | 1:53, 2:03, 0:32, 1:26, 0:58, 0:32, 2:26, 1:25, 1:58 | 13:13                         | 3:46                            | Completed Week 12. Week 13.3C                                                         | Working on Fire.                          |
 |          |            |                                                      |                               |                                 |                                                                                       |                                           |
 
-***
+---
 
 ## Weekly Progress Table
 
@@ -49,5 +49,4 @@
 | Week 2   | 19:35                  | 12 completed         | Week 10, 3 and 4 completed      | 5/7                    |
 | Week 3   | 30:46                  | 19 completed.        | Week 5, 6, 7, 8 and 9 Completed | 5/7                    |
 
-***
-
+---
