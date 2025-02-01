@@ -1,9 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { SignupInput } from "@vishalvoid/medium-common";
+import { SignupInput } from "@Vishalvoid/medium-common";
 import axios from "axios";
-
-const BACKEND_URL = "https://abc.com";
+import { BACKEND_URL } from "../config";
 
 const Auth = ({ type }: { type: "signup" | "signin" }) => {
   const navigate = useNavigate();
@@ -45,7 +44,7 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
             {type === "signup" ? (
               <LabelledInput
                 label="Name"
-                placeholder="Harkirat Singh..."
+                placeholder="Vishal Singh..."
                 onChange={(e) => {
                   setPostInputs({
                     ...postInputs,
@@ -56,7 +55,7 @@ const Auth = ({ type }: { type: "signup" | "signin" }) => {
             ) : null}
             <LabelledInput
               label="Username"
-              placeholder="harkirat@gmail.com"
+              placeholder="Vishal@gmail.com"
               onChange={(e) => {
                 setPostInputs({
                   ...postInputs,
