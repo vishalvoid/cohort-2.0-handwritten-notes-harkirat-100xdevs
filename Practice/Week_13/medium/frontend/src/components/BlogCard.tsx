@@ -54,5 +54,3 @@ export function Avatar({ name, size = "small" }: { name: string; size?: "small" 
     </div>
   );
 }
-
-
