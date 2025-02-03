@@ -490,7 +490,7 @@ export default async function Home() {
 
 ### Better solution
 
-```
+```TypeScript
 import { PrismaClient } from "@prisma/client";
 
 const client = new PrismaClient();
@@ -534,7 +534,7 @@ Ref - <https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-article
 
 1) Add a prisma client singleton inside it
 
-```
+```TypeScript
 import { PrismaClient } from '@prisma/client'
 
 const prismaClientSingleton = () => {
@@ -554,7 +554,7 @@ if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma
 
 1. Update imports of prisma everywhere
 
-```
+```TypeScript
 import client from "@/db"
 ```
 
@@ -564,7 +564,7 @@ Ref - <https://nextjs.org/docs/app/building-your-application/data-fetching/serve
 
 Right now, we wrote an `API endpoint` that letâ€™s the user sign up
 
-```
+```TypeScript
 export async function POST(req: NextRequest) {
     const body = await req.json();
     // should add zod validation here
@@ -593,7 +593,7 @@ Under the hood, still an HTTP request would go out. But you would feel like youâ
 
 1) Write a function that takes `username` and `password` as input and stores it in the DB
 
-```
+```TypeScript
 "use server"
 
 import client from "@/db"
@@ -615,7 +615,7 @@ export async function signup(username: string, password: string) {
 
 1. Update the `Signup.tsx` file to do the function call
 
-```
+```TypeScript
 import { signup } from "@/actions/user";;
 
 ...
