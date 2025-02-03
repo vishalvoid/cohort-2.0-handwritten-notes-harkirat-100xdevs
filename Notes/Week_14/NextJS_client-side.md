@@ -1,5 +1,7 @@
 ### **NextJS Introduction**
 
+
+
 NextJS was a framework that was introduced because of some `minor inconviniences` in React
 
 1. In a React project, you have to maintain a separate Backend project for your API routes
@@ -93,7 +95,7 @@ npx create-next-app@latest
 
 <https://blog-six-tan-47.vercel.app/signup>
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fc8f2b98f-bea9-48d8-842d-b08c53b4e247%2FScreenshot_2024-03-02_at_1.37.50_PM.png?table=block&id=29d75677-986c-4442-8e10-6d9e625d5e45&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fc8f2b98f-bea9-48d8-842d-b08c53b4e247%2FScreenshot_2024-03-02_at_1.37.50_PM.png?table=block\&id=29d75677-986c-4442-8e10-6d9e625d5e45\&cache=v2 "notion image")
 
 ### Routing in Next.js
 
@@ -108,7 +110,6 @@ This means that the way you create your files, describes what renders on a route
 page.tsx
 
 ```
-
 ```
 
 1. Start the application locally
@@ -117,15 +118,15 @@ page.tsx
 npm run dev
 ```
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F879c5fdc-0044-4565-9f3b-342c22a9dec6%2FScreenshot_2024-03-02_at_1.49.52_PM.png?table=block&id=51800b16-8f20-472e-9b76-a68412aaa021&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F879c5fdc-0044-4565-9f3b-342c22a9dec6%2FScreenshot_2024-03-02_at_1.49.52_PM.png?table=block\&id=51800b16-8f20-472e-9b76-a68412aaa021\&cache=v2 "notion image")
 
 #### Final folder structure
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F2cb8d576-6ac2-48e5-92e5-6b6056c3fe5e%2FScreenshot_2024-03-02_at_1.51.48_PM.png?table=block&id=928c7092-5eb6-4628-b689-7bc18f355d12&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F2cb8d576-6ac2-48e5-92e5-6b6056c3fe5e%2FScreenshot_2024-03-02_at_1.51.48_PM.png?table=block\&id=928c7092-5eb6-4628-b689-7bc18f355d12\&cache=v2 "notion image")
 
 #### Assignment - Can you add a `signin` route?
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F517e81a1-f286-4009-b2c0-27860fa0aa25%2FScreenshot_2024-03-02_at_1.54.58_PM.png?table=block&id=44aa8294-6c62-4639-9fe1-cfe8d9fe4d01&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F517e81a1-f286-4009-b2c0-27860fa0aa25%2FScreenshot_2024-03-02_at_1.54.58_PM.png?table=block\&id=44aa8294-6c62-4639-9fe1-cfe8d9fe4d01\&cache=v2 "notion image")
 
 # Step 7 - Prettify the signin page
 
@@ -204,13 +205,13 @@ What if you wan’t to get the banner in both `signup` and `signin`?
 
 Move both the `signin` and `signup` folder inside a `auth` folder where we have the layout
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F3e7282fb-5bd0-4fc2-8704-13c0ca86d0f3%2FScreenshot_2024-03-02_at_4.06.41_PM.png?table=block&id=9fc88ce3-c520-43a3-b431-f30f816dd7be&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F3e7282fb-5bd0-4fc2-8704-13c0ca86d0f3%2FScreenshot_2024-03-02_at_4.06.41_PM.png?table=block\&id=9fc88ce3-c520-43a3-b431-f30f816dd7be\&cache=v2 "notion image")
 
 You can access the routes at&#x20;
 
 `http://localhost:3000/auth/signup` and `http://localhost:3000/auth/signin`
 
----
+***
 
 ### Approach #2
 
@@ -218,7 +219,7 @@ You can use create a new folder with `()` around the name.&#x20;
 
 This folder is `ignored` by the router.
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F3e7624ce-20e0-459d-bea7-ee3b0f5b23f3%2FScreenshot_2024-03-02_at_4.09.56_PM.png?table=block&id=21e84824-4181-465d-9b02-40d08d210663&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F3e7624ce-20e0-459d-bea7-ee3b0f5b23f3%2FScreenshot_2024-03-02_at_4.09.56_PM.png?table=block\&id=21e84824-4181-465d-9b02-40d08d210663\&cache=v2 "notion image")
 
 You can access the routes at&#x20;
 
@@ -327,7 +328,7 @@ If you wan’t to mark a component as a `client` component, you need to add the 
 
 **Rule of thumb is to defer the client as much as possible**
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fcfd5f7c3-15ef-410c-95c0-381a0bb2a17e%2FScreenshot_2024-03-02_at_4.29.13_PM.png?table=block&id=3b38e275-9cc3-4fa7-9be7-c3ce2a9da066&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fcfd5f7c3-15ef-410c-95c0-381a0bb2a17e%2FScreenshot_2024-03-02_at_4.29.13_PM.png?table=block\&id=3b38e275-9cc3-4fa7-9be7-c3ce2a9da066\&cache=v2 "notion image")
 
 ### Assignment
 
@@ -338,3 +339,6 @@ You will notice that the error goes away
 Some nice readings -&#x20;
 
 <https://github.com/vercel/next.js/discussions/43153>
+
+
+
