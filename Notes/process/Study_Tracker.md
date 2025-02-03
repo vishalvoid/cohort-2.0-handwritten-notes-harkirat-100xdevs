@@ -37,16 +37,23 @@
 | 21       | 28-01-25   | 2:20, 2:18, 0:42                                     | 5:20                          | 3:11                            | completed Typescript and custom Hooks                                                 | Week 9 Completed.                         |
 | 22       | 29-01-25   | 2:28, 2:20, 1:04, 0:41                               | 6:33                          | 3:20                            | Completed Week 11, and 12.2C                                                          | cloudflare Workers, and Aws cloudfront    |
 | 23       | 30-01-25   | 1:53, 2:03, 0:32, 1:26, 0:58, 0:32, 2:26, 1:25, 1:58 | 13:13                         | 3:46                            | Completed Week 12. Week 13.3C                                                         | Working on Fire.                          |
+| 24       | 31-01-25   | 2:39                                                 | 2:39                          | 3:43                            | Completed Week 13                                                                     | not good                                  |
+| 25       | 01-02-25   | 0:00                                                 | 0:00                          | 3:34                            | Fest                                                                                  | Fest                                      |
+| 26       | 02-02-25   | 0:00                                                 | 0:00                          | 3:26                            | Nalla                                                                                 | Nalla                                     |
+| 27       | 03-02-25   | 2:05, 2:12, 1:35                                     | 5:52                          | 3:31                            | Completed Week 14                                                                     | Completed Week 14                         |
+| 28       | 04-02-25   |                                                      |                               |                                 |                                                                                       |                                           |
 |          |            |                                                      |                               |                                 |                                                                                       |                                           |
 
----
+***
 
 ## Weekly Progress Table
 
 | **Week** | **Total Time (hh:mm)** | **Number of Videos** | **Course Progress**             | **No of Days Studied** |
 | -------- | ---------------------- | -------------------- | ------------------------------- | :--------------------- |
+|          |                        |                      |                                 |                        |
 | Week 1   | 15:49                  | 12 completed         | Week 1 & Week 2 Completed       | 5/7                    |
 | Week 2   | 19:35                  | 12 completed         | Week 10, 3 and 4 completed      | 5/7                    |
 | Week 3   | 30:46                  | 19 completed.        | Week 5, 6, 7, 8 and 9 Completed | 5/7                    |
 
----
+***
+
