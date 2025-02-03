@@ -381,13 +381,13 @@ npm install prisma
 
 1. Initialize prisma schema
 
-```
+```TypeScript
 npx prisma init
 ```
 
 1. Create a simple user schema
 
-```
+```TypeScript
 model User {
   id        Int     @id  @default(autoincrement())
   username  String  @unique
@@ -397,25 +397,25 @@ model User {
 
 1. Replace `.env` with your own Postgres URL
 
-```
+```TypeScript
 DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
 ```
 
 1. Migrate the database
 
-```
+```TypeScript
 npx prisma migrate dev --name init_schema
 ```
 
 1. Generate the client
 
-```
+```TypeScript
 npx prisma generate
 ```
 
 1. Finish the `signup` route
 
-```
+```TypeScript
 
 export async function POST(req: NextRequest) {
     const body = await req.json();
@@ -452,7 +452,7 @@ For the root page, we are fetching the details of the user by hitting an HTTP en
 
 ### Current solution
 
-```
+```TypeScript
 import axios from "axios";
 
 async function getUserDetails() {
@@ -636,6 +636,5 @@ import { signup } from "@/actions/user";;
 1. Single function can be used in both client and server components
 
 1) Gives you types of the function response on the frontend (very similar to trpc)
-
-1. Can be integrated seamlessly with forms (ref <https://www.youtube.com/watch?v=dDpZfOQBMaU>)
+2) Can be integrated seamlessly with forms (ref <https://www.youtube.com/watch?v=dDpZfOQBMaU>)
 
