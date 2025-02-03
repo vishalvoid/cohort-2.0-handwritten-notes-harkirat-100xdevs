@@ -42,13 +42,13 @@ You can do the same thing as the last slide in Next.js, but then you lose the be
 
 1. Initialise an empty next project
 
-```
+```TypeScript
  npx create-next-app@latest
 ```
 
 1. Install axios
 
-```
+```TypeScript
 npm i axios
 ```
 
@@ -56,7 +56,7 @@ npm i axios
 
 1) In the root `page.tsx`, write a function to fetch the users details
 
-```
+```TypeScript
 async function getUserDetails() {
   const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details")
 	return response.data;
@@ -65,7 +65,7 @@ async function getUserDetails() {
 
 1. Convert the default export to be an async function (yes, nextjs now supports `async` components)
 
-```
+```TypeScript
 import axios from "axios";
 
 async function getUserDetails() {
@@ -90,7 +90,7 @@ export default async function Home() {
 
 1) Prettify the UI
 
-```
+```TypeScript
 import axios from "axios";
 
 async function getUserDetails() {
@@ -134,7 +134,7 @@ Just like `page.tsx` and `layout.tsx` , you can define a `skeleton.tsx` file tha
 
 1) Add a custom loader inside
 
-```
+```TypeScript
 export default function Loading() {
     return <div className="flex flex-col justify-center h-screen">
         <div className="flex justify-center">
@@ -170,7 +170,7 @@ We want to introduce a route that returns `hardcoded` values for a user’s deta
 
 1) Initialize a `GET` route inside it
 
-```
+```TypeScript
 export async function GET() {
   return Response.json({ username: "harkirat", email: "harkirat@gmail.com" })
 }
@@ -178,7 +178,7 @@ export async function GET() {
 
 1. Try replacing the api call in `page.tsx` to hit this URL
 
-```
+```TypeScript
 async function getUserDetails() {
   try {
     const response = await axios.get("http://localhost:3000/api/user")
@@ -199,7 +199,7 @@ This isn’t the best way to fetch data from the backend. We’ll make this bett
 
 1) Create a simple Page
 
-```
+```TypeScript
 import { Signup } from "@/components/Signup"
 
 export default function() {
@@ -211,7 +211,7 @@ export default function() {
 
 Code
 
-```
+```TypeScript
 import axios from "axios";
 import { ChangeEventHandler, useState } from "react";
 
@@ -262,13 +262,13 @@ interface LabelledInputType {
 
 1. Convert `components/Signup.tsx` to a client component
 
-```
+```TypeScript
 "use client"
 ```
 
 1. Add a `onclick handler` that sends a `POST request` to `/user`
 
-```
+```TypeScript
  <button onClick={async () => {
     const response = await axios.post("http://localhost:3000/api/user", {
         username,
@@ -282,7 +282,7 @@ interface LabelledInputType {
 
 Final signup.tsx
 
-```
+```TypeScript
 import axios from "axios";
 import { useRouter } from "next/router";
 import { ChangeEventHandler, useState } from "react";
@@ -371,7 +371,7 @@ Adding prisma to a Next.js project is straightforward.
 
 Please get a free Postgres DB from either neon or aiven
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F0f88d21e-4369-4e14-a924-46d0cbfe5579%2FScreenshot_2024-03-03_at_3.51.39_PM.png?table=block&id=5934a2b8-79bd-4a6f-be78-4a4325cd4acd&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F0f88d21e-4369-4e14-a924-46d0cbfe5579%2FScreenshot_2024-03-03_at_3.51.39_PM.png?table=block\&id=5934a2b8-79bd-4a6f-be78-4a4325cd4acd\&cache=v2 "notion image")
 
 1. Install prisma
 
@@ -486,7 +486,7 @@ export default async function Home() {
 
 `getUserDetails` runs on the server. This means you’re sending a request from a server back to the server
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F71abac43-74f7-44a7-a974-b8202c7ed862%2FScreenshot_2024-03-03_at_5.09.36_PM.png?table=block&id=93cc8990-749e-4723-a1d6-487154c2f7e9&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F71abac43-74f7-44a7-a974-b8202c7ed862%2FScreenshot_2024-03-03_at_5.09.36_PM.png?table=block\&id=93cc8990-749e-4723-a1d6-487154c2f7e9\&cache=v2 "notion image")
 
 ### Better solution
 
@@ -629,7 +629,7 @@ import { signup } from "@/actions/user";;
 
 #### Check the network tab
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F5c2df6c3-b672-49a6-bd49-bef3797e9c05%2FScreenshot_2024-03-03_at_6.03.43_PM.png?table=block&id=9e3a311b-c236-43fe-9eb5-21e199fa6498&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F5c2df6c3-b672-49a6-bd49-bef3797e9c05%2FScreenshot_2024-03-03_at_6.03.43_PM.png?table=block\&id=9e3a311b-c236-43fe-9eb5-21e199fa6498\&cache=v2 "notion image")
 
 ### Benefits of server actions
 
@@ -638,3 +638,4 @@ import { signup } from "@/actions/user";;
 1) Gives you types of the function response on the frontend (very similar to trpc)
 
 1. Can be integrated seamlessly with forms (ref <https://www.youtube.com/watch?v=dDpZfOQBMaU>)
+
