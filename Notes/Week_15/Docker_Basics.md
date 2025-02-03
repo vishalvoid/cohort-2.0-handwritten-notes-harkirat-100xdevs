@@ -42,3 +42,17 @@ docker run -d -p 27017:27017 mongo
 
 * Docker isn’t the only way to create containers
 
+# History of Docker
+
+Docker is a YC backed company, started in \~2014
+
+They envisioned a world where containers would become mainstream and people would deploy their applications using them
+
+That is mostly true today
+
+Most projects that you open on Github will/should have docker files in them (a way to create docker containers)
+
+ 
+
+Ref - <https://www.ycombinator.com/blog/solomon-hykes-docker-dotcloud-interview/>
+
