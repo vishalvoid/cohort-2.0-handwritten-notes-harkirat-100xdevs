@@ -1,0 +1,17 @@
+{
+  "name": "@vishalvoid/medium-common",
+  "version": "1.0.4",
+  "private": false,
+  "main": "/dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}

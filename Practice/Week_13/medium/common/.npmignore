@@ -1,8 +1,1 @@
-*
-!dist
-!dist/**
-.DS_Store
-node_modules
 src
-tsconfig.json
-package.json
