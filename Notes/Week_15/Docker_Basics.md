@@ -22,8 +22,6 @@ Containers are a way to package and distribute software applications in a way th
 
 #### Benefits of using containers
 
- 
-
 1. Let you describe your `configuration` in a single file
 
 1) Can run in isolated environments
@@ -34,13 +32,13 @@ Containers are a way to package and distribute software applications in a way th
 
 #### References
 
-* For Reference, the following command starts `mongo` in all operating systems -&#x20;
+- For Reference, the following command starts `mongo` in all operating systems -&#x20;
 
 ```TypeScript
 docker run -d -p 27017:27017 mongo
 ```
 
-* Docker isn’t the only way to create containers
+- Docker isn’t the only way to create containers
 
 # History of Docker
 
@@ -51,8 +49,6 @@ They envisioned a world where containers would become mainstream and people woul
 That is mostly true today
 
 Most projects that you open on Github will/should have docker files in them (a way to create docker containers)
-
- 
 
 Ref - <https://www.ycombinator.com/blog/solomon-hykes-docker-dotcloud-interview/>
 
@@ -94,8 +90,6 @@ Docker’s main registry - <https://dockerhub.com/>
 
 Mongo image on docker registry - <https://hub.docker.com/_/mongo>
 
-
-
 # Images vs containers
 
 **Docker Image**
@@ -104,15 +98,11 @@ A Docker image is a lightweight, standalone, executable package that includes ev
 
 💡 A good mental model for an image is `Your codebase on github`
 
- 
-
 **Docker Container**
 
 A container is a running instance of an image. It encapsulates the application or service and its dependencies, running in an isolated environment.
 
 💡 A good mental model for a container is when you run `node index.js` on your machine from some source code you got from github
-
-
 
 # Port mapping
 
@@ -161,8 +151,6 @@ Lets you push your image to a registry
 
 1) docker exec
 
-
-
 # Dockerfile
 
 ### What is a Dockerfile
@@ -183,7 +171,7 @@ A dockerfile has 2 parts
 
 Let’s try to containerise this backend app - <https://github.com/100xdevs-cohort-2/week-15-live-1>
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F6b0619fb-054b-4ba4-a82b-d7524c903bd8%2FScreenshot_2024-03-09_at_3.17.15_PM.png?table=block\&id=47b44c7c-f5e1-44df-a90a-ee2e1b4bbbec\&cache=v2 "notion image")
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F6b0619fb-054b-4ba4-a82b-d7524c903bd8%2FScreenshot_2024-03-09_at_3.17.15_PM.png?table=block&id=47b44c7c-f5e1-44df-a90a-ee2e1b4bbbec&cache=v2 "notion image")
 
 Solution
 
@@ -205,17 +193,17 @@ CMD ["node", "dist/index.js"]
 
 ### Common commands
 
-* **`WORKDIR`**: Sets the working directory for any **`RUN`**, **`CMD`**, **`ENTRYPOINT`**, **`COPY`**instructions that follow it.
+- **`WORKDIR`**: Sets the working directory for any **`RUN`**, **`CMD`**, **`ENTRYPOINT`**, **`COPY`**instructions that follow it.
 
-- **`RUN`**: Executes any commands in a new layer on top of the current image and commits the results.
+* **`RUN`**: Executes any commands in a new layer on top of the current image and commits the results.
 
-* **`CMD`**: Provides defaults for executing a container. There can only be one CMD instruction in a Dockerfile.
+- **`CMD`**: Provides defaults for executing a container. There can only be one CMD instruction in a Dockerfile.
 
-- **`EXPOSE`**: Informs Docker that the container listens on the specified network ports at runtime.
+* **`EXPOSE`**: Informs Docker that the container listens on the specified network ports at runtime.
 
-* **`ENV`**: Sets the environment variable.
+- **`ENV`**: Sets the environment variable.
 
-- **`COPY`**: Allow files from the Docker host to be added to the Docker image
+* **`COPY`**: Allow files from the Docker host to be added to the Docker image
 
 <https://github.com/100xdevs-cohort-2/week-15-live-1>
 
@@ -227,19 +215,13 @@ Now that you have a dockerfile in your project, try building a `docker image` fr
 docker build -t image_name .
 ```
 
- 
-
 Now if you try to look at your images, you should notice a new image created
 
 ```
 docker images
 ```
 
- 
-
-💡 Add a .dockerignore so that node\_modules don’t get copied over&#x20;
-
-
+💡 Add a .dockerignore so that node_modules don’t get copied over&#x20;
 
 # &#x20;Running images
 
@@ -249,15 +231,11 @@ docker run -p 3000:3000 image_name
 
 Try visiting `localhost:3000`
 
-
-
 # Passing in env variables
 
 ```
 docker run -p 3000:3000 -e DATABASE_URL="postgres:your_url" image_name
 ```
-
- 
 
 The `-e` argument let’s you send in environment variables to your node.js app
 
@@ -266,8 +244,6 @@ The `-e` argument let’s you send in environment variables to your node.js app
 1. docker kill - to kill a container
 
 1) docker exec - to exectue a command inside a container
-
- 
 
 Examples
 
@@ -282,8 +258,6 @@ docker exec <container_name_or_id> ls /path/to/directory
 ```
 docker exec -it <container_name_or_id> /bin/bash
 ```
-
-
 
 # Pushing to dockerhub
 
@@ -302,8 +276,6 @@ Once you’ve created your image, you can push it to `dockerhub` to share it wit
 docker push your_username/your_reponame:tagname
 ```
 
-
-
 # Layers in Docker
 
 In Docker, layers are a fundamental part of the image architecture that allows Docker to be efficient, fast, and portable. A Docker image is essentially built up from a series of layers, each representing a set of differences from the previous layer.
@@ -318,31 +290,25 @@ In Docker, layers are a fundamental part of the image architecture that allows D
 
 1) **Immutable:** Once a layer is created, it cannot be changed. If a change is made, Docker creates a new layer that captures the difference. This immutability is key to Docker's reliability and performance, as unchanged layers can be shared across images and containers.
 
-
-
 # Layers practically
 
 For a simple Node.js app - <https://github.com/100xdevs-cohort-2/week-15-live-2>
 
 **Dockerfile**
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fa7018106-27d9-4833-9206-d20d05ab8a11%2FScreenshot_2024-03-10_at_1.29.42_PM.png?table=block\&id=5adef147-fe82-4e9a-9e82-dbb3738b3104\&cache=v2 "notion image")
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fa7018106-27d9-4833-9206-d20d05ab8a11%2FScreenshot_2024-03-10_at_1.29.42_PM.png?table=block&id=5adef147-fe82-4e9a-9e82-dbb3738b3104&cache=v2 "notion image")
 
 **Logs**
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F891e06cd-8ce7-402e-9e0d-15d7e9852e3d%2FScreenshot_2024-03-10_at_1.31.53_PM.png?table=block\&id=d06687c2-32b3-4419-865c-367f7a0ffdd8\&cache=v2 "notion image")
-
- 
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F891e06cd-8ce7-402e-9e0d-15d7e9852e3d%2FScreenshot_2024-03-10_at_1.31.53_PM.png?table=block&id=d06687c2-32b3-4419-865c-367f7a0ffdd8&cache=v2 "notion image")
 
 #### Observations -
 
 1. Base image creates the first layer
 
-1) Each `RUN`, `COPY` , `WORKDIR`  command creates a new layer
+1) Each `RUN`, `COPY` , `WORKDIR` command creates a new layer
 
 1. Layers can get re-used across docker builds (notice `CACHED` in 1/6)
-
-
 
 # Why layers?
 
@@ -354,19 +320,13 @@ If you change your Dockerfile, layers can get re-used based on where the change 
 
 #### Case 2 - You change the package.json file (added a dependency)
 
-
-
 ### Thought experiment
-
-
 
 How often in a project do you think `dependencies change` ?
 
 How often does the `npm install` layer need to change?
 
 Wouldn’t it be nice if we could `cache` the `npm install` step considering dependencies don’t change often?
-
-
 
 # Optimising Dockerfile
 
@@ -381,7 +341,7 @@ WORKDIR /usr/src/app
 
 COPY package* .
 COPY ./prisma .
-    
+
 RUN npm install
 RUN npx prisma generate
 
@@ -411,8 +371,6 @@ Networks and volumes are concepts that become important when you have multiple c
 1) Need to allow containers to talk to each other
 
 We didn’t need `networks` until now because when we started the `mongo` container, it was being accessed by a Node.js process running directly on the machine
-
-
 
 # Volumes
 
@@ -444,8 +402,6 @@ docker run -p 27017:27017 -d mongo
 
 1. Try to explore the database in Compass and check if the data has persisted (it wouldn’t)
 
- 
-
 ## With volumes
 
 1. Create a `volume`
@@ -476,11 +432,7 @@ docker run -v volume_database:/data/db -p 27017:27017 mongo
 
 1. Try to explore the database in Compass and check if the data has persisted (it will!)
 
-
-
 # Network
-
- 
 
 In Docker, a network is a powerful feature that allows containers to communicate with each other and with the outside world.
 
@@ -488,7 +440,7 @@ Docker containers can’t talk to each other by default.
 
 [`localhost`](http://localhost/) on a docker container means `it's own network` and not the network of the `host machine`
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F8b69d8c4-0014-46a6-80ee-b6fc40e07765%2FScreenshot_2024-03-10_at_4.32.34_PM.png?table=block\&id=ad64379b-d26c-43ad-987b-628383216586\&cache=v2 "notion image")
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F8b69d8c4-0014-46a6-80ee-b6fc40e07765%2FScreenshot_2024-03-10_at_4.32.34_PM.png?table=block&id=ad64379b-d26c-43ad-987b-628383216586&cache=v2 "notion image")
 
 ### How to make containers talk to each other?
 
@@ -532,45 +484,41 @@ docker logs <container_id>
 
 1.
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F2d10fe34-c5af-4030-bf82-09f6ecf2c545%2FScreenshot_2024-03-10_at_5.16.46_PM.png?table=block\&id=0b77d3ea-2dbc-41ca-ba4e-d49172524991\&cache=v2 "notion image")
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F2d10fe34-c5af-4030-bf82-09f6ecf2c545%2FScreenshot_2024-03-10_at_5.16.46_PM.png?table=block&id=0b77d3ea-2dbc-41ca-ba4e-d49172524991&cache=v2 "notion image")
 
 #### Types of networks
 
-* **Bridge**: The default network driver for containers. When you run a container without specifying a network, it's attached to a bridge network. It provides a private internal network on the host machine, and containers on the same bridge network can communicate with each other.
+- **Bridge**: The default network driver for containers. When you run a container without specifying a network, it's attached to a bridge network. It provides a private internal network on the host machine, and containers on the same bridge network can communicate with each other.
 
-- **Host**: Removes network isolation between the container and the Docker host, and uses the host's networking directly. This is useful for services that need to handle lots of traffic or need to expose many ports.
-
-
+* **Host**: Removes network isolation between the container and the Docker host, and uses the host's networking directly. This is useful for services that need to handle lots of traffic or need to expose many ports.
 
 # docker-compose
 
 Docker Compose is a tool designed to help you define and run multi-container Docker applications. With Compose, you use a YAML file to configure your application's services, networks, and volumes. Then, with a single command, you can create and start all the services from your configuration.
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F161f82ec-cbf1-4654-ab9b-a052fd1da6be%2FScreenshot_2024-03-10_at_5.36.58_PM.png?table=block\&id=8e4f86ba-c720-4f78-8c97-1926391deb73\&cache=v2 "notion image")
-
- 
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F161f82ec-cbf1-4654-ab9b-a052fd1da6be%2FScreenshot_2024-03-10_at_5.36.58_PM.png?table=block&id=8e4f86ba-c720-4f78-8c97-1926391deb73&cache=v2 "notion image")
 
 ### Before docker-compose
 
-* Create a network
+- Create a network
 
 ```
 docker network create my_custom_network
 ```
 
-* Create a volume
+- Create a volume
 
 ```
 docker volume create volume_database
 ```
 
-* Start mongo container
+- Start mongo container
 
 ```
 docker run -d -v volume_database:/data/db --name mongo --network my_custom_network  mongo
 ```
 
-* Start backend container
+- Start backend container
 
 ```
 docker run -d -p 3000:3000 --name backend --network my_custom_network backend
@@ -621,4 +569,3 @@ docker-compose up
 ```
  docker-compose down --volumes
 ```
-
