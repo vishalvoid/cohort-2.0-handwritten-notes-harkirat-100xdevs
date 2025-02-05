@@ -41,10 +41,10 @@
 | 25       | 01-02-25   | 0:00                                                 | 0:00                          | 3:34                            | Fest                                                                                  | Fest                                      |
 | 26       | 02-02-25   | 0:00                                                 | 0:00                          | 3:26                            | Nalla                                                                                 | Nalla                                     |
 | 27       | 03-02-25   | 2:05, 2:12, 1:35                                     | 5:52                          | 3:31                            | Completed Week 14                                                                     | Completed Week 14                         |
-| 28       | 04-02-25   |                                                      |                               |                                 |                                                                                       |                                           |
-|          |            |                                                      |                               |                                 |                                                                                       |                                           |
+| 28       | 04-02-25   | 2:19, 1:33                                           | 3:52                          | 3:31:45                         | 15.2 and half of 15.2                                                                 | 15.1C                                     |
+| 29       | 5-02-25    |                                                      |                               |                                 |                                                                                       |                                           |
 
-***
+---
 
 ## Weekly Progress Table
 
@@ -55,5 +55,4 @@
 | Week 2   | 19:35                  | 12 completed         | Week 10, 3 and 4 completed      | 5/7                    |
 | Week 3   | 30:46                  | 19 completed.        | Week 5, 6, 7, 8 and 9 Completed | 5/7                    |
 
-***
-
+---
