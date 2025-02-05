@@ -44,7 +44,7 @@
 | 28       | 04-02-25   | 2:19, 1:33                                           | 3:52                          | 3:31:45                         | 15.2 and half of 15.2                                                                 | 15.1C                                     |
 | 29       | 5-02-25    |                                                      |                               |                                 |                                                                                       |                                           |
 
-***
+---
 
 ## Weekly Progress Table
 
@@ -56,5 +56,4 @@
 | Week 3   | 30:46                  | 19 completed.        | Week 5, 6, 7, 8 and 9 Completed | 5/7                    |
 | Week 4   | 32:09                  | 19 completed         | Week 11, 12, 13, 14, 15.2       | 5/7                    |
 
-***
-
+---
