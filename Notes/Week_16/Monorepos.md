@@ -218,7 +218,7 @@ Steps to follow -&#x20;
 
 Solution
 
-```TSX
+```TypeScript
 "use client";
 
 export const Admin = () => {
@@ -255,32 +255,32 @@ References - <https://turbo.build/repo/docs/reference/configuration#globaldepend
 
 1. Go to the apps folder
 
-```
+```TypeScript
 cd apps
 ```
 
 2\. Create a fresh vite app
 
-```
+```TypeScript
 npm create vite@latest
 ```
 
 1. Update package.json to include `@repo/ui` as a dependency
 
-```
+```TypeScript
 "@repo/ui": "*",
 ```
 
 1. Run npm install in the root folder
 
-```
+```TypeScript
 cd ..
 npm install
 ```
 
 1. Run npm run dev
 
-```
+```TypeScript
 npm run dev
 ```
 
@@ -290,7 +290,7 @@ npm run dev
 
 Ref <https://turbo.build/repo/docs/core-concepts/monorepos/configuring-workspaces>
 
-```
+```TypeScript
 {
   "extends": ["//"],
   "pipeline": {
@@ -313,7 +313,7 @@ Try running `npm run build` more than once and you’ll see the second times it 
 
 You can also explore the `node_modules/.cache/turbo` folder to see the zipped cache files and unzip them using
 
-```
+```TypeScript
  tar --use-compress-program=unzstd -xvf name.tar.zst
 
 
@@ -331,14 +331,14 @@ You can use either `tsup` or `esbuild` for building your backend application
 
 1) Initialize empty ts repo
 
-```
+```TypeScript
 npm init -y
 npx tsc --init
 ```
 
 1. Use base tsconfig (Ref - <https://github.com/vercel/turbo/blob/main/examples/kitchen-sink/apps/api/tsconfig.json> )
 
-```
+```TypeScript
 {
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
@@ -353,13 +353,13 @@ npx tsc --init
 
 1. Add dependencies
 
-```
+```TypeScript
 npm i express @types/express
 ```
 
 1. Add `src/index.ts`
 
-```
+```TypeScript
 import express from "express";
 
 const app = express()
@@ -373,7 +373,7 @@ app.get("/", (req, res) => {
 
 1. Update turbo.json
 
-```
+```TypeScript
 {
   "extends": ["//"],
   "pipeline": {
@@ -386,13 +386,13 @@ app.get("/", (req, res) => {
 
 1. Install esbuild
 
-```
+```TypeScript
 npm install esbuild
 ```
 
 1. Add build script to package.json
 
-```
+```TypeScript
 "build": "esbuild src/index.ts --platform=node --bundle --outdir=dist"
 ```
 
@@ -402,14 +402,14 @@ A lot of times you need a module that can be shared by both frontend and backend
 
 1. Initialize a `packages/common` module
 
-```
+```TypeScript
 cd packages
 mkdir common
 ```
 
 1. Initialize an empty node.js project
 
-```
+```TypeScript
 npm init -y
 npx tsc --init
 ```
@@ -418,13 +418,13 @@ npx tsc --init
 
 1) Export a few things from `src/index.ts`
 
-```
+```TypeScript
 export const NUMBER = 1;
 ```
 
 1. Add it to the `package.json` of various apps (next app/react app/node app)
 
-```
+```TypeScript
 "@repo/common": "*",
 ```
 
