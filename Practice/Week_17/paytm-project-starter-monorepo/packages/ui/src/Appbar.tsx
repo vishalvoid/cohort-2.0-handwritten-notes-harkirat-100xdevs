@@ -7,7 +7,6 @@ interface AppbarProps {
   // TODO: can u figure out what the type should be here?
   onSignin: any;
   onSignout: any;
-  name: string;
 }
 
 export const Appbar = ({ user, onSignin, onSignout }: AppbarProps) => {
