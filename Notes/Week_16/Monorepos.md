@@ -26,7 +26,7 @@ You can, and you should if your
 
 For eg - A codebase which has a Golang service and a JS service
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F457b1c41-8f8c-47c7-881a-814ae54898b2%2FScreenshot_2024-03-16_at_2.54.08_AM.png?table=block&id=46bc3f63-54f9-4749-87ff-42722c34de81&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F457b1c41-8f8c-47c7-881a-814ae54898b2%2FScreenshot_2024-03-16_at_2.54.08_AM.png?table=block\&id=46bc3f63-54f9-4749-87ff-42722c34de81\&cache=v2 "notion image")
 
 #### Why monorepos?
 
@@ -136,7 +136,7 @@ npm run dev
 
 You might have to upgrade your node.js version
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fab9d29bd-df80-48ea-9e7e-f3c4b2ca4590%2FScreenshot_2024-03-16_at_1.26.45_PM.jpg?table=block&id=720478c3-18ef-44c0-ba6c-9ea29300a52f&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fab9d29bd-df80-48ea-9e7e-f3c4b2ca4590%2FScreenshot_2024-03-16_at_1.26.45_PM.jpg?table=block\&id=720478c3-18ef-44c0-ba6c-9ea29300a52f\&cache=v2 "notion image")
 
 You will notice two websites running on&#x20;
 
@@ -148,7 +148,7 @@ This means we have a single `repo` which has multiple `projects` which share cod
 
 # Exploring root package.json
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F09802be9-a935-4449-b77e-5de61e3cca0a%2FScreenshot_2024-03-16_at_1.31.42_PM.jpg?table=block&id=eb33a25e-6122-4a21-b834-065a0c98f97f&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F09802be9-a935-4449-b77e-5de61e3cca0a%2FScreenshot_2024-03-16_at_1.31.42_PM.jpg?table=block\&id=eb33a25e-6122-4a21-b834-065a0c98f97f\&cache=v2 "notion image")
 
 #### scripts
 
@@ -168,11 +168,11 @@ Same for `dev` and `lint`
 
 #### 1. package.json
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fdf96ee8e-8d2d-441a-82aa-fc757f8c0d1c%2FScreenshot_2024-03-16_at_1.39.59_PM.jpg?table=block&id=981b22a8-6a6d-42de-b385-bb30b3f06c8e&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fdf96ee8e-8d2d-441a-82aa-fc757f8c0d1c%2FScreenshot_2024-03-16_at_1.39.59_PM.jpg?table=block\&id=981b22a8-6a6d-42de-b385-bb30b3f06c8e\&cache=v2 "notion image")
 
 #### 2. src/button.tsx
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fb9939eab-f74d-4648-8b09-19219dc96dd9%2FScreenshot_2024-03-16_at_1.43.13_PM.jpg?table=block&id=637f5492-356b-48b1-91e6-dcc7ca343913&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fb9939eab-f74d-4648-8b09-19219dc96dd9%2FScreenshot_2024-03-16_at_1.43.13_PM.jpg?table=block\&id=637f5492-356b-48b1-91e6-dcc7ca343913\&cache=v2 "notion image")
 
 #### 3. `turbo` folder
 
@@ -186,21 +186,21 @@ We’ll come back to this after a few slides
 
 It is a simple next.js app. But it uses some `UI components` from the `packages/ui` module
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F3c9232aa-82e1-4ec3-8852-9d0de0b89fe6%2FScreenshot_2024-03-16_at_1.23.06_PM.jpg?table=block&id=4325d478-2cbe-410c-8558-7e5f8a9ea881&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F3c9232aa-82e1-4ec3-8852-9d0de0b89fe6%2FScreenshot_2024-03-16_at_1.23.06_PM.jpg?table=block\&id=4325d478-2cbe-410c-8558-7e5f8a9ea881\&cache=v2 "notion image")
 
 ### 2. Exploring package.json
 
 If you explore package.json of `apps/web`, you will notice `@repo/ui` as a dependency
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fda7eab52-5b59-4d3e-92e5-c23e8bd25d0c%2FScreenshot_2024-03-16_at_3.46.44_PM.jpg?table=block&id=63480ab4-8e76-4eae-a46d-fccd481c68d1&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fda7eab52-5b59-4d3e-92e5-c23e8bd25d0c%2FScreenshot_2024-03-16_at_3.46.44_PM.jpg?table=block\&id=63480ab4-8e76-4eae-a46d-fccd481c68d1\&cache=v2 "notion image")
 
 ### 3. Exploring page.tsx
 
 This is a very big page, let’s try to see the import and usage of the `Button` component
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fc525e50a-8a58-4402-818b-b10507c31285%2FScreenshot_2024-03-16_at_1.46.12_PM.jpg?table=block&id=707eaf56-407c-4eb1-96d6-2f1703f2b6d2&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fc525e50a-8a58-4402-818b-b10507c31285%2FScreenshot_2024-03-16_at_1.46.12_PM.jpg?table=block\&id=707eaf56-407c-4eb1-96d6-2f1703f2b6d2\&cache=v2 "notion image")
 
-![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F0ea269ea-e5bc-4355-92eb-0f20c321fbf7%2FScreenshot_2024-03-16_at_1.47.35_PM.jpg?table=block&id=2bb57b25-da69-41c3-b151-6c46144da12c&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F0ea269ea-e5bc-4355-92eb-0f20c321fbf7%2FScreenshot_2024-03-16_at_1.47.35_PM.jpg?table=block\&id=2bb57b25-da69-41c3-b151-6c46144da12c\&cache=v2 "notion image")
 
 The same `Button` component can be used by the `apps/docs` website as well
 
@@ -212,9 +212,9 @@ It should use a simple `Admin` component from `packages/ui`
 
 Steps to follow -&#x20;
 
-- Create a new file `admin.tsx` inside `packages/ui/src`
+* Create a new file `admin.tsx` inside `packages/ui/src`
 
-* Export a simple React component
+- Export a simple React component
 
 Solution
 
@@ -231,15 +231,15 @@ export const Admin = () => {
 
 ```
 
-- Add the component to exports in `packages/ui/package.json`
+* Add the component to exports in `packages/ui/package.json`
 
-* Create `apps/web/app/admin/page.tsx`
+- Create `apps/web/app/admin/page.tsx`
 
-- Export a default component that uses the `@repo/ui/admin` component
+* Export a default component that uses the `@repo/ui/admin` component
 
-* Run npm run dev (either in root or in `apps/web` ) and try to see the website
+- Run npm run dev (either in root or in `apps/web` ) and try to see the website
 
-- Go to <http://localhost:3000/admin>
+* Go to <http://localhost:3000/admin>
 
 💡
 
@@ -431,3 +431,4 @@ export const NUMBER = 1;
 1. Import it in there and try to use it
 
 1) Run npm install in root folder and see if it works as expected
+
