@@ -487,18 +487,3 @@ setInterval(() => {
 }, 5000)
 ```
 
-[![Logo](https://projects.100xdevs.com/_next/image?url=https%3A%2F%2Fappx-wsb-gcp.akamai.net.in%2Fsubject%2F2023-01-17-0.17044360120951185.jpg&w=640&q=75 "Logo")](https://projects.100xdevs.com/)
-
-#### Singleton Pattern, Backend State management and Pub Subs6 of 6
-
-![user_profile_image](https://lh3.googleusercontent.com/a/ACg8ocLz1NvZGeIiflxQ9_yA1IVfSf9B8Ev6EUeHTb58nEV78Rx3Vyk=s96-c "user_profile_image")
-
-[Download](https://projects.100xdevs.com/pdf/singleton-sm-pubsubs/Singleton-Pattern--Backend-State-management-and-Pub-Subs-6)
-
-Switch to Old UI
-
-[Back to home](https://projects.100xdevs.com/)Jump To[Prev](https://projects.100xdevs.com/tracks/singleton-sm-pubsubs/Singleton-Pattern--Backend-State-management-and-Pub-Subs-5)[Next](https://projects.100xdevs.com/tracks/singleton-sm-pubsubs/Singleton-Pattern--Backend-State-management-and-Pub-Subs-6)Go to Top
-
-1.
-
-1)
