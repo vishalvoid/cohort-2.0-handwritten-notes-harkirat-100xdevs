@@ -14,13 +14,13 @@ Ref - <https://thehackernews.com/2016/03/hack-facebook-account.html>
 
 When you allow a user to `reset their password` using an OTP from their email, the following endpoint should be rate limited heavily
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F32608b57-91ff-4651-a3cb-0578fe693aa3%2FScreenshot_2024-04-20_at_4.02.36_PM.png?table=block&id=840e837f-46fa-4c61-a56a-09cbc848c30e&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F32608b57-91ff-4651-a3cb-0578fe693aa3%2FScreenshot_2024-04-20_at_4.02.36_PM.png?table=block\&id=840e837f-46fa-4c61-a56a-09cbc848c30e\&cache=v2 "notion image")
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F5af7a0d5-901f-44ce-8b58-2b9855bf3a53%2FScreenshot_2024-04-20_at_4.02.42_PM.png?table=block&id=65deaa3c-bd74-40c2-9c19-6a6eb85c9f93&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F5af7a0d5-901f-44ce-8b58-2b9855bf3a53%2FScreenshot_2024-04-20_at_4.02.42_PM.png?table=block\&id=65deaa3c-bd74-40c2-9c19-6a6eb85c9f93\&cache=v2 "notion image")
 
 # Implement a simple reset pass endpoint
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fa5ca682c-df02-4c7f-b1ad-ed3cc4966f88%2FScreenshot_2024-04-20_at_4.02.42_PM.png?table=block&id=09d5e0f7-8796-45ec-8c03-45546ad42c29&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fa5ca682c-df02-4c7f-b1ad-ed3cc4966f88%2FScreenshot_2024-04-20_at_4.02.42_PM.png?table=block\&id=09d5e0f7-8796-45ec-8c03-45546ad42c29\&cache=v2 "notion image")
 
 1. Init a typescript project
 
@@ -92,13 +92,13 @@ app.listen(PORT, () => {
 
 Try hitting it with various OTPs one by one. Notice the server doesn’t rate limit you
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fd37ac78a-9d35-4540-92ec-3520bccb0efa%2FScreenshot_2024-04-20_at_4.18.56_PM.png?table=block&id=9d4e4b43-bf48-438e-be80-016d8dee1bce&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fd37ac78a-9d35-4540-92ec-3520bccb0efa%2FScreenshot_2024-04-20_at_4.18.56_PM.png?table=block\&id=9d4e4b43-bf48-438e-be80-016d8dee1bce\&cache=v2 "notion image")
 
 # Exploiting the endpoint
 
 Export Node.js code from Postman to hit the endpoint
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fbddad4a6-471a-4f08-8b5a-0bd92b765115%2FScreenshot_2024-04-20_at_4.20.16_PM.png?table=block&id=73013d9b-8006-4da8-84c6-1e4d47a584b8&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fbddad4a6-471a-4f08-8b5a-0bd92b765115%2FScreenshot_2024-04-20_at_4.20.16_PM.png?table=block\&id=73013d9b-8006-4da8-84c6-1e4d47a584b8\&cache=v2 "notion image")
 
 1. Create a new folder (exploit-service)
 
@@ -183,24 +183,28 @@ Try resetting password on [https://harkirat.classx.co.in](https://harkirat.class
 
 1) Try putting a random OTP
 
-   1. ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F6a05aa9e-bccf-461e-a03a-672049c8346c%2FScreenshot_2024-04-20_at_4.52.36_PM.png?table=block&id=833b43e9-8283-4815-8fab-3e55a4618b7e&cache=v2 "notion image")
-   2.
+   1.
+
+   ![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F6a05aa9e-bccf-461e-a03a-672049c8346c%2FScreenshot_2024-04-20_at_4.52.36_PM.png?table=block\&id=833b43e9-8283-4815-8fab-3e55a4618b7e\&cache=v2 "notion image")
+   2\.
 
 #### Exploiting it
 
-- Copy over the request from the network tab as `curl`
+* Copy over the request from the network tab as `curl`
 
-* Paste it in Postman
+- Paste it in Postman
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fc3725ac2-9a32-489b-877e-1a6a64aad083%2FScreenshot_2024-04-20_at_4.53.21_PM.png?table=block&id=71c4d1cd-1d37-4b73-8125-3da191a5e1ea&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fc3725ac2-9a32-489b-877e-1a6a64aad083%2FScreenshot_2024-04-20_at_4.53.21_PM.png?table=block\&id=71c4d1cd-1d37-4b73-8125-3da191a5e1ea\&cache=v2 "notion image")
 
-- Send a request via postman
+* Send a request via postman
 
-* Export the request
+- Export the request
 
-  - ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fda6d3cec-d706-4dc7-82e4-49f2930fa706%2FScreenshot_2024-04-20_at_4.55.07_PM.png?table=block&id=b02f2453-d025-41d4-a7ef-53e153b512de&cache=v2 "notion image")
+  *
 
-- Update the script to brute force on this endpoint
+  ![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fda6d3cec-d706-4dc7-82e4-49f2930fa706%2FScreenshot_2024-04-20_at_4.55.07_PM.png?table=block\&id=b02f2453-d025-41d4-a7ef-53e153b512de\&cache=v2 "notion image")
+
+* Update the script to brute force on this endpoint
 
 ```TypeScript
 import axios from "axios";
@@ -253,13 +257,13 @@ main()
 
 You’ll get `rate limitted`
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7db48ad8-2a57-401b-b9dc-554fd0adb3d0%2FScreenshot_2024-04-20_at_4.56.49_PM.png?table=block&id=f32a6809-5b13-4c32-a282-edd19ff8909b&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7db48ad8-2a57-401b-b9dc-554fd0adb3d0%2FScreenshot_2024-04-20_at_4.56.49_PM.png?table=block\&id=f32a6809-5b13-4c32-a282-edd19ff8909b\&cache=v2 "notion image")
 
 # Saving the endpoint
 
 Ref <https://www.npmjs.com/package/express-rate-limit>
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F18b34839-a1c2-4d3c-b5d7-e53ca9a1bce1%2FScreenshot_2024-04-20_at_4.58.36_PM.png?table=block&id=2a2dd2c0-93e7-4182-a7ef-0f58f66a4e39&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F18b34839-a1c2-4d3c-b5d7-e53ca9a1bce1%2FScreenshot_2024-04-20_at_4.58.36_PM.png?table=block\&id=2a2dd2c0-93e7-4182-a7ef-0f58f66a4e39\&cache=v2 "notion image")
 
 Update the code
 
@@ -332,13 +336,13 @@ app.listen(PORT, () => {
 
 ```
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Ff96f7d8a-5fbd-41f2-a220-36364108264d%2FScreenshot_2024-04-20_at_5.00.44_PM.png?table=block&id=9eef2f23-b296-4ecd-a324-2ff6d203ace9&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Ff96f7d8a-5fbd-41f2-a220-36364108264d%2FScreenshot_2024-04-20_at_5.00.44_PM.png?table=block\&id=9eef2f23-b296-4ecd-a324-2ff6d203ace9\&cache=v2 "notion image")
 
 # Problem?
 
 Your server is still vulnerable to DDoS
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fdcc2e7c3-9467-4397-841b-7e8fa0048861%2FScreenshot_2024-04-20_at_5.02.39_PM.png?table=block&id=38c86f62-611d-479e-b609-690569e037e8&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fdcc2e7c3-9467-4397-841b-7e8fa0048861%2FScreenshot_2024-04-20_at_5.02.39_PM.png?table=block\&id=38c86f62-611d-479e-b609-690569e037e8\&cache=v2 "notion image")
 
 Though DDoS is rarely used for password reset, it is usually used to choke a server
 
@@ -356,25 +360,25 @@ Why do attackers to DDoS -&#x20;
 
 # Captchas
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7b36e3f0-5e7f-4c7f-8a29-3913911178ba%2Fimage-3.png?table=block&id=df0ce3bd-0a62-4ab3-bc80-8a8aa4660767&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7b36e3f0-5e7f-4c7f-8a29-3913911178ba%2Fimage-3.png?table=block\&id=df0ce3bd-0a62-4ab3-bc80-8a8aa4660767\&cache=v2 "notion image")
 
 Captchas are a great-sh solution to making sure the request was sent by a human and not by a machine
 
 There are various freely available captchas, Cloudflare Turnstile is one of them
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fca248aac-6e57-4867-8584-aeb700b0b318%2FScreenshot_2024-04-20_at_5.07.29_PM.png?table=block&id=16035a06-3046-45ba-93e4-554bfc351c97&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fca248aac-6e57-4867-8584-aeb700b0b318%2FScreenshot_2024-04-20_at_5.07.29_PM.png?table=block\&id=16035a06-3046-45ba-93e4-554bfc351c97\&cache=v2 "notion image")
 
 # Adding captchas via cloudflare
 
-- Add a new site to turnstile
+* Add a new site to turnstile
 
-* Keep your site key and site secret safe
+- Keep your site key and site secret safe
 
-- Create a react project
+* Create a react project
 
-* Add <https://github.com/marsidev/react-turnstile>
+- Add <https://github.com/marsidev/react-turnstile>
 
-- Update `App.tsx`
+* Update `App.tsx`
 
 ```TypeScript
 import { Turnstile } from '@marsidev/react-turnstile'
@@ -409,7 +413,7 @@ function App() {
 export default App
 ```
 
-- Update the backend code
+* Update the backend code
 
 ```TypeScript
 import express from 'express';
@@ -480,12 +484,12 @@ app.listen(PORT, () => {
 
 # DDoS protection in prod
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fdcf8a1b5-82dd-4fed-a9cb-a3cf85e06ddd%2F653af01c738a73677c8a6ff07fcb902eb5c410f6_2_690x464.png?table=block&id=983fe850-32db-450d-9ccf-7923236adbec&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fdcf8a1b5-82dd-4fed-a9cb-a3cf85e06ddd%2F653af01c738a73677c8a6ff07fcb902eb5c410f6_2_690x464.png?table=block\&id=983fe850-32db-450d-9ccf-7923236adbec\&cache=v2 "notion image")
 
 1. Move your domain to cloudflare
 
 1) Proxy all records via cloudflare
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F0c9694c2-0cbd-4dcf-89d9-ad5bc633953a%2FScreenshot_2024-04-20_at_5.36.06_PM.png?table=block&id=31e54a72-43cb-4225-9773-953aad8b28d3&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F0c9694c2-0cbd-4dcf-89d9-ad5bc633953a%2FScreenshot_2024-04-20_at_5.36.06_PM.png?table=block\&id=31e54a72-43cb-4225-9773-953aad8b28d3\&cache=v2 "notion image")
 
 💡 This is usually more than good enough, but if you’d like to dive further, you can add IP based rate limits, override DDoS in the security section of cloudflare AWS/GCP also provide you with the same
