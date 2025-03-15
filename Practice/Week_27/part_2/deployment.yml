@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: postgres:latest
+          image: nginx:latest
           ports:
             - containerPort: 80
-          env:
-            - name: POSTGRES_PASSWORD
-              value: "yourpassword"
+          # env:
+          # - name: POSTGRES_PASSWORD
+          # value: "yourpassword"
