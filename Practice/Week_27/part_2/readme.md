@@ -34,6 +34,57 @@ spec:
             - containerPort: 80
 ```
 
+# ReplicaSet in Kubernetes
+
+A ReplicaSet ensures that a specified number of pod replicas are running at any given time. It's the next-generation version of ReplicationController and is recommended over it.
+
+## Key Components of ReplicaSet
+
+- **metadata**: Name and labels for the ReplicaSet
+- **spec**: Contains the replica count and pod template
+- **selector**: Defines how to identify pods to manage
+- **template**: Defines the pod configuration
+
+## Basic Example
+
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: php-redis
+          image: gcr.io/google_samples/gb-frontend:v3
+```
+
+## Key Features
+
+1. Pod maintenance
+2. Scaling capability
+3. Pod template modifications
+4. Label and selector matching
+
+## Best Practices
+
+- Use Deployments instead of directly using ReplicaSets
+- Properly define selector labels
+- Set appropriate replica counts
+- Use resource limits for pods
+- Implement proper health checks
+
 ## Common Use Cases
 
 1. Application deployments
