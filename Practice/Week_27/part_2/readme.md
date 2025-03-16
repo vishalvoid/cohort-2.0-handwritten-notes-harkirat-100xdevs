@@ -70,6 +70,51 @@ spec:
           image: gcr.io/google_samples/gb-frontend:v3
 ```
 
+# Services in Kubernetes
+
+A Service in Kubernetes is an abstraction that defines a logical set of Pods and a policy by which to access them. Services enable network access to a set of Pods that match certain labels.
+
+## Types of Services
+
+1. **ClusterIP**: Internal access only (default)
+2. **NodePort**: Exposes the service on each Node's IP
+3. **LoadBalancer**: Uses cloud provider's load balancer
+4. **ExternalName**: Maps service to external DNS name
+
+## Basic Example
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+  type: ClusterIP
+```
+
+## Key Features
+
+1. Service Discovery
+2. Load Balancing
+3. Stable Network Address
+4. Automatic DNS Resolution
+5. Session Affinity Options
+
+## Best Practices
+
+- Use meaningful service names
+- Configure appropriate health checks
+- Set proper selectors
+- Choose the right service type
+- Define resource limits
+- Use appropriate port mappings
+
 ## Key Features
 
 1. Pod maintenance
