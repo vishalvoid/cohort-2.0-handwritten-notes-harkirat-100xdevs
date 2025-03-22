@@ -115,6 +115,63 @@ spec:
 - Define resource limits
 - Use appropriate port mappings
 
+# Kind (Kubernetes in Docker)
+
+Kind is a tool for running local Kubernetes clusters using Docker container "nodes". It's designed for testing Kubernetes and local development.
+
+## Basic Usage
+
+```bash
+# Create a cluster
+kind create cluster --name my-cluster
+
+# Create multi-node cluster
+kind create cluster --config kind-config.yaml
+```
+
+## Configuration Example
+
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker
+```
+
+## Key Features
+
+1. Multi-node clusters
+2. Support for custom images
+3. LoadBalancer support
+4. Support for PersistentVolumes
+5. Container registry integration
+
+## Best Practices
+
+- Use consistent node images
+- Configure resource limits
+- Use local registry for testing
+- Clean up unused clusters
+- Version control your cluster configs
+
+## Common Commands
+
+```bash
+# List clusters
+kind get clusters
+
+# Delete cluster
+kind delete cluster --name my-cluster
+
+# Load Docker image
+kind load docker-image my-image:tag
+
+# Export kubeconfig
+kind export kubeconfig
+```
+
 ## Key Features
 
 1. Pod maintenance
