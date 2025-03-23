@@ -50,3 +50,64 @@ nodes:
 3. CI/CD pipelines
 4. Local Kubernetes development
 5. Multi-node setups
+
+# Kubernetes Manifests (manifest.yml)
+
+A manifest file in Kubernetes is a YAML file that describes the desired state of resources in a cluster. It can contain one or multiple resource definitions.
+
+## Structure Components
+
+- **apiVersion**: API version for the resource
+- **kind**: Type of resource (Pod, Deployment, Service, etc.)
+- **metadata**: Resource identification and labels
+- **spec**: Resource specifications and configurations
+
+## Basic Example
+
+```yaml
+# Pod manifest
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myapp-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+---
+# Service manifest
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  selector:
+    app: myapp
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
+```
+
+## Best Practices
+
+- Use version control for manifests
+- Implement resource limits
+- Add meaningful labels and annotations
+- Use multi-document YAML files
+- Include resource requests
+- Document configuration choices
+
+## Common Resource Types
+
+1. Pods
+2. Deployments
+3. Services
+4. ConfigMaps
+5. Secrets
+6. Volumes
+7. Ingress
