@@ -1,0 +1,18 @@
+{
+  "name": "websockets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/ws": "^8.5.14",
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}
