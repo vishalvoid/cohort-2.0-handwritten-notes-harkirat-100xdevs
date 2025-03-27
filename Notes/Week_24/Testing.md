@@ -72,7 +72,7 @@ npx ts-jest config:init
 
 * Add tests (index.test.ts)
 
-```
+```TypeScript
 import {describe, expect, test} from '@jest/globals';
 import {sum} from '../index';
 
@@ -109,7 +109,7 @@ npx tsc --init
 
 * Add dependencies
 
-```
+```TypeScript
 npm install --save-dev ts-jest  @jest/globals @types/express
 npm i supertest @types/supertest
 npm install express 
@@ -123,7 +123,7 @@ npx ts-jest config:init
 
 * Create `src/index.ts`
 
-```
+```TypeScript
 import express from "express";
 
 export const app = express();
@@ -148,7 +148,7 @@ app.post("/sum", (req, res) => {
 
 * Add `tests/sum.test.ts`
 
-```
+```TypeScript
 import {describe, expect, test, it} from '@jest/globals';
 import request from "supertest";
 import { app } from "../index"
@@ -186,7 +186,7 @@ describe("POST /sum", () => {
 
 * Update jest.config.js
 
-```
+```TypeScript
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   preset: 'ts-jest',
@@ -211,7 +211,7 @@ npm install zod
 
 * Update `index.ts`
 
-```
+```TypeScript
 
 import express from "express";
 import { z } from "zod";
@@ -262,7 +262,7 @@ app.get("/sum", (req, res) => {
 
 * Update `sum.test.ts`
 
-```
+```TypeScript
 import {describe, expect, test, it} from '@jest/globals';
 import request from "supertest";
 import { app } from "../index"
@@ -332,7 +332,7 @@ Code - <https://github.com/100xdevs-cohort-2/week-24-testing/tree/main/4-express
 
 * Init express app
 
-```
+```TypeScript
 npm init -y
 npx tsc --init
 npm install express @types/express zod
@@ -340,14 +340,14 @@ npm install express @types/express zod
 
 * Update tsconfig
 
-```
+```TypeScript
 "rootDir": "./src",
 "outDir": "./dist"
 ```
 
 * Write a simple `src/index.ts` file
 
-```
+```TypeScript
 
 import express from "express";
 import { z } from "zod";
@@ -408,7 +408,7 @@ npm i -D vitest
 
 * Add a simple `test/index.test.ts` file
 
-```
+```TypeScript
 import { expect, test } from 'vitest'
 
 test('true === true', () => {
@@ -418,7 +418,7 @@ test('true === true', () => {
 
 * Add a script to test in package.json
 
-```
+```TypeScript
 "test": "vitest"
 ```
 
@@ -436,7 +436,7 @@ npm i supertest @types/supertest
 
 * Update test - Notice all we had to do was update the imports. `vitest` is highly compatible with the jest api
 
-```
+```TypeScript
 import {describe, expect, test, it} from 'vitest';
 import request from "supertest";
 import { app } from "../index"
@@ -534,7 +534,7 @@ export const prismaClient = new PrismaClient();
 
 * Update `src/index.ts` to store the requests in the db
 
-```
+```TypeScript
 import express from "express";
 import { z } from "zod";
 import { prismaClient } from "./db";
@@ -625,7 +625,7 @@ Mocking, as the name suggests, means `mocking` the behaviour of a file/class/var
 
 To mock out the `prismaClient`, you can add the following code to the top of `index.test.ts`
 
-```
+```TypeScript
 vi.mock('../db', () => ({
   prismaClient: { sum: { create: vi.fn() }}
 }));
@@ -675,13 +675,13 @@ What if we could mock out all these keys in a single function call?
 
 * Install vitest-mock-extended
 
-```
+```TypeScript
 npm i -D vitest-mock-extended 
 ```
 
 * Create `__mocks__/db.ts`
 
-```
+```TypeScript
 import { PrismaClient } from '@prisma/client'
 import { beforeEach } from 'vitest'
 import { mockDeep, mockReset } from 'vitest-mock-extended'
@@ -691,7 +691,7 @@ export const prismaClient = mockDeep<PrismaClient>()
 
 * Remove the `mock` we added in `index.test.ts` , simply add a `vi.mock("../db")`
 
-```
+```TypeScript
 // vi.mock('../db', () => ({
 //   prismaClient: { sum: { create: vi.fn() }}
 // }));
@@ -700,7 +700,7 @@ vi.mock('../db');
 
 * Try running the tests
 
-```
+```TypeScript
 npm run test
 ```
 
@@ -712,7 +712,7 @@ npm run test
 
 What if we are using the return value from the database call?
 
-```
+```TypeScript
 import express from "express";
 import { z } from "zod";
 import { prismaClient } from "./db";
@@ -793,7 +793,7 @@ You can mock the values returned from a `mock` by using `mockResolvedValue`&#x20
 
 Update index.test.ts
 
-```
+```TypeScript
 import { prismaClient } from '../__mocks__/db'
 
 prismaClient.sum.create.mockResolvedValue({
@@ -808,7 +808,7 @@ prismaClient.sum.create.mockResolvedValue({
 
 Final index.test.ts
 
-```
+```TypeScript
 import {describe, expect, test, it, vi} from 'vitest';
 import request from "supertest";
 import { app } from "../index"
@@ -892,7 +892,7 @@ Right now, we’ve mocked out the database call. Which means even if I pass in w
 
 Try flipping the a and b inputs
 
-```
+```TypeScript
 const response = await prismaClient.sum.create({
     data: {
         a: parsedResponse.data.b,
@@ -920,7 +920,7 @@ Let’s put a `spy` on the `prismaClient.sum.create` function which ensures that
 
 Change the first test to be
 
-```
+```TypeScript
 it("should return the sum of two numbers", async () => {
     prismaClient.sum.create.mockResolvedValue({
       id: 1,
@@ -962,7 +962,7 @@ Notice that the tests begin to fail
 
 Make the application logic right again
 
-```
+```TypeScript
 const response = await prismaClient.sum.create({
     data: {
         a: parsedResponse.data.a,
@@ -985,7 +985,7 @@ const response = await prismaClient.sum.create({
 
 - Create `.github/workflows/test.yml`
 
-```
+```TypeScript
 name: CI/CD Pipeline
 
 on:
