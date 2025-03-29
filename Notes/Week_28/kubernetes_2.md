@@ -988,3 +988,187 @@ Pass them in as environment variables whenever you’re starting the container
 
 
 
+# ConfigMaps
+
+Ref - <https://kubernetes.io/docs/concepts/configuration/configmap/>
+
+A ConfigMap is an API object used to store non-confidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/).
+
+A ConfigMap allows you to decouple environment-specific configuration from your [container images](https://kubernetes.io/docs/reference/glossary/?all=true#term-image), so that your applications are easily portable.
+
+### Creating a ConfigMap
+
+* Create the manifest
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ecom-backend-config
+data:
+  database_url: "mysql://ecom-db:3306/shop"
+  cache_size: "1000"
+  payment_gateway_url: "https://payment-gateway.example.com"
+  max_cart_items: "50"
+  session_timeout: "3600"
+```
+
+* Apply the manifest
+
+```
+	kubectl apply -f cm.yml
+```
+
+* Get the configmap
+
+```
+ kubectl describe configmap ecom-backend-config
+```
+
+### Creating an express app that exposes env variables
+
+Express app code
+
+```
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => {
+  const envVars = {
+    DATABASE_URL: process.env.DATABASE_URL,
+    CACHE_SIZE: process.env.CACHE_SIZE,
+    PAYMENT_GATEWAY_URL: process.env.PAYMENT_GATEWAY_URL,
+    MAX_CART_ITEMS: process.env.MAX_CART_ITEMS,
+    SESSION_TIMEOUT: process.env.SESSION_TIMEOUT,
+  };
+
+  res.send(`
+    <h1>Environment Variables</h1>
+    <pre>${JSON.stringify(envVars, null, 2)}</pre>
+  `);
+});
+
+app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`);
+});
+
+```
+
+Dockerfile to containerise it
+
+```
+FROM node:20
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+RUN npx tsc -b
+
+EXPOSE 3000
+CMD [ "node", "index.js" ]
+
+```
+
+Deploy to dockerhub - <https://hub.docker.com/repository/docker/100xdevs/env-backend/general>
+
+### Trying the express app using docker locally
+
+```
+ docker run -p 3003:3000 -e DATABASE_URL=asd  100xdevs/env-backend
+```
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F0f89e3b7-1c9a-4ce6-945f-419a06524a2a%2FScreenshot_2024-06-08_at_4.19.21_PM.png?table=block\&id=1dc8b234-ad19-4d6e-a04b-0ff6a8a0c975\&cache=v2 "notion image")
+
+ 
+
+### Try running using k8s locally
+
+* Create the manifest (express-app.yml)
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecom-backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecom-backend
+  template:
+    metadata:
+      labels:
+        app: ecom-backend
+    spec:
+      containers:
+      - name: ecom-backend
+        image: 100xdevs/env-backend
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: ecom-backend-config
+              key: database_url
+        - name: CACHE_SIZE
+          valueFrom:
+            configMapKeyRef:
+              name: ecom-backend-config
+              key: cache_size
+        - name: PAYMENT_GATEWAY_URL
+          valueFrom:
+            configMapKeyRef:
+              name: ecom-backend-config
+              key: payment_gateway_url
+        - name: MAX_CART_ITEMS
+          valueFrom:
+            configMapKeyRef:
+              name: ecom-backend-config
+              key: max_cart_items
+        - name: SESSION_TIMEOUT
+          valueFrom:
+            configMapKeyRef:
+              name: ecom-backend-config
+              key: session_timeout
+```
+
+* Apply the manifest
+
+```
+ kubectl apply -f express-app.yml
+```
+
+* Create the service (express-service.yml)
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecom-backend-service
+spec:
+  type: NodePort
+  selector:
+    app: ecom-backend
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30007
+```
+
+* Apply the service
+
+```
+kubectl apply -f express-service.yml
+```
+
+* Try visiting the website
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F677287af-1b96-454a-a162-b43831f91202%2FScreenshot_2024-06-08_at_4.35.43_PM.png?table=block\&id=2c657a05-cb94-4cc5-a432-4653c67835c6\&cache=v2 "notion image")
