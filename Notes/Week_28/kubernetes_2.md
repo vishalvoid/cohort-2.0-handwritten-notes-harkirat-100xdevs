@@ -1172,3 +1172,102 @@ kubectl apply -f express-service.yml
 * Try visiting the website
 
 ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F677287af-1b96-454a-a162-b43831f91202%2FScreenshot_2024-06-08_at_4.35.43_PM.png?table=block\&id=2c657a05-cb94-4cc5-a432-4653c67835c6\&cache=v2 "notion image")
+
+
+
+# Secrets
+
+Secrets are also part of the kubernetes v1 api. They let you store `passwords` / `sensitive data` which can then be mounted on to pods as environment variables. Using a Secret means that you don't need to include confidential data in your application code.
+
+Ref - <https://kubernetes.io/docs/concepts/configuration/secret/>
+
+#### Using a secret
+
+* Create the manifest with a secret and pod (secret value is base64 encoded) (<https://www.base64encode.org/>)
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dotfile-secret
+data:
+  .env: REFUQUJBU0VfVVJMPSJwb3N0Z3JlczovL3VzZXJuYW1lOnNlY3JldEBsb2NhbGhvc3QvcG9zdGdyZXMi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-dotfiles-pod
+spec:
+  containers:
+    - name: dotfile-test-container
+      image: nginx
+      volumeMounts:
+        - name: env-file
+          readOnly: true
+          mountPath: "/etc/secret-volume"
+  volumes:
+    - name: env-file
+      secret:
+        secretName: dotfile-secret
+```
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F71a3b055-2d80-43e3-8ce5-63a4250387ce%2FScreenshot_2024-06-09_at_5.00.31_PM.png?table=block\&id=35254a5c-579b-46da-a1cf-9c361436e493\&cache=v2 "notion image")
+
+* Try going to the container and exploring the `.env`
+
+```
+kubectl exec -it secret-dotfiles-pod /bin/bash
+cd /etc/secret-volume/
+ls
+```
+
+### Base64 encoding
+
+Whenever you’re storing values in a secret, you need to base64 encode them. They can still be `decoded` , and hence this is not for security purposes. This is more to provide a standard way to store secrets, incase they are binary in nature.&#x20;
+
+For example, TLS (https) certificates that we’ll be storing as secrets eventually can have non ascii characters. Converting them to base64 converts them to ascii characters.
+
+ 
+
+### Secrets as env variables
+
+You can also pass in secrets as environment variables to your process (similar to how we did it for configmaps in the last slide)
+
+* Create the secret
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+data:
+  username: YWRtaW4=  # base64 encoded 'admin'
+  password: cGFzc3dvcmQ=  # base64 encoded 'password'
+
+```
+
+* Create the pod
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-env-pod
+spec:
+  containers:
+  - name: my-container
+    image: busybox
+    command: ["/bin/sh", "-c", "echo Username: $USERNAME; echo Password: $PASSWORD; sleep 3600"]
+    env:
+    - name: USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: username
+    - name: PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: password
+```
+
