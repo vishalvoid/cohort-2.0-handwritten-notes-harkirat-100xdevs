@@ -706,3 +706,164 @@ kubectl get pods -n ingress-nginx
 This means the first part of our `ingress deployment` is already created
 
 ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F17e9d9e4-e73f-4ba8-b4b1-f20054fdbbf2%2FScreenshot_2024-06-08_at_4.53.36_AM.png?table=block\&id=33716986-d95a-4621-b578-5f1126f666a5\&cache=v2 "notion image")
+
+
+
+# Adding the routing to the ingress controller
+
+Next up, we want to do the following -&#x20;
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F9801471d-09e0-4e30-b785-0768fcac8cfd%2FScreenshot_2024-06-08_at_5.29.30_PM.png?table=block\&id=40dd48bf-599f-49ac-a803-acf3830a9b64\&cache=v2 "notion image")
+
+* Get rid of all existing deployments in the default namespace
+
+```
+kubectl get deployments
+kubectl delete deployment_name
+```
+
+* Get rid of all the services in the default namespace (dont delete the default kubernetes service, delete the old `nginx` and `apache` loadbalancer services)
+
+```
+ kubectl get services
+ kubect
+```
+
+* Create a `deployment` and `service` definition for the `nginx` image/app (this is different from the nginx controller)
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: default
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+```
+
+* Create a deployment and service for the `apache` app
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+      - name: my-apache-site
+        image: httpd:2.4
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-service
+  namespace: default
+spec:
+  selector:
+    app: apache
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+```
+
+* Create the ingress resource
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-apps-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: your-domain.com
+    http:
+      paths:
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+      - path: /apache
+        pathType: Prefix
+        backend:
+          service:
+            name: apache-service
+            port:
+              number: 80
+```
+
+ 
+
+#### Combined manifest
+
+Create a combined manifest with all the api objects
+
+```
+```
+
+* Apply the manifest
+
+```
+kubectl apply -f complete.yml
+```
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F424e6cdc-9fdd-4a91-ba7f-81bce2f3f338%2FScreenshot_2024-06-08_at_5.09.17_AM.png?table=block\&id=e8aeb45d-7a06-4939-ac61-3c70ba5d642f\&cache=v2 "notion image")
+
+* Update your local hosts entry (`/etc/hosts `  ) such that [your-domain.com](http://your-domain.com/) points to the IP of your load balancer
+
+```
+65.20.84.86	your-domain.com
+```
+
+* Try going to [`your-domain.com/apache`](http://your-domain.com/apache) and `your-domain.com/nginx`
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fa56ff199-8eba-4e2a-9540-44f1e8bc99f7%2FScreenshot_2024-06-08_at_5.24.27_AM.png?table=block\&id=d67e3f53-1d8c-48b8-b0eb-410bdb38cc70\&cache=v2 "notion image")
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F87efc884-157f-4cb5-8045-5cb9a9ff0f5d%2FScreenshot_2024-06-08_at_5.24.23_AM.png?table=block\&id=c62ef167-12b3-4622-a607-107e775e9758\&cache=v2 "notion image")
