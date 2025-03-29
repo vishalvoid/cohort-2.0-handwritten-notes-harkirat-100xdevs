@@ -867,3 +867,85 @@ kubectl apply -f complete.yml
 ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fa56ff199-8eba-4e2a-9540-44f1e8bc99f7%2FScreenshot_2024-06-08_at_5.24.27_AM.png?table=block\&id=d67e3f53-1d8c-48b8-b0eb-410bdb38cc70\&cache=v2 "notion image")
 
 ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F87efc884-157f-4cb5-8045-5cb9a9ff0f5d%2FScreenshot_2024-06-08_at_5.24.23_AM.png?table=block\&id=c62ef167-12b3-4622-a607-107e775e9758\&cache=v2 "notion image")
+
+
+
+# Trying traefik’s ingress controller
+
+Traefik is another popular ingress controller. Let’s try to our apps using it next
+
+* Install traefik ingress controller using helm
+
+```
+helm repo add traefik https://helm.traefik.io/traefik
+helm repo update
+helm install traefik traefi/traefik --namespace traefik --create-namespace
+```
+
+* Make sure an ingressClass is created for traefik
+
+```
+ kubectl get IngressClass
+```
+
+* Notice it created a `LoadBalancer` svc for you
+
+```
+ kubectl get svc -n traefik
+```
+
+* Create a `Ingress` that uses the traefik ingressClass and traefik annotations (traefik.yml)
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: traefik-web-apps-ingress
+  namespace: default
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: traefik-domain.com
+    http:
+      paths:
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+      - path: /apache
+        pathType: Prefix
+        backend:
+          service:
+            name: apache-service
+            port:
+              number: 80
+
+```
+
+* Add an entry to your `/etc/hosts`  (IP should be your loadbalancer IP)
+
+```
+65.20.90.183    traefik-domain.com
+```
+
+* Visit the website
+
+```
+traefik-domain.com/nginx
+traefik-domain.com/apache
+```
+
+ 
+
+💡
+
+Can you guess what is going wrong? Why are you not seeing anything on this final page?
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Ff2d62e3d-b1fd-4be6-b9a3-05d9f00152a7%2FScreenshot_2024-06-08_at_5.48.24_AM.png?table=block\&id=ebe7d3ff-c286-45eb-a9c3-60b5bb5cd510\&cache=v2 "notion image")
+
+### Assignment
+
+Try to figure out how can you rewrite the path to `/` if you’re using traefik as the ingress class
