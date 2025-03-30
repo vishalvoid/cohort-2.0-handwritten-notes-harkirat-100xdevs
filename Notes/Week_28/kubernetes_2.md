@@ -1332,3 +1332,108 @@ Try installing a certificate for a domain name of your own before tomorrows clas
 Maybe get a domain name from namecheap for cheap - <https://www.namecheap.com/>
 
 ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7df3a56e-7237-49cb-aad1-cad6e06807e5%2FScreenshot_2024-06-08_at_3.32.01_PM.png?table=block\&id=9379b855-0c7b-4439-a320-ad234a055d0d\&cache=v2 "notion image")
+
+
+
+# Volumes in docker
+
+### Pretext
+
+The following docker image runs a Node.js app that writes peridically to the filesystem -&#x20;
+
+<https://hub.docker.com/r/100xdevs/write-random>
+
+Nodejs Code
+
+```
+const fs = require('fs');
+const path = require('path');
+
+// Function to generate random data
+function generateRandomData(length) {
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
+// Write random data to a file
+function writeRandomDataToFile(filePath, dataLength) {
+    const data = generateRandomData(dataLength);
+    fs.writeFile(filePath, data, (err) => {
+        if (err) {
+            console.error('Error writing to file', err);
+        } else {
+            console.log('Data written to file', filePath);
+        }
+    });
+}
+
+// Define the file path and data length
+const filePath = path.join(__dirname, '/generated/randomData.txt');
+const dataLength = 100; // Change this to desired length of random data
+
+// Write random data to file every 10 seconds
+setInterval(() => {
+    writeRandomDataToFile(filePath, dataLength);
+}, 10000); // 10000 ms = 10 seconds
+
+// Keep the script running
+console.log('Node.js app is running and writing random data to randomData.txt every 10 seconds.');
+
+```
+
+### Run it in docker
+
+Try running the image above in your local machine
+
+```
+docker run 100xdevs/write-random
+```
+
+Try going to the container and seeing the contents of the container
+
+```
+docker exec -it container_id /bin/bash
+cat randomData.txt
+```
+
+### Where is this file being stored?
+
+The data is stored in the `docker runtime filesystem` . When the container dies, the data dies with it. This is called `ephemeral storage`
+
+## Volumes in docker
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F9d922c45-c39d-4161-a822-c87bfbfd0bff%2FScreenshot_2024-06-09_at_3.12.13_AM.png?table=block\&id=453fcb91-1681-44f9-91ab-ababd8fbc091\&cache=v2 "notion image")
+
+ 
+
+If you want to persist data across container stops and starts, you can use Volumes in Docker
+
+#### Bind mounts
+
+Replace the mount on the left with a folder on your own machine
+
+```
+docker run -v /Users/harkiratsingh/Projects/100x/mount:/usr/src/app/generated 100xdevs/write-random
+```
+
+#### Volume Mounts
+
+* Create a volume
+
+```
+docker volume create hello
+```
+
+* Mount data to volume
+
+```
+docker run -v hello:/usr/src/app/generated 100xdevs/write-random
+```
+
+ 
+
+If you stop the container in either case, the `randomFile.txt` file persists
