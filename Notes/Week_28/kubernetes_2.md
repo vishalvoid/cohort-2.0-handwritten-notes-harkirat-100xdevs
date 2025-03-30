@@ -1321,3 +1321,14 @@ data:
   * **Secrets:** Kubernetes provides integration with external secret management systems and supports encryption at rest for Secrets when configured properly. Ref <https://secrets-store-csi-driver.sigs.k8s.io/concepts.html#provider-for-the-secrets-store-csi-driver>
   * **ConfigMaps:** While ConfigMaps are used to inject configuration data into pods, they do not have the same level of support for external management and encryption.
 
+
+
+# Adding https using cert-manager
+
+Ref - <https://cert-manager.io/>
+
+Try installing a certificate for a domain name of your own before tomorrows class
+
+Maybe get a domain name from namecheap for cheap - <https://www.namecheap.com/>
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7df3a56e-7237-49cb-aad1-cad6e06807e5%2FScreenshot_2024-06-08_at_3.32.01_PM.png?table=block\&id=9379b855-0c7b-4439-a320-ad234a055d0d\&cache=v2 "notion image")
