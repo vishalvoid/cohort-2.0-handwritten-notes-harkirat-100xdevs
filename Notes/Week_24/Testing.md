@@ -20,8 +20,6 @@ Goal would be to understand
 
 Code for today - <https://github.com/100xdevs-cohort-2/week-24-testing/>
 
-
-
 # Testing a simple app
 
 Final code - <https://github.com/100xdevs-cohort-2/week-24-testing/tree/main/1-simple-test>
@@ -84,8 +82,6 @@ describe('sum module', () => {
 ```
 
 * Run `npm run test`
-
-
 
 # Testing an express app
 
@@ -195,9 +191,7 @@ module.exports = {
 };
 ```
 
-
-
-# Slightly more complex endpoint
+# Slightly more complex endpoint.
 
 Code - <https://github.com/100xdevs-cohort-2/week-24-testing/tree/main/3-express-with-zod>
 
@@ -308,8 +302,6 @@ describe("GET /sum", () => {
 });
 ```
 
-
-
 # Moving from jest to vitest
 
  
@@ -323,8 +315,6 @@ So we’ll be moving to vitest for all future tests
 It is highly compatable with jest
 
 Link to why vitest - <https://vitest.dev/guide/why.html>
-
-
 
 # Simple express project with vitest
 
@@ -424,7 +414,7 @@ test('true === true', () => {
 
  
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F12b3de2d-8765-459c-ab86-9fafe6c8616e%2FScreenshot_2024-05-12_at_1.33.23_PM.png?table=block\&id=9782eada-e595-47a7-8633-5f428fe15272\&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F12b3de2d-8765-459c-ab86-9fafe6c8616e%2FScreenshot_2024-05-12_at_1.33.23_PM.png?table=block\&id=9782eada-e595-47a7-8633-5f428fe15272\&cache=v2 "notion image")
 
  
 
@@ -485,9 +475,7 @@ describe("GET /sum", () => {
 
  
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F9e2a22d6-f612-4111-a1ca-abdeeb3853df%2FScreenshot_2024-05-12_at_1.41.34_PM.png?table=block\&id=3ba4917b-643a-47c2-9bde-c6ede22f8c24\&cache=v2 "notion image")
-
-
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F9e2a22d6-f612-4111-a1ca-abdeeb3853df%2FScreenshot_2024-05-12_at_1.41.34_PM.png?table=block\&id=3ba4917b-643a-47c2-9bde-c6ede22f8c24\&cache=v2 "notion image")
 
 # Adding a database
 
@@ -593,9 +581,9 @@ app.get("/sum", (req, res) => {
 
 * Notice how the tests begin to error out now
 
-  * ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F12f30fc8-4a3a-4992-8c16-19ddb4f619bf%2FScreenshot_2024-05-12_at_1.54.49_PM.png?table=block\&id=bc765990-084a-46ca-8816-98c27e8dc460\&cache=v2 "notion image")
+  *
 
-
+    ![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F12f30fc8-4a3a-4992-8c16-19ddb4f619bf%2FScreenshot_2024-05-12_at_1.54.49_PM.png?table=block\&id=bc765990-084a-46ca-8816-98c27e8dc460\&cache=v2 "notion image")
 
 # Mocking dependencies
 
@@ -613,13 +601,13 @@ This is done so tests can run without starting a `database` / `external services
 
 Mocking, as the name suggests, means `mocking` the behaviour of a file/class/variable when tests are running.&#x20;
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fd1f24e18-bf62-493d-b5da-25b938f383fa%2FScreenshot_2024-05-12_at_2.04.33_PM.png?table=block\&id=132b6861-f196-4fb5-aa31-6cbcfde96b1e\&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fd1f24e18-bf62-493d-b5da-25b938f383fa%2FScreenshot_2024-05-12_at_2.04.33_PM.png?table=block\&id=132b6861-f196-4fb5-aa31-6cbcfde96b1e\&cache=v2 "notion image")
 
  
 
 ### Creating a mock
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F1d09a813-8180-4af1-9beb-79a127f0864a%2FScreenshot_2024-05-12_at_2.25.08_PM.png?table=block\&id=7bd03442-6e6d-4767-9994-2842c8762576\&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F1d09a813-8180-4af1-9beb-79a127f0864a%2FScreenshot_2024-05-12_at_2.25.08_PM.png?table=block\&id=7bd03442-6e6d-4767-9994-2842c8762576\&cache=v2 "notion image")
 
 #### Mocking our prismaClient
 
@@ -643,15 +631,13 @@ I have `mocked` the implementation of that function. A `mock` does nothing and r
 
 Try running `npm run test` now. It should succeed
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fb65a7ca5-c800-46da-8eb4-572207305011%2FScreenshot_2024-05-12_at_2.31.33_PM.png?table=block\&id=2aa312a8-66b3-4418-9523-c9ac85b27690\&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fb65a7ca5-c800-46da-8eb4-572207305011%2FScreenshot_2024-05-12_at_2.31.33_PM.png?table=block\&id=2aa312a8-66b3-4418-9523-c9ac85b27690\&cache=v2 "notion image")
 
 ### Problems
 
 💡
 
 Can you guess the two problems that exist here? 1. What if I want to use the value that the database call returns? Right now, it will return `undefined` while a real DB call would return some real data 2. I have to constantly keep upgrading the `mock` since in the future I might use the `findOne` function, then might add a new table called `users` …
-
-
 
 # Deep mocking
 
@@ -665,7 +651,7 @@ console.log(Object.keys(prismaClient))
 
  
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F8253ea0c-2b58-428b-9c7b-60d3fc5dddd6%2FScreenshot_2024-05-12_at_2.33.03_PM.png?table=block\&id=69943758-2be0-4680-98c4-69d2979022af\&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F8253ea0c-2b58-428b-9c7b-60d3fc5dddd6%2FScreenshot_2024-05-12_at_2.33.03_PM.png?table=block\&id=69943758-2be0-4680-98c4-69d2979022af\&cache=v2 "notion image")
 
  
 
@@ -704,7 +690,7 @@ vi.mock('../db');
 npm run test
 ```
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fbb7b86d7-eae2-4825-83e0-44db90a93d50%2FScreenshot_2024-05-12_at_2.40.48_PM.png?table=block\&id=78ced1f5-5bd4-42a9-ba18-89fe124034cb\&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fbb7b86d7-eae2-4825-83e0-44db90a93d50%2FScreenshot_2024-05-12_at_2.40.48_PM.png?table=block\&id=78ced1f5-5bd4-42a9-ba18-89fe124034cb\&cache=v2 "notion image")
 
  
 
@@ -781,9 +767,7 @@ app.get("/sum", async (req, res) => {
 
  
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7d1d2221-e7d2-48a3-96f2-b83e2ab869e5%2FScreenshot_2024-05-12_at_2.49.51_PM.png?table=block\&id=460e1486-b524-4066-996f-48eaba82f533\&cache=v2 "notion image")
-
-
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7d1d2221-e7d2-48a3-96f2-b83e2ab869e5%2FScreenshot_2024-05-12_at_2.49.51_PM.png?table=block\&id=460e1486-b524-4066-996f-48eaba82f533\&cache=v2 "notion image")
 
 # Mocking return values
 
@@ -878,8 +862,6 @@ describe("GET /sum", () => {
 
 We only need to mock in one of the tests because in the second one, control never reaches the place where `id` is needed
 
-
-
 # Spys vs Mocks
 
 While `mocks` let you `mock` the functionality of a function call, spies let you `spy` on function calls.
@@ -954,7 +936,7 @@ it("should return the sum of two numbers", async () => {
 
 Notice that the tests begin to fail
 
-![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fb80b37b8-dc5f-4167-b97c-05244bdcecf1%2FScreenshot_2024-05-12_at_3.47.31_PM.png?table=block\&id=1502eb10-9ec3-4eb2-9138-13cd7f057fa0\&cache=v2 "notion image")
+![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fb80b37b8-dc5f-4167-b97c-05244bdcecf1%2FScreenshot_2024-05-12_at_3.47.31_PM.png?table=block\&id=1502eb10-9ec3-4eb2-9138-13cd7f057fa0\&cache=v2 "notion image")
 
  
 
@@ -974,8 +956,6 @@ const response = await prismaClient.sum.create({
 
 
 ```
-
-
 
 # Adding a CI/CD pipeline
 
@@ -1023,8 +1003,6 @@ Final code - <https://github.com/100xdevs-cohort-2/week-24-testing>
 PR #1 - <https://github.com/100xdevs-cohort-2/week-24-testing/pull/2>
 
 PR #2 - <https://github.com/100xdevs-cohort-2/week-24-testing/pull/3>
-
-
 
 # Unit tests vs integration tests vs end to end tests
 
