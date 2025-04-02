@@ -484,5 +484,5 @@ This means it needs to
 
    1.
 
-      ![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F33b6d704-e1ad-4c77-9044-bba7f4b9f460%2FScreenshot_2024-05-04_at_7.56.56_PM.png?table=block\&id=1a883553-f298-4e9d-81e0-c3be0079ee18\&cache=v2 "notion image")
+   ![1.00](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F33b6d704-e1ad-4c77-9044-bba7f4b9f460%2FScreenshot_2024-05-04_at_7.56.56_PM.png?table=block\&id=1a883553-f298-4e9d-81e0-c3be0079ee18\&cache=v2 "notion image")
 
