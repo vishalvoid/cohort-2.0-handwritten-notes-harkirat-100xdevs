@@ -1437,3 +1437,319 @@ docker run -v hello:/usr/src/app/generated 100xdevs/write-random
  
 
 If you stop the container in either case, the `randomFile.txt` file persists
+
+
+
+# Volumes in kubernetes
+
+Ref - <https://kubernetes.io/docs/concepts/storage/volumes/>
+
+### Volumes
+
+In Kubernetes, a Volume is a directory, possibly with some data in it, which is accessible to a Container as part of its filesystem. Kubernetes supports a variety of volume types, such as EmptyDir, PersistentVolumeClaim, Secret, ConfigMap, and others.
+
+#### Why do you need volumes?
+
+* If two containers in the same `pod` want to share data/fs.
+
+  * ![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F25db4dd7-1c84-4702-b3d6-e02bd5743192%2FScreenshot_2024-06-09_at_4.49.05_PM.png?table=block\&id=77bf37d1-b894-415d-a67b-45eaec9021ae\&cache=v2 "notion image")
+
+- If you want to create a database that persists data `even when` a container restarts (creating a DB)
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F1272c4b1-66e4-49a9-bb2c-1834b08f40f3%2FScreenshot_2024-06-09_at_4.15.10_AM.png?table=block\&id=cf7271bf-2d66-49fc-a3ad-1553cd695cc2\&cache=v2 "notion image")
+
+* Your `pod` just needs extra space during execution (for caching lets say) but doesnt care if it persists or not.
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fa4fc860e-e4ff-41ec-8d91-39474edcde74%2FScreenshot_2024-06-09_at_4.50.28_PM.png?table=block\&id=f5f64c2b-2c04-42d0-a042-b7c401a87ef6\&cache=v2 "notion image")
+
+## Types of volumes
+
+### Ephemeral Volume
+
+Temporary volume that can be shared amongst various containers of a pod.  When the pods dies, the volume dies with it.
+
+For example -&#x20;
+
+1. ConfigMap
+
+1) Secret
+
+1. emptyDir
+
+### Persistent Volume
+
+A Persistent Volume (PV) is a piece of storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes. It is a resource in the cluster just like a node is a cluster resource. PVs are volume plugins like Volumes but have a lifecycle independent of any individual Pod that uses the PV. This API object captures the details of the implementation of the storage, be that NFS, iSCSI, or a cloud-provider-specific storage system.
+
+### Persistent volume claim
+
+A Persistent Volume Claim (PVC) is a request for storage by a user. It is similar to a Pod. Pods consume node resources and PVCs consume PV resources. Pods can request specific levels of resources (CPU and Memory). Claims can request specific size and access modes (e.g., can be mounted once read/write or many times read-only).
+
+
+
+# Ephemeral volumes
+
+A lot of times you want two containers in a pod to share data.  But when the pods dies, then the data can die with it.&#x20;
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2Fac3ff6c0-0653-4efb-92b9-07d4e66700ed%2FScreenshot_2024-06-09_at_4.35.14_PM.png?table=block\&id=3664cbc2-f117-4625-a031-b256a80b3653\&cache=v2 "notion image")
+
+#### Setup
+
+* Create a manifest that starts two pods which share the same volume
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shared-volume-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shared-volume-app
+  template:
+    metadata:
+      labels:
+        app: shared-volume-app
+    spec:
+      containers:
+      - name: writer
+        image: busybox
+        command: ["/bin/sh", "-c", "echo 'Hello from Writer Pod' > /data/hello.txt; sleep 3600"]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /data
+      - name: reader
+        image: busybox
+        command: ["/bin/sh", "-c", "cat /data/hello.txt; sleep 3600"]
+        volumeMounts:
+        - name: shared-data
+          mountPath: /data
+      volumes:
+      - name: shared-data
+        emptyDir: {}
+```
+
+* Apply the manifest
+
+```
+kubectl apply -f kube.yml
+```
+
+* Check the reader container and see if you can see the volume data in there
+
+```
+kubectl exec -it shared-volume-deployment-74d67d6567-tcdsl --container reader sh 
+```
+
+
+
+# Persistent volumes
+
+Just like our kubernetes cluster has `nodes` where we provision our `pods`.
+
+We can create `peristent volumes` where our `pods` can `claim` (ask for) storage
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F1272c4b1-66e4-49a9-bb2c-1834b08f40f3%2FScreenshot_2024-06-09_at_4.15.10_AM.png?table=block\&id=b31a103f-3d0c-4be9-894c-802cbe7bda58\&cache=v2 "notion image")
+
+ 
+
+Persistent volumes can be provisioned statically or dynamically.
+
+
+
+# Static persistent volumes
+
+### Creating a NFS
+
+NFS is one famous implementation you can use to deploy your own persistent volume
+
+I’m running one on my aws server -&#x20;
+
+```
+version: '3.7'
+
+services:
+  nfs-server:
+    image: itsthenetwork/nfs-server-alpine:latest
+    container_name: nfs-server
+    privileged: true
+    environment:
+      SHARED_DIRECTORY: /exports
+    volumes:
+      - ./data:/exports:rw
+    ports:
+      - "2049:2049"
+    restart: unless-stopped
+```
+
+💡
+
+Make sure the 2049 port on your machine is open
+
+### Creating a pv and pvc
+
+Create a persistent volume claim and persistent volume
+
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /exports
+    server: 52.66.197.168
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: nfs
+
+```
+
+### Create a pod
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongo-pod
+spec:
+  containers:
+  - name: mongo
+    image: mongo:4.4
+    command: ["mongod", "--bind_ip_all"]
+    ports:
+    - containerPort: 27017
+    volumeMounts:
+    - mountPath: "/data/db"
+      name: nfs-volume
+  volumes:
+  - name: nfs-volume
+    persistentVolumeClaim:
+      claimName: nfs-pvc
+```
+
+### Try it out
+
+* Put some data in mongodb
+
+```
+kubectl exec -it mongo-pod -- mongo
+use mydb
+db.mycollection.insert({ name: "Test", value: "This is a test" })
+exit
+```
+
+* Delete and restart the pod
+
+```
+kubectl delete pod mongo-pod
+kubectl apply -f mongo.yml
+```
+
+* Check if the data persists
+
+```
+kubectl exec -it mongo-pod -- mongo
+use mydb
+db.mycollection.find()
+```
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7a2e2f0a-060b-4050-9f28-b02d5b34f81f%2FScreenshot_2024-06-09_at_5.38.39_PM.png?table=block\&id=78c640ac-9ba7-44e7-8a66-31efd6421636\&cache=v2 "notion image")
+
+
+
+# Automatic pv creation
+
+Ref - <https://docs.vultr.com/how-to-provision-persistent-volume-claims-on-vultr-kubernetes-engine>
+
+* Create a persistent volume claim with storageClassName set to `vultr-block-storage-hdd`
+
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: csi-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 40Gi
+  storageClassName: vultr-block-storage-hdd
+```
+
+* Apply the pod manifest
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongo-pod
+spec:
+  containers:
+  - name: mongo
+    image: mongo:4.4
+    command: ["mongod", "--bind_ip_all"]
+    ports:
+    - containerPort: 27017
+    volumeMounts:
+    - name: mongo-storage
+      mountPath: /data/db
+  volumes:
+  - name: mongo-storage
+    persistentVolumeClaim:
+      claimName: csi-pvc
+```
+
+ 
+
+* Explore the resources created
+
+```
+kubectl get pv
+kubectl get pvc
+kubectl get pods
+```
+
+* Put some data in mongodb
+
+```
+kubectl exec -it mongo-pod -- mongo
+use mydb
+db.mycollection.insert({ name: "Test", value: "This is a test" })
+exit
+```
+
+* Delete and restart the pod
+
+```
+kubectl delete pod mongo-pod
+kubectl apply -f mongo.yml
+```
+
+* Check if the data persists
+
+```
+kubectl exec -it mongo-pod -- mongo
+use mydb
+db.mycollection.find()
+```
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F7a2e2f0a-060b-4050-9f28-b02d5b34f81f%2FScreenshot_2024-06-09_at_5.38.39_PM.png?table=block\&id=b90c9458-c9e5-4481-9eda-4117ed64f63a\&cache=v2 "notion image")
+
+
+
