@@ -248,5 +248,3 @@
   * Allowing Custom Port & Understanding permission digits.&#x20;
   * SSH into server, Nginx, Creating a Reverse Proxy.&#x20;
 
-## Week 12: Advance TS, NPM, TRPC, AWS, Prisma in Serverless, SQL Databases.
-
