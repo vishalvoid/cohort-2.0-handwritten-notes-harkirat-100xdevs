@@ -949,3 +949,42 @@ Can you guess what is going wrong? Why are you not seeing anything on this final
 ### Assignment
 
 Try to figure out how can you rewrite the path to `/` if you’re using traefik as the ingress class
+
+
+
+# Secrets and configmaps
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F104d454b-4ab4-4efd-86f3-fd6696170ab3%2FScreenshot_2024-06-09_at_6.49.13_PM.png?table=block\&id=84bb0583-4073-46a2-8c23-f61b84f243db\&cache=v2 "notion image")
+
+ 
+
+Kubernetes suggests some standard configuration practises.
+
+These include things like
+
+1. You should always create a deployment rather than creating naked pods
+
+1) Write your configuration files using YAML rather than JSON
+
+1. Configuration files should be stored in version control before being pushed to the cluster
+
+ 
+
+Kubernetes v1 API also gives you a way to store `configuration` of your application outside the image/pod
+
+This is done using&#x20;
+
+1. ConfigMaps&#x20;
+
+1) Secrets
+
+#### Rule of thumb
+
+Don’t bake your application secrets in your docker image
+
+Pass them in as environment variables whenever you’re starting the container
+
+![notion image](https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F085e8ad8-528e-47d7-8922-a23dc4016453%2F4ffa62dc-f597-43fb-b090-402232429fba%2FScreenshot_2024-06-08_at_5.33.04_PM.png?table=block\&id=4cc483b2-9f6c-4e43-8de7-c61cae644d66\&cache=v2 "notion image")
+
+
+
