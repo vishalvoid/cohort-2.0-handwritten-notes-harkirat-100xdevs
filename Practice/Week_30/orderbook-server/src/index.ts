@@ -27,6 +27,8 @@ app.post("/api/v1/order", (req, res) => {
 
   const { executedQty, fills } = fillOrder(orderId, price, quantity, side, kind);
 
+  console.log(orderId, executedQty, fills);
+
   res.send({
     orderId,
     executedQty,
