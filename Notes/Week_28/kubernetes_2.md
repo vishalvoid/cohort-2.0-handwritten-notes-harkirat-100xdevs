@@ -644,7 +644,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-nginx
  kubectl get pods -n ingress-nginx
 ```
 
-#### Default loadbalancer service
+#### Default loadbalancer service 
 
 You will notice that if you use `helm` to install the nginx-ingress-controller, it creates a `Loadbalancer` service for you
 
